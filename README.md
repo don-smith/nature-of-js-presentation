@@ -1,2 +1,3 @@
-# presentation
-Slide presentation for the Nature of JavaScript workshop.
+# API Days JS Workshop 
+
+[ placeholder for public docs ]

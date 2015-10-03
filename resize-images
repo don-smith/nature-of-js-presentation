@@ -1,0 +1,2 @@
+#!/bin/bash
+mogrify -quality 75 -resize 1280 -strip ./img/backgrounds/*.*
