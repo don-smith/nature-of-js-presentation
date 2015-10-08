@@ -1,104 +1,106 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+  <head>
+    <meta charset="utf-8">
 
-		<title>API Days: JavaScript API Workshop</title>
+    <title>API Days: JavaScript API Workshop</title>
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/moon.css" id="theme">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/moon.css" id="theme">
 
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
     <!-- Workshop-specific styles -->
     <link rel="stylesheet" href="css/custom.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+    <!-- Printing and PDF exports -->
+    <script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+    <!--[if lt IE 9]>
+      <script src="lib/js/html5shiv.js"></script>
+      <![endif]-->
+  </head>
 
-	<body>
+  <body>
 
-		<div class="reveal">
+    <div class="reveal">
 
       <div id="watermark"></div>
-			<div class="slides">
+      <div class="slides">
 
-				<section data-markdown>
-          <script type="text/template">
-            ![API Days logo](img/apidays-logo.png)
-            # The Natural Habitat 
-            ## of the JavaScript API Developer
-            <div>Don Smith ([@locksmithdon](http://twitter.com/locksmithdon))</div>
-            <div>Rich Churcher ([@richchurcher](http://twitter.com/richchurcher))</div>
-          </script>
-				</section>
+        <section>
+          <img src="img/apidays-logo.png">
+          <h1>The Nature of JS</h1>
+          <div>Don Smith (<a href="http://twitter.com/locksmithdon">@locksmithdon</a>)</div>
+          <div>Rich Churcher (<a href="http://twitter.com/richchurcher">@richchurcher</a>)</div>
+        </section>
 
         <!-- SECTION 1 -->
-				<section data-markdown data-background="img/backgrounds/landscape.jpg">
-          <script type="text/template">
-          # JavaScript: the Landscape
-          </script>
-				</section>
+        <section data-background="img/backgrounds/landscape.jpg">
+          <h1>JavaScript: the Landscape</h1>
+        </section>
 
-				<section>
+        <section>
           <h1>Why JavaScript?</h1>
           <aside class="notes">
             JS API consumption predates JS API provision by about 10 years. Asynchronous content loads date from late 90's, term AJAX coined in 2005.  Node from 2009: server-side JS
           </aside>
-          </script>
         </section>
 
         <section data-background="img/backgrounds/monkey_small.jpg">
           <h1 class="offset-bottom">Immediacy</h1>
           <aside class="notes">
-            * Supremely easy to get started, essentially zero cost entry point...
-              * ...but like all projects, potentially expensive to maintain
-            * Quick design-code-test-debug cycles
-            * Potentially same developers on front and back end
+            <ul>
+              <li> Supremely easy to get started, essentially zero cost entry point...</li>
+              <li> ...but like all projects, potentially expensive to maintain</li>
+              <li> Quick design-code-test-debug cycles</li>
+              <li> Potentially same developers on front and back end</li>
+            </ul>
           </aside>
         </section>
 
         <section data-background="img/backgrounds/rhino.jpg">
           <h1 class="offset-top">Reliability</h1>
           <aside class="notes">
-            * Large, mainstream frameworks (Google -> Angular, Facebook -> React)
-            * Infrastructure investments (Google -> V8, Microsoft -> Chakra)
-            * Thriving community (Node.js -> IO.js -> 4.0, and NPM modules)
+            <ul>
+              <li> Large, mainstream frameworks (Google: Angular, Facebook: React)</li>
+              <li> Infrastructure investments (Google: V8, Microsoft: Chakra)</li>
+              <li> Thriving community (Node.js/IO.js/4.0, and NPM modules)</li>
+            </ul>
           </aside>
         </section>
 
         <section data-background="img/backgrounds/baby_koala.jpg">
           <h1 class="offset-top">Portability</h1>
           <aside class="notes">
-            * Blurring lines between browser and native (React Native, Phonegap)
-            * No longer the wild west: *ES6*
+            <ul>
+              <li> Blurring lines between browser and native (React Native, Phonegap)</li>
+              <li> No longer the wild west: *ES6*</li>
+            </ul>
           </aside>
         </section>
 
         <section data-background="img/backgrounds/ants.jpg">
           <h1 class="offset-bottom">Maintainability</h1>
           <aside class="notes">
-            * Simple, well-established mechanisms for sharing and troubleshooting code (REPLs everywhere)
-            * Voracious (and opinionated) community
-            * _Lingua franca_ effect: finding JS devs not difficult (quality variable)
+            <ul>
+              <li> Simple, well-established mechanisms for sharing and troubleshooting code (REPLs everywhere)</li>
+              <li> Voracious (and opinionated) community</li>
+              <li> <em>Lingua franca</em> effect: finding JS devs not difficult (quality variable)</li>
+            </ul>
           </aside>
         </section>
 
@@ -109,32 +111,40 @@
         <section data-background="img/backgrounds/kea_rope.jpg">
           <h1 class="offset-bottom">Tooling</h1> 
           <aside class="notes">
-            * even today, with WebStorm, and Visual Studio incorporating JS debugging, still nowhere near as good as those for statically typed languages
-            * Can be hard to debug, particularly larger code bases
+            <ul>
+              <li> even today, with WebStorm, and Visual Studio incorporating JS debugging, still nowhere near as good as those for statically typed languages</li>
+              <li> Can be hard to debug, particularly larger code bases</li>
+            </ul>
           </aside>
         </section>
 
         <section data-background="img/backgrounds/flock.jpg">
           <h1>Framework Churn</h1>
           <aside class="notes">
-            * makes assessing the correct tool for your current job more challenging
-            * may mean poorer documentation, out of date tutorials, lost time
+            <ul>
+              <li> makes assessing the correct tool for your current job more challenging</li>
+              <li> may mean poorer documentation, out of date tutorials, lost time</li>
+            </ul>
           </aside>
         </section>
 
         <section data-background="img/wombat.gif">
           <h1 class="offset-top">Speed</h1>
           <aside class="notes">
-            * Traditional response to speed concerns around JS is, "processing speed always increases"
-            * Compare with eg Go, other compiled backend languages
+            <ul>
+              <li> Traditional response to speed concerns around JS is, "processing speed always increases"</li>
+              <li> Compare with eg Go, other compiled backend languages</li>
+            </ul>
           </aside>
         </section>
 
         <section data-background="img/backgrounds/zebras.jpg">
           <h1>Regional Preference</h1>
           <aside class="notes">
-            * Full-stack JavaScript perhaps less common in New Zealand
-            * May mean delays in finding developers for support/maintenance, although this is changing
+            <ul>
+              <li> Full-stack JavaScript perhaps less common in New Zealand</li>
+              <li> May mean delays in finding developers for support/maintenance, although this is changing</li>
+            </ul>
           </aside>
         </section>
 
@@ -146,26 +156,32 @@
         <section data-background="img/backgrounds/urchins.jpg">
           <h1 class="offset-top">Decoupled</h1>
           <aside class="notes">
-            * UX can be developed independently
-            * Arbitrary partitioning: microservices or monolithic
-            * Arbitrary language/stack, everything groks JSON
-            * Versioning
-            * Common formats (JSON: .doc for the web?)
+            <ul>
+              <li> UX can be developed independently</li>
+              <li> Arbitrary partitioning: microservices or monolithic</li>
+              <li> Arbitrary language/stack, everything groks JSON</li>
+              <li> Versioning</li>
+              <li> Common formats (JSON: .doc for the web?)</li>
+            </ul>
           </aside>
         </section>
 
         <section data-background="img/backgrounds/giraffe.jpg">
           <h1>Expose public data sets</h1>
           <aside class="notes">
-            * Independent of current application
-            * Consumers at organisational level, paying clients, or open
+            <ul>
+              <li> Independent of current application</li>
+              <li> Consumers at organisational level, paying clients, or open</li>
+            </ul>
           </aside>
         </section>
 
         <section data-background="img/backgrounds/polar.jpg">
           <h1>Guarantees</h1>
           <aside class="notes">
-            * Contract with consumers: if you format your request _this way_, your data will always look _like this_
+            <ul>
+              <li> Contract with consumers: if you format your request <em>this way</em>, your data will always look <em>like this</em></li>
+            </ul>
           </aside>
         </section>
 
@@ -173,26 +189,25 @@
         <section data-background="">
           <h1>Why Not APIs?</h1>
           <aside class="notes">
-            * Every request across HTTP is a time sink
+            <ul>
+              <li> Every request across HTTP is a time sink</li>
+            </ul>
           </aside>
         </section>
 
-				<section data-markdown>
-          <script type="text/template">
-          ## Further Reading
-
-          * [JavaScript will lead a massive shift in enterprise development](http://www.infoworld.com/article/2907190/javascript/javascript-will-lead-a-massive-shift-in-enterprise-development.html)
-          </script>
+        <section>
+          <h2>Further Reading</h2>
+          <ul>
+            <li> <a href="http://www.infoworld.com/article/2907190/javascript/javascript-will-lead-a-massive-shift-in-enterprise-development.html">JavaScript will lead a massive shift in enterprise development</a></li>
+          </ul>
         </section>
 
 
         <!-- SECTION 2 -->
-				<section data-markdown data-background="img/backgrounds/night_lake.jpg">
-          <script type="text/template">
-          # JavaScript: Surviving in the Wild
-          </script>
-				</section>
-        
+        <section data-background="img/backgrounds/night_lake.jpg">
+          <h1>JavaScript: Surviving in the Wild</h1>
+        </section>
+
 
         <section data-background="img/backgrounds/chameleon.jpg">
           <h1>When is JavaScript... not JavaScript?</h1>
@@ -200,1624 +215,1458 @@
           <h2 class="fragment">ES6</h2>
           <h2 class="fragment">ES2015</h2>
           <aside class="notes">
-            * JavaScript is the common/generic name of the language. 
-              * EcmaScript refers to the language’s specification. 
-                * ES6 refers to the 6th edition of that spec. 
-                * EcmaScript 2015 is the title of the 6th edition of the spec. 
-            * Yes, we know this is ridiculous, but you will most certainly run across all of these on the web. 
-            * For the purpose of this workshop, we will use _JavaScript_ as much as possible, and _ES6_ when we are referring to a language feature that was added in the latest version of the spec only because it has fewer syllables when pronounced."
-            * All examples in this workshop assume _strict mode_. Incorporating [Babel](https://babeljs.io) into your workflow will take care of this for you. All _ES6_ modules are in strict mode by default.
+            <ul>
+              <li> JavaScript is the common/generic name of the language. </li>
+              <li> EcmaScript refers to the language’s specification. </li>
+              <li> ES6 refers to the 6th edition of that spec. </li>
+              <li> EcmaScript 2015 is the title of the 6th edition of the spec. </li>
+              <li> Yes, we know this is ridiculous, but you will most certainly run across all of these on the web. </li>
+              <li> For the purpose of this workshop, we will use <em>JavaScript</em> as much as possible, and <em>ES6</em> when we are referring to a language feature that was added in the latest version of the spec only because it has fewer syllables when pronounced."</li>
+              <li> All examples in this workshop assume <em>strict mode</em>. Incorporating <a href="https://babeljs.io">Babel</a> into your workflow will take care of this for you. All <em>ES6</em> modules are in strict mode by default.</li>
+            </ul>
           </aside>
         </section>
 
         <section>
-        <section data-markdown>
-<script type="text/template">
-# Function level scope
-
-* Unlike languages with _block level scope_, in JavaScript blocks do not create their own restricted scope
-```js
-function foo () {
+          <section>
+            <h2>Function level scope</h2>
+            <ul>
+              <li>Unlike languages with <em>block level scope</em>, in JavaScript blocks do not create their own restricted scope</li>
+              <pre><code>function foo () {
   for (var i = 0; i < 10; i++) { }
 
   console.log(i); // 10
-}
-```
-* Here, `i` is available anywhere within `foo`
-</script>
-          <aside class="notes">
-            * In the past, was often recommended that `var` statements occur at the beginning of functions to avoid unwelcome surprises caused by this behaviour
-            * With _ES6_, `var` can largely be replaced by `let`
-          </aside>
-        </section>
+}</code></pre>
 
-          <section data-markdown>
-<script type="text/template">
-## [`let`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/let) 
-* Restricts scope to its block, statement or expression:
+              <li>Here, <code>i</code> is available anywhere within <code>foo</code></li></ul>
+            <aside class="notes">
+              <ul>
+                <li>In the past, was often recommended that <code>var</code> statements occur at the beginning of functions to avoid unwelcome surprises caused by this behaviour</li>
+                <li>With <em>ES6</em>, <code>var</code> can largely be replaced by <code>let</code></li>
+              </ul>
+            </aside>
+          </section>
 
-```js
-function bar () {
+          <section>
+            <h2><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/let"><code>let</code></a> </h2>
+            <li> Restricts scope to its block, statement or expression:</li>
+            <pre><code>function bar () {
   for (let i = 0; i < 10; i++) { }
 
   console.log(i); // undefined
-}
-```
-</script>
+}</code></pre>
           </section>
 
-          <section data-markdown>
-<script type="text/template">
-## [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) 
+          <section>
+            <h2><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const"><code>const</code></a> </h2>
 
-* Creates a reference to a value that cannot be altered:
-
-```js
+            <ul>
+              <li> Creates a reference to a value that cannot be altered:</li>
+              <pre><code>// TypeError: assignment to constant
 function wombat () {
   const n = 5;
-  n++;            // TypeError: assignment to constant variable
-}
-```
-</script>
+  n++;
+}</code></pre>
+            </ul>
           </section>
         </section>
 
         <section>
-          <section data-markdown>
-            <script type="text/template">
-# Closures
+          <section>
+            <h2>Closures</h2>
 
-* Functions can be declared inside other functions
-* local variables in the outer function are still available _even if the outer function has already returned_
-
-            </script>
+            <ul>
+              <li> Functions can be declared inside other functions</li>
+              <li> local variables in the outer function are still available <em>even if the outer function has already returned</em></li>
+            </ul>
           </section>
-          <section data-markdown>
-            <script type="text/template">
-```js
-function foo() {
+          <section>
+            <pre><code>function foo() {
   let n = 1;
   return bar;
 
   function bar() {
-    console.log(n++); // bar "closes over" n
+    // bar "closes over" n
+    console.log(n++); 
   }
 }
 
 let bar = foo();
 bar();          // 1
 bar();          // 2
-bar();          // 3
 
 let wombat = foo();
 wombat();       // 1
-bar();          // 4
-```
-
-* Here, `n` remains "alive" and can be modified after `foo` exits. 
-* Each call to `foo` creates a new _closure_, with its own local copy of `n`.
-            </script>
+bar();          // 3</code></pre>
+          </section>
+          <section>
+            <ul>
+              <li> Here, <code>n</code> remains "alive" and can be modified after <code>foo</code> exits.  </li>
+              <li> Each call to <code>foo</code> creates a new <em>closure</em>, with its own local copy of <code>n</code>.  </li>
+            </ul>
           </section>
         </section>
 
         <section>
 
-          <section data-markdown>
-            <script type="text/template">
-# `this`
-
-* In _ES6_ the value of `this` is fairly predictable
-  * Watch out for legacy JS, where it can unexpectedly default to the window object and lead to some unintuitive behaviour
-  * Best practice is to _be explicit_: never assume that the next developer to read your code understands the nuances of `this`
-  * Think _functionally_: avoid altering global or object level state
-            </script>
+          <section>
+            <h2><code>this</code></h2>
+            <ul>
+              <li>In <em>ES6</em> the value of <code>this</code> is fairly predictable</li>
+              <li> Watch out for legacy JS, where it can unexpectedly default to the window object and lead to some unintuitive behaviour</li>
+              <li>Best practice is to <em>be explicit</em></li>
+            </ul>
+            <aside class="notes">
+              <ul>
+                <li> Best practice is to <em>be explicit</em>: never assume that the next developer to read your code understands the nuances of <code>this</code></li>
+                <li> Think <em>functionally</em>: avoid altering global or object level state</li>
+              </ul>
+            </aside>
           </section>
 
+          <section>
+            <ul><li>Value of <code>this</code> depends on the execution context:</li></ul>
 
-          <section data-markdown>
-            <script type="text/template">
-* Value of `this` depends on the execution context:
+            <pre><code>// Value of 'this' set to Window object
+console.log(this);   
 
-    ```js
-    console.log(this);   // Value of 'this' already set to the Window object
-    
-    function foo () {
-      console.log(this); // undefined
-    }
+function foo () {
+  console.log(this); // undefined
+}
 
-    let bar = {
-      wombat: function () {
-        console.log(this); // Value of this is the object the method is called on
-      }
-    };
-    ```
+let bar = {
+  wombat: function () {
+    // Value of this is the object the 
+    // method is called on
+    console.log(this); 
+  }
+};</code></pre>
 
-* `this` is the object `bar`
-            </script>
+            <ul><li><code>this</code> is the object <code>bar</code></li><ul>
           </section>
 
+          <section>
+            <ul><li><code>this</code> can be tricky when used in event handlers. Generally its value is the DOM element which fired the event:</li>
 
-          <section data-markdown>
-            <script type="text/template">
-* `this` can be tricky when used in event handlers. Generally its value is the DOM element which fired the event:
+              <pre><code>let foo = document.getElementById('foo');
+foo.onclick = makeGreen;
 
-    ```js
-      let foo = document.getElementById('foo');
-      foo.onclick = makeGreen;
-
-      function makeGreen() {
-        // 'this' is the <p> DOM element
-        this.style.backgroundColor = 'green';
-      }
-    ```
-            </script>
+function makeGreen() {
+  // 'this' is the &lt;p&gt; DOM element
+  this.style.backgroundColor = 'green';
+}</code></pre>
+            </ul>
           </section>
 
+          <section>
+            <aside class="notes">
+              <ul>
+                <li>However, each function has its own <code>this</code>, which can lead to tricky situations with surrounding functions:</li>
+              </ul>
+            </aside>
+            <pre><code>let foo = document.getElementById('foo');
+foo.onclick = toggleGreen;
 
-          <section data-markdown>
-            <script type="text/template">
-    * However, each function has its own `this`, which can lead to tricky situations with surrounding functions:
+function toggleGreen() {
+  if (this.style.backgroundColor === 'green') {
+    makeTransparent();
+  } else {
+    makeGreen();
+  }
+}
 
-    ```js
-    let foo = document.getElementById('foo');
-    foo.onclick = toggleGreen;
+function makeGreen() {
+  this.style.backgroundColor = 'green'; // undefined
+}
 
-    function toggleGreen() {
-      if (this.style.backgroundColor === 'green') {
-        makeTransparent();
-      } else {
-        makeGreen();
-      }
-
-      function makeGreen() {
-        // 'this' is undefined
-        this.style.backgroundColor = 'green'; 
-      }
-
-      function makeTransparent() {
-        // 'this' is undefined
-        this.style.backgroundColor = 'transparent';
-      }
-    }
-    ```
-            </script>
+function makeTransparent() {
+  this.style.backgroundColor = 'transparent'; // undefined
+}</code></pre>
           </section>
 
-          <section data-markdown>
-            <script type="text/template">
-* Use of [`call`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call) invokes a function with the desired value of `this`:
+          <section>
+            <ul>
+              <li>Use of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call"><code>call</code></a> invokes a function with the desired value of <code>this</code>:</li>
 
-    ```js
-    if (this.style.backgroundColor === 'green') {
-      makeTransparent.call(this);
-    }
-    ```
+              <pre><code>if (this.style.backgroundColor === 'green') {
+  makeTransparent.call(this);
+}</code></pre>
 
-  * Compare [`bind`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) and [`apply`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
+              <li>Compare <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind"><code>bind</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply"><code>apply</code></a></li>
 
-  * Cross-browser issues (particularly with earlier versions of Internet Explorer) can yield surprising results, with `this` being set to the global window object.
-
-            </script>
-          </section>
-
-        </section>
-
-
-        <section>
-
-          <section data-markdown>
-            <script type="text/template">
-# The object prototype
-
-* In JavaScript every object has its own _prototype_
-  * Each prototype has its own prototype, and so on down the chain until `null` is reached
-  * Properties are first looked for in the object itself (see: [`hasOwnProperty`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty), then in its prototype, then in the prototype's prototype, and so on
-            </script>
-          </section>
-
-          <section data-markdown>
-            <script type="text/template">
-* It's useful to remember the difference between giving one distinct object a property:
-
-    ```js
-    let foo = {
-      aardvarks: function() { 
-        console.log("I see many aardvarks.");
-      }
-    };
-
-    foo.aardvarks(); // I see many aardvarks
-    ```
-            </script>
-          </section>
-
-          <section data-markdown>
-            <script type="text/template">
-* and giving all objects created with a particular constructor function access to the property:
-
-    ```js
-    function AardvarkCounter(n) {
-      this.count = n;
-    }
-
-    AardvarkCounter.prototype.aardvarks = function() {
-      console.log(`I see ${this.count} aardvarks.`);
-    };
-
-    let firstCounter = AardvarkCounter(11);
-    let secondCounter = AardvarkCounter(1337);
-
-    firstCounter.aardvarks();  // "I see 11 aardvarks."
-    secondCounter.aardvarks(); // "I see 1337 aardvarks."
-    ```
-            </script>
-          </section>
-
-          <section data-markdown>
-            <script type="text/template">
-* Functions declared on the prototype are shared between all objects with that prototype
-* Many libraries include the ability to copy properties from one object to another
-* One example using [Underscore](http://underscorejs.org): [`extend`](http://underscorejs.org/#extend)
-
-    ```js
-    let foo = {
-      n: 5
-    };
-
-    let bar = {
-      wombat: function() {
-        console.log("Wombats: accept no substitute.");
-      }
-    };
-
-    let combined = _.extend(foo, bar);
-    combined.wombat();
-    console.log(combined.n); // 5
-    ```
-            </script>
-          </section>
-
-
-            </script>
-          </section>
-        </section>
-
-        <section>
-
-
-          <section data-markdown>
-            <script type="text/template">
-
-# Modules and Imports
-
-* To make a property, function, or object available for use outside its own file (_module_), we use the [ `export` ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) keyword:
-
-    ```js
-    // wombats.js
-
-    export showWombats() {
-      // ...
-    }
-    ```
-            </script>
-          </section>
-
-          <section data-markdown>
-            <script type="text/template">
-* To make use of this in another module, we use [ `import` ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import). The following will all make `showWombats` available:
-
-    ```js
-    import wombats from 'wombats.js';             // Import the entire module
-    import {showWombats} from 'wombats.js';       // Just one function
-    import {showWombats as sw} from 'wombats.js'; // Same as above, but give it a shorter alias
-    ```
-
-  * In the first statement, `showWombats` would be referred to as `wombats.showWombats`
-            </script>
+              <aside class="notes">
+                <li>Cross-browser issues (particularly with earlier versions of Internet Explorer) can yield surprising results, with <code>this</code> being set to the global window object.</li>
+              </aside>
+            </ul>
           </section>
 
         </section>
 
         <section>
 
-          <section data-markdown>
-            <script type="text/template">
-# Underscore and Lo-Dash
+          <section>
+            <h2>The object prototype</h2>
 
-* If you've ever wished that JavaScript had _X_ feature from another language, chances are it (or something like it) is provided by a utility library
-* Utility libraries act as extensions to the JavaScript standard library, providing consistent and well-tested ways to interact with 
-* Two of the most popular are [ Underscore ](http://underscorejs.org) and its API-compatible alternative, [ Lo-Dash ](http://lodash.com)
-  * The question of which one to use has gotten quite political, and beyond our scope here. Either one will run the examples.
-            </script>
+            <ul>
+              <li>In JavaScript every object has its own <em>prototype</em></li>
+              <li>Each prototype has its own prototype, and so on down the chain until <code>null</code> is reached</li>
+              <li>Properties are first looked for in the object itself (see: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty"><code>hasOwnProperty</code></a>) then in its prototype, then in the prototype's prototype, and so on</li>
+            </ul>
           </section>
 
-          <section data-markdown>
-            <script type="text/template">
-* One of the key roles of a utility library is making it simpler, more expressive, and less error-prone to work with containers (an array, object, or string). Instead of this:
+          <section>
+            <ul>
+              <li>It's useful to remember the difference between giving one distinct object a property:</li>
 
-    ```js
-    let aardvarks = ["Snuffler", "Stinker", "Slappy", "Sadface"];
-    for (let i = 0; i < aardvarks.length; i++) {
-      console.log(aardvarks[i]);
-    }
-    ```
+              <pre><code>let foo = {
+  aardvarks: function() { 
+    console.log("I see many aardvarks.");
+  }
+};
 
-            </script>
+foo.aardvarks(); // I see many aardvarks</code></pre>
+              <li>and giving all objects created with a particular constructor function access to the property:</li>
+            </ul>
           </section>
 
-          <section data-markdown>
-            <script type="text/template">
-* Equivalent Underscore or Lo-Dash code might look like this:
+          <section>
+              <pre><code>function AardvarkCounter(n) {
+  this.count = n;
+}
 
-    ```js
-    _.each(aardvarks, display); // Do something once for each element in the container
+AardvarkCounter.prototype.aardvarks = function() {
+  console.log(`I see ${this.count} aardvarks.`);
+};
 
-    function display(aardvark) {
-      console.log(aardvark);
-    }
-    ```
+let firstCounter = AardvarkCounter(11);
+let secondCounter = AardvarkCounter(1337);
 
-            </script>
+firstCounter.aardvarks();  // "I see 11 aardvarks."
+secondCounter.aardvarks(); // "I see 1337 aardvarks."</code></pre>
+            </ul>
           </section>
 
-          <section data-markdown>
-            <script type="text/template">
-* Here's another common use case: checking to see if an object has a particular property
+          <section>
+            <aside class="notes">
+            <ul>
+              <li>Functions declared on the prototype are shared between all objects with that prototype</li>
+              <li>Many libraries include the ability to copy properties from one object to another</li>
+              <li>One example using <a href="http://underscorejs.org">Underscore</a>: <a href="http://underscorejs.org/#extend"><code>extend</code></a></li>
+            </ul>
+            </aside>
 
-    ```js
-    let wombat = {
-      registeredToVote: false,
-      highlyOpinionated: true
-    };
+            <pre><code>let foo = {
+  n: 5
+};
 
-    if (_.contains(_.keys(wombat), 'registeredToVote')) {
-      console.log("Marsupial voter registration data exists for this entity.");
-    }
-    ```
-            </script>
+let bar = {
+  wombat: function() {
+    console.log("Wombats: accept no substitute.");
+  }
+};
+
+let combined = _.extend(foo, bar);
+combined.wombat();
+console.log(combined.n); // 5</code></pre>
           </section>
-
-          <section data-markdown>
-            <script type="text/template">
-* Some standard library functions are duplicated in the utility libraries: 
-
-    ```js
-    let foo = [1, 2, 3, 4, 5];
-
-    // Standard library
-    let sum1 = foo.reduce( function (prev, curr) {
-      return prev + curr;
-    });
-
-    // Underscore / Lo-Dash
-    let sum2 = _.reduce(foo, function (total, n) {
-      return total + n;
-    });
-
-    // Alternative syntax
-    let sum3 = _(foo).reduce( function (total, n) {
-      return total + n;
-    });
-
-    console.log(sum1, sum2, sum3); // 15 15 15
-    ```
-
-            </script>
-          </section>
-
-          <section data-markdown>
-            <script type="text/template">
-* Why not use the standard library version? 
-  * The same approach to work with anything that can be treated as a container (objects, strings, and arrays), so we don't need to explicitly convert to array and back again. This can give our code consistency and readibility.
-  * In some circumstances, the library will default to the native version if it's known to be faster in a given environment.
-
-            </script>
-          </section>
-
-
+        </section>
         </section>
 
-          <section data-markdown>
-            <script type="text/template">
-## Further Reading
+        <section>
+          <section>
+            <h2>Modules and Imports</h2>
 
-* [let](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/let), [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const), [this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this), [call](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call) (MDN)
-* [Closures - canonical Stack Overflow answer](http://stackoverflow.com/a/111111/122643)
-* [all this](http://bjorn.tipling.com/all-this)
-* [JavaScript 'this' and event handlers](http://www.sitepoint.com/javascript-this-event-handlers/)
-* [Inheritance and the prototype chain](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
-* [Promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise) (MDN)
-* [The Long Road to Async/Await in JavaScript](https://thomashunter.name/blog/the-long-road-to-asyncawait-in-javascript/)
-* [Lodash: 10 JavaScript Utility Functions That You Should Probably Stop Rewriting](http://colintoh.com/blog/lodash-10-javascript-utility-functions-stop-rewriting)
-* [Learn ES2015](https://babeljs.io/docs/learn-es2015/)
-* [Exploring ES6 (free online book)](http://exploringjs.com/es6/)
+            <ul>
+              <li>To make a property, function, or object available for use outside its own file (<em>module</em>), we use the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export"><code>export</code></a> keyword:</li>
 
-            </script>
+              <pre><code>// wombats.js
+
+export showWombats() {
+  // ...
+}</code></pre>
+            </ul>
           </section>
 
+          <section>
+            <ul>
+              <li>To make use of this in another module, we use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import"><code>import</code></a>. The following will all make <code>showWombats</code> available:</li>
+
+              <pre><code>// Import the entire module
+import wombats from 'wombats';
+
+// Just one function
+import {showWombats} from 'wombats';
+
+// Same as above, but give it a shorter alias
+import {showWombats as sw} from 'wombats';</code></pre> 
+
+              <li> In the first statement, <code>showWombats</code> would be referred to as `wombats.showWombats`</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Underscore and Lo-Dash</h2>
+
+            <ul>
+              <li>Utility libraries act as extensions to the JavaScript standard library, providing consistent and well-tested ways to interact with</li>
+              <li>Two of the most popular are <a href="http://underscorejs.org">Underscore</a> and its API-compatible alternative, <a href="http://lodash.com">Lo-Dash</a></li>
+            </ul>
+
+            <aside class="notes">
+            <ul>
+              <li>If you've ever wished that JavaScript had <em>X</em> feature from another language, chances are it (or something like it) is provided by a utility library</li>
+              <li>One of the key roles of a utility library is making it simpler, more expressive, and less error-prone to work with containers (an array, object, or string).</li>
+              <li>The question of which one to use has gotten quite political, and beyond our scope here. Either one will run the examples.</li>
+            </ul>
+            </aside>
+          </section>
+
+          <section>
+            <ul>
+              <li>Instead of this:</li>
+            </ul>
+
+              <pre><code>let aardvarks = [
+  "Snuffler", 
+  "Stinker", 
+  "Slappy", 
+  "Sadface"
+];
+for (let i = 0; i < aardvarks.length; i++) {
+  console.log(aardvarks[i]);
+}</code></pre>
+          </section>
+
+          <section>
+            <ul>
+              <li>Equivalent Underscore or Lo-Dash code might look like this:</li>
+            </ul>
+
+              <pre><code>// Do something once for each element in the container
+_.each(aardvarks, display); 
+
+function display(aardvark) {
+  console.log(aardvark);
+}</code></pre>
+          </section>
+
+          <section>
+            <ul>
+              <li>Here's another common use case: checking to see if an object has a particular property</li>
+            </ul>
+
+              <pre><code>let wombat = {
+  registeredToVote: false,
+  highlyOpinionated: true
+};
+
+if (_.contains(_.keys(wombat), 'registeredToVote')) {
+  console.log("This marsupial is registered to vote.");
+}</code></pre>
+          </section>
+
+          <section>
+            <ul>
+              <li>Some standard library functions are duplicated:</li>
+            </ul>
+
+            <pre><code>// Standard library
+let sum1 = [1, 2, 3, 4, 5].reduce( function (prev, curr) {
+  return prev + curr;
+});
+
+// Underscore / Lo-Dash
+let sum2 = _.reduce([1, 2, 3, 4, 5], function (total, n) {
+  return total + n;
+});
+
+// Alternative syntax
+let sum3 = _([1, 2, 3, 4, 5]).reduce( function (total, n) {
+  return total + n;
+});
+
+console.log(sum1, sum2, sum3); // 15 15 15</code></pre>
+
+            <aside class="notes">
+            <ul>
+              <li>Why not use the standard library version?</li>
+              <li> The same approach to work with anything that can be treated as a container (objects, strings, and arrays), so we don't need to explicitly convert to array and back again. This can give our code consistency and readibility.</li>
+              <li> In some circumstances, the library will default to the native version if it's known to be faster in a given environment.</li>
+            </ul>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <h2>Further Reading</h2>
+
+          <ul>
+            <li><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/let">let</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const">const</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this">this</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call">call</a> (MDN)</li>
+            <li><a href="http://stackoverflow.com/a/111111/122643">Closures - canonical Stack Overflow answer</a></li>
+            <li><a href="http://bjorn.tipling.com/all-this">all this</a></li>
+            <li><a href="http://www.sitepoint.com/javascript-this-event-handlers/">JavaScript 'this' and event handlers</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain">Inheritance and the prototype chain</a></li>
+            <li><a href="http://colintoh.com/blog/lodash-10-javascript-utility-functions-stop-rewriting">Lodash: 10 JavaScript Utility Functions That You Should Probably Stop Rewriting</a></li>
+            <li><a href="https://babeljs.io/docs/learn-es2015/">Learn ES2015</a></li>
+            <li><a href="http://exploringjs.com/es6/">Exploring ES6 (free online book</a>)</li>
+          </ul>
+        </section>
 
 
         <!-- SECTION 3 -->
-				<section data-background="img/backgrounds/log.jpg">
+        <section data-background="img/backgrounds/log.jpg">
           <h1 class="offset-bottom">The Ecosystem</h1>
-				</section>
+        </section>
 
+        <section>
+          <ul>
+            <li>JavaScript tooling is improving, but it also suffers from churn as millions of developers add their two cents on what the environment should look like, both client and server-side.</li>
+            <li>We couldn't possibly present an exhaustive overview of the ecosystem, but we think the following tools are mandatory for most professionals to at least be familiar with.</li>
+          </ul>
+        </section>
 
-
-          <section data-markdown>
-            <script type="text/template">
-* JavaScript tooling is improving, but it also suffers from churn as millions of developers add their two cents on what the environment should look like, both client and server-side.
-* We couldn't possibly present an exhaustive overview of the ecosystem, but we think the following tools are mandatory for most professionals to at least be familiar with.
-
-            </script>
-          </section>
-
-
+        <section>
 
           <section>
+            <h2>npm</h2>
 
-          <section data-markdown>
-            <script type="text/template">
-# npm
-
-* Since its release in 2009, the [Node package manager](https://www.npmjs.com) has become one of the most prolific package managers in the world 
-* Share packaged modules of JavaScript code
-* Stipulate versions (or version ranges) for package dependencies
-* npm Registry contains a huge collection of modules 
-* Can install packages _locally_ or _globally_
-
-            </script>
-          </section>
-          
-          <section data-markdown>
-            <script type="text/template">
-* Controlled by `package.json`:
-
-    ```js
-    {
-      "name": "Aardvarks Ahoy",
-      "version": "0.0.0",
-      "description": "Orycterapus after",
-      "main": "server.js",
-      "repository": "https://iamnotarealrepository",
-      "author": "Rich Churcher <foo@wombat.com>",
-      "dependencies": {
-        "express": "~3.2.4",
-      },
-      "devDependencies": {
-        "babel": "^5.8.23",
-        "babelify": "^6.3.0",
-        "browserify": "^11.1.0",
-        "gulp": "^3.9.0",
-        "gulp-babel": "^5.2.1",
-        "gulp-concat": "^2.6.0",
-        "gulp-uglify": "^1.4.1",
-        "karma": "^0.13.9",
-        "minifyify": "^7.0.6",
-        "vinyl-source-stream": "^1.1.0"
-      }
-    }
-    ```
-
-            </script>
-          </section>
-
-          <section data-markdown>
-            <script type="text/template">
-  * Each package keeps a copy of its own dependencies in a nested folder structure (under `node_modules`)
-    * This causes a lot of duplication on the server's file system, but since we're not running JavaScript in the browser it's rarely a problem
-
-            </script>
-          </section>
-
+            <ul>
+              <li>Since its release in 2009, the <a href="https://www.npmjs.com">Node package manager</a> has become one of the most prolific package managers in the world </li>
+              <li>Share packaged modules of JavaScript code</li>
+              <li>Stipulate versions (or version ranges) for package dependencies</li>
+              <li>npm Registry contains a huge collection of modules </li>
+              <li>Can install packages <em>locally</em> or <em>globally</em></li>
+            </ul>
           </section>
 
           <section>
-
-          <section data-markdown>
-            <script type="text/template">
-# Bower
-
-* Bower is ideally suited to managing packages for the client, because unlike npm it doesn't nest dependencies: there's only one copy of each
-  * Much lighter weight, faster page loads
-  * Interacts with Git, can install directly from a repository
-  * Very common to use a combination of Bower and npm: they're not mutually exclusive
-
-            </script>
-          </section>
-
-
-          <section data-markdown>
-            <script type="text/template">
-* Controlled by bower.json:
-
-    ```js
-    {
-      "name": "Aardvarks Ahoy",
-      "description": "Orycterapus after",
-      "version": "0.0.0",
-      "homepage": "https://thisisnotthehomepage.io",
-      "authors": [
-        "Rich Churcher <foo@wombat.com>"
-      ],
-      "main": "js/app.js",
-      "moduleType": [
-        "amd",
-        "es6",
-        "node"
-      ],
-      "keywords": [
-        "aardvark",
-        "landlubber",
-        "keelhaul"
-      ],
-      "license": "MIT",
-      "ignore": [
-        "**/.*",
-        "node_modules",
-        "bower_components",
-        "test",
-        "tests"
-      ],
-      "dependencies": {
-        jquery: "~2.1.4",
-        lodash: "~3.10.1"
-      }
-    }
-    ```
-
-            </script>
-          </section>
-
-
-          <section data-markdown>
-            <script type="text/template">
-* The above or something very like it would be generated with the following terminal commands:
-
-    ```
-    npm i bower --save-dev
-    bower init
-    bower install jquery lodash --save
-    ```
-
-  * `bower init` fills most of the details out for you, including grabbing the GitHub repo as homepage, and adding any previously installed components
-  * Subsequently, components can be included directly from `bower_components/packagename/packagename.js` or similar
-
-            </script>
-          </section>
+            <pre><code>{
+  "name": "Aardvarks Ahoy",
+  "version": "0.0.0",
+  "description": "Orycterapus after",
+  "main": "server.js",
+  "repository": "https://iamnotarealrepository",
+  "author": "Rich Churcher &lt;foo@wombat.com&gt;",
+  "dependencies": {
+    "express": "~3.2.4",
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babelify": "^6.3.0",
+    "browserify": "^11.1.0",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.1",
+    "gulp-concat": "^2.6.0",
+  }
+}</code></pre>
           </section>
 
           <section>
-
-          <section data-markdown>
-            <script type="text/template">
-# Gulp
-
-* Unlike [npm](#npm) and [Bower](#bower), Gulp is a _build system_ and not a package manager
-* Also referred to as a _task runner_.
-* Typically used for:
-  * Concatenation and minification of source files, other deployment-related tasks
-  * Compiling your CSS/Sass
-  * Running a transpiler, allowing you to use _ES6_ features
-  * Running test suites
-  * Compressing images
-  * Watching files for changes
-
-            </script>
+            <ul>
+              <li> Each package keeps a copy of its own dependencies in a nested folder structure (under <code>node_modules</code>)</li>
+              <li> This causes a lot of duplication on the server's file system, but since we're not running JavaScript in the browser it's rarely a problem</li>
+            </ul>
           </section>
 
-          <section data-markdown>
-            <script type="text/template">
-* Gulp can be used with both client and server-side projects
-* Uses node streams
-  * Reads source files, pipes the text through plugins, and writes output
-* Wide variety of plugins: uses [npm](#npm) packages
-* Compare [Grunt](http://gruntjs.com), another widely-used task runner
+        </section>
 
-            </script>
-          </section>
+        <section>
 
-          <section data-markdown>
-            <script type="text/template">
-* Controlled with `gulpfile.js`. For example:
+          <section>
+            <h2>Bower</h2>
 
-    ```js
-    var gulp = require('gulp');
-    var concat = require('gulp-concat');
-    var stripDebug = require('gulp-strip-debug');
-    var uglify = require('gulp-uglify');
-    var sourcemaps = require('gulp-sourcemaps');
-    var Server = require('karma').Server;
-     
-    gulp.task('js', function () {
-      return gulp.src('js/**/*.js')
-        .pipe(sourcemaps.init())
-          .pipe(concat('app.js'))
-          .pipe(stripDebug())
-          .pipe(uglify(true))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest('dist'));
-    });
-
-    gulp.task('test', function (done) {
-      new Server({
-        configFile: 'test/karma.conf.js',
-        singleRun: true
-      }, done).start();
-    });
-    
-    gulp.task('watch', ['js'], function () {
-      gulp.watch('js/**/*.js', ['js', 'test']);
-    });
-    ```
-            </script>
-          </section>
-
-
-          <section data-markdown>
-            <script type="text/template">
-  * the `js` task does the following:
-    1. Suck every JavaScript file in `js` and its subdirectories into a stream
-    2. Starts a [sourcemap](http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/): a way to retain the ability to debug minified code
-    3. Pass the stream through `concat`, which (surprise!) concatenates all the files into one, naming it `app.js`
-    4. Pass the stream through `stripDebug`, which removes all those pesky `console.log`s
-    5. Pass the stream through `uglify`, which minifies it
-    6. Finishes the sourcemap
-    7. Writes the stream to the destination directory.
-  * The `test` task uses the [Karma](#karma) test runner to run the unit test suite
-  * The `watch` task above will keep an eye on files with the `.js` suffix and run first the `js` task, then the tests, for each code change
-
-            </script>
-          </section>
-
-          <section data-markdown>
-            <script type="text/template">
-## Further Reading
-
-* [Gulp vs Grunt. Why one? Why the Other?](https://medium.com/@preslavrachev/gulp-vs-grunt-why-one-why-the-other-f5d3b398edc4)
-* [Getting Started with Gulp](https://markgoodyear.com/2014/01/getting-started-with-gulp/)
-
-            </script>
-          </section>
-
-
+            <ul>
+              <li>Bower is ideally suited to managing packages for the client, because unlike npm it doesn't nest dependencies: there's only one copy of each</li>
+              <li> Much lighter weight, faster page loads</li>
+              <li> Interacts with Git, can install directly from a repository</li>
+              <li> Very common to use a combination of Bower and npm: they're not mutually exclusive</li>
+              <li>Controlled by bower.json:</li>
+            </ul>
           </section>
 
           <section>
-
-
-          <section data-markdown>
-            <script type="text/template">
-# Browserify
-
-* Bundles the dependencies for your project, letting you program with modules while browser support for _ES6_ and `import`/`export` is still patchy
-* Can also handle minification and other pre-deployment tasks
-* Can be used from the command line or within the context of other tools such as [Gulp](#gulp):
-            </script>
-          </section>
-          
-          <section data-markdown>
-            <script type="text/template">
-
-    ```js
-    var gulp = require('gulp');
-    var browserify = require('browserify');
-    var babelify = require('babelify');
-    var source = require('vinyl-source-stream');
-
-    var bundler = browserify({
-        entries: './src/main.js', 
-        extensions: ['.js'], 
-        debug: true
-    });
-
-    gulp.task('default', function () {
-        return bundler
-            .transform(babelify)
-            .bundle()
-            .pipe(source('app.js'))
-            .pipe(gulp.dest('js'));
-    });
-    ```
-
-            </script>
-          </section>
-
-
-          <section data-markdown>
-            <script type="text/template">
-  * To walk through the above `gulpfile.js`:
-    1. Create a `bundler` using Browserify which begins at `main.js` and scoops up everything that app.js requires to work (dependencies)
-    2. Pass it through a transform using `babelify`, which is specifically designed to create _ES5_ output from _ES6_ JavaScript
-    3. Bundle it all up
-    4. Pipe the result into a file named `app.js`
-    5. Write `app.js` into the `js` destination directory
-
-            </script>
-          </section>
-
-          </section>
-
-          <section data-background="img/backgrounds/kea_car.jpg">
-            <h1 class="offset-bottom">Testing</h1>
+            <pre><code>{
+  "name": "Aardvarks Ahoy",
+  "description": "Orycterapus after",
+  "version": "0.0.0",
+  "homepage": "https://thisisnotthehomepage.io",
+  "authors": [
+    "Rich Churcher &lt;foo@wombat.com&gt;"
+  ],
+  "main": "js/app.js",
+  "moduleType": [ "amd", "es6", "node" ],
+  "keywords": [ "aardvark" ],
+  "license": "MIT",
+  "ignore": [ "**/.*", "node_modules", "bower_components" ],
+  "dependencies": {
+    jquery: "~2.1.4",
+    lodash: "~3.10.1"
+  }
+}</code></pre>
           </section>
 
           <section>
-          <section data-markdown>
-            <script type="text/template">
-## Jasmine
+            <ul>
+              <li>The above or something very like it would be generated with the following terminal commands:</li>
+              <code><pre>npm i bower --save-dev
+bower init
+bower install jquery lodash --save</code></pre>
 
-* A long-standing [behaviour-driven](https://en.wikipedia.org/wiki/Behavior-driven_development) test framework
-* Probably as close to a 'standard' as JavaScript has, although alternatives are growing in popularity
-* Tests are just JavaScript files, which can contain any code you like
-            </script>
+                <li> `bower init` fills most of the details out for you, including grabbing the GitHub repo as homepage, and adding any previously installed components</li>
+                <li> Subsequently, components can be included directly from `bower_components/packagename/packagename.js` or similar</li>
+            </ul>
+
+          </section>
+        </section>
+
+        <section>
+
+          <section>
+            <h2>Gulp</h2>
+
+            <ul>
+              <li>Unlike <a href="#npm">npm</a> and <a href="#bower">Bower</a>, Gulp is a <em>build system</em> and not a package manager</li>
+              <li>Also referred to as a <em>task runner</em>.</li>
+            </ul>
+
+            <aside class="notes">
+            <ul>
+              <li>Typically used for:</li>
+              <li> Concatenation and minification of source files, other deployment-related tasks</li>
+              <li> Compiling your CSS/Sass</li>
+              <li> Running a transpiler, allowing you to use <em>ES6</em> features</li>
+              <li> Running test suites</li>
+              <li> Compressing images</li>
+              <li> Watching files for changes</li>
+            </ul>
+            </aside>
           </section>
 
-          <section data-markdown>
-            <script type="text/template">
-```js
-describe('Wombat Counter', function() {
+          <section>
+            <ul>
+              <li>Gulp can be used with both client and server-side projects</li>
+              <li>Uses node streams</li>
+              <li> Reads source files, pipes the text through plugins, and writes output</li>
+              <li>Wide variety of plugins: uses <a href="#npm">npm</a> packages</li>
+              <li>Compare <a href="http://gruntjs.com">Grunt</a>, another widely-used task runner</li>
+              <li>Controlled with <code>gulpfile.js</code>.</li>
+            </ul>
+          </section>
+
+          <section>
+            <pre><code>gulp.task('js', function () {
+  return gulp.src('js/**/*.js')
+    .pipe(sourcemaps.init())
+      .pipe(concat('app.js'))
+      .pipe(uglify(true))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('test', function (done) {
+  new Server({
+    configFile: 'test/karma.conf.js',
+    singleRun: true
+  }, done).start();
+});
+
+gulp.task('watch', ['js'], function () {
+  gulp.watch('js/**/*.js', ['js', 'test']);
+});</code></pre>
+
+            <aside class="notes">
+            <ul>
+              <li> the <code>js</code> task does the following:</li>
+              <li>Suck every JavaScript file in <code>js</code> and its subdirectories into a stream</li>
+              <li>Starts a <a href="http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/">sourcemap</a>: a way to retain the ability to debug minified code</li>
+              <li>Pass the stream through <code>concat</code>, which (surprise!) concatenates all the files into one, naming it `app.js`</li>
+              <li>Pass the stream through <code>stripDebug</code>, which removes all those pesky `console.log`s</li>
+              <li>Pass the stream through <code>uglify</code>, which minifies it</li>
+              <li>Finishes the sourcemap</li>
+              <li>Writes the stream to the destination directory.</li>
+              <li>The <code>test</code> task runs the unit test suite</li>
+              <li>The <code>watch</code> task above will keep an eye on files with the `.js` suffix and run first the <code>js</code> task, then the tests, for each code change</li>
+            </ul>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Further Reading</h2>
+
+            <ul>
+              <li><a href="https://medium.com/@preslavrachev/gulp-vs-grunt-why-one-why-the-other-f5d3b398edc4">Gulp vs Grunt. Why one? Why the Other?</a></li>
+              <li><a href="https://markgoodyear.com/2014/01/getting-started-with-gulp/">Getting Started with Gulp</a></li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Browserify</h2>
+
+            <ul>
+              <li>Bundles the dependencies for your project, letting you program with modules while browser support for <em>ES6</em> and <code>import</code>/<code>export</code> is still patchy</li>
+              <li>Can also handle minification and other pre-deployment tasks</li>
+              <li>Can be used from the command line or within the context of other tools such as <a href="#gulp">Gulp</a>:</li>
+            </ul>
+          </section>
+
+          <section>
+            <pre><code>var gulp = require('gulp');
+var browserify = require('browserify');
+var babelify = require('babelify');
+var source = require('vinyl-source-stream');
+
+var bundler = browserify({
+    entries: './src/main.js', 
+    extensions: ['.js'], 
+    debug: true
+});
+
+gulp.task('default', function () {
+    return bundler
+        .transform(babelify)
+        .bundle()
+        .pipe(source('app.js'))
+        .pipe(gulp.dest('js'));
+});</code></pre>
+
+            <aside class="notes">
+            <ul>
+              <li> To walk through the above <code>gulpfile.js</code>:</li>
+              <li>Create a <code>bundler</code> using Browserify which begins at `main.js` and scoops up everything that app.js requires to work (dependencies)</li>
+              <li>Pass it through a transform using <code>babelify</code>, which is specifically designed to create <em>ES5</em> output from <em>ES6</em> JavaScript</li>
+              <li>Bundle it all up</li>
+              <li>Pipe the result into a file named <code>app.js</code></li>
+              <li>Write <code>app.js</code> into the <code>js</code> destination directory</li>
+            </ul>
+            </aside>
+          </section>
+
+        </section>
+
+        <section data-background="img/backgrounds/kea_car.jpg">
+          <h1 class="offset-bottom">Testing</h1>
+        </section>
+
+        <section>
+          <section>
+            <h2>Jasmine</h2>
+
+            <ul>
+              <li>A long-standing <a href="https://en.wikipedia.org/wiki/Behavior-driven_development">behaviour-driven</a> test framework</li>
+              <li>Probably as close to a 'standard' as JavaScript has, although alternatives are growing in popularity</li>
+              <li>Tests are just JavaScript files, which can contain any code you like</li>
+            </ul>
+          </section>
+
+          <section>
+            <pre><code>describe('Wombat Counter', function() {
   describe('GET /', function() {
 
     it('responds with HTTP status 200', function() {
-       // TODO: find better test examples!
+      request.get(base_url, function(error, response, body) {
+        expect(response.statusCode.toBe(200);
+      });
     });
 
   });
-});
-```
-            </script>
+});</code></pre>
           </section>
 
-          <section data-markdown>
-            <script type="text/template">
-* Jasmine comes with its own assertion tools:
+          <section>
+            <ul>
+              <li>Jasmine comes with its own assertion tools:</li>
+            </ul>
 
-```js
-expect(countTheAardvarks()).toEqual(9);
+              <pre><code>expect(countTheAardvarks()).toEqual(9);
+
 expect("I'm a wombat").toContain("wombat");
-expect(countTheAardvarks()).not.toEqual(8);
-```
-            </script>
-          </section>
-          <section data-markdown>
-            <script type="text/template">
-* It also has _spies_: a way to keep tabs on parts of your program where it's not simple to track what's happening, like methods/functions
 
-```js
-var a = new ArmouryOfAardvarks();
+expect(countTheAardvarks()).not.toEqual(8);</code></pre>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>It also has <em>spies</em>: a way to keep tabs on parts of your program where it's not simple to track what's happening, like methods/functions</li>
+
+              <pre><code>var a = new ArmouryOfAardvarks();
 spyOn(a, 'countTheAardvarks');
 a.showPopulation();
 
 // Did showPopulation call countTheAardvarks?
-expect(a.countTheAardvarks).toHaveBeenCalled();
-```
-            </script>
+expect(a.countTheAardvarks).toHaveBeenCalled();</code></pre>
+            </ul>
           </section>
-          </section>
-
-          <section>
-
-          <section data-markdown>
-            <script type="text/template">
-## Mocha
-
-* Similar on the surface to Jasmine
-* Uses third party libraries for assertions/spies
-* Which framework less important than ensuring good test coverage
-
-<aside class="notes">
-* On the surface, Mocha looks very similar to Jasmine but there are some important differences:
-  * Mocha doesn't have an assertion tool or spies, preferring third party libraries for this purpose
-    * (see [Chai](#chai) and [Sinon](#sinon), below)
-    * Mocha can be considered more flexible, but requires a bit more setup/configuration before use than Jasmine
-* For many uses there will be little difference between Jasmine, Mocha, and _[ insert library here ]_.
-  * The take-home message is, it's probably more important that your app has good test coverage than spending time worrying about which framework to use!
-</aside>
-            </script>
-          </section>
-
-          <section data-markdown>
-            <script type="text/template">
-## Chai
-
-* [Chai](http://chaijs.com): perhaps the most popular assertion library for Mocha.
-* _assert_:
-```js
-assert.typeOf(foo, 'string', 'Yup, that is a string.');
-assert.lengthOf(aardvarkArmoury, 9, 'There appear to be 9 aardvarks.');
-```
-* _BDD_:
-```js
-expect(foo).to.equal('bar');
-expect(aardvarkArmoury).to.have.property('population').with.length(9);
-```
-* _should_ (extends each object with a new property):
-```js
-aardvarkArmoury.should.have.property('population').with.length(9);
-```
-            </script>
-          </section>
-
-          <section data-markdown>
-            <script type="text/template">
-## Sinon.JS
-
-* [Sinon](http://sinonjs.org): standalone spy/mocking tool, often used as [a Chai plugin](http://chaijs.com/plugins/sinon-chai).
-```js
-"use strict";
-var chai = require("chai");
-var sinon = require("sinon");
-var sinonChai = require("sinon-chai");
-chai.should();
-chai.use(sinonChai);
-
-function hello(name, cb) {
-  cb("hello " + name);
-}
-
-describe("hello", function () {
-  it("should call callback with correct greeting", function () {
-    var cb = sinon.spy();
-
-    hello("foo", cb);
-
-    cb.should.have.been.calledWith("hello foo");
-  });
-});
-```
-            </script>
-          </section>
-          </section>
-
-          
-          <section>
-
-          <section data-markdown>
-            <script type="text/template">
-## Karma
-
-* [Karma](https://karma-runner.github.io) is a test runner, commonly associated with Angular development but usable as a standalone.
-  * Used to go by the unlikely moniker, "Testacular"
-* Can watch for changes in code files and re-run unit tests to check if you've broken anything
-
-            </script>
-          </section>
-
-          <section data-markdown>
-            <script type="text/template">
-* Controlled by `karma.conf.js`:
-
-   ```js
-    module.exports = function(config){
-      config.set({
-
-        basePath : './',
-
-        files : [
-          '/media/work/src/js/angular.js',
-          '/media/work/src/js/angular-route.js',
-          '/media/work/src/js/angular-resource.js',
-          '/media/work/src/js/angular-mocks.js',
-          'js/app.js',
-          'js/test/*_tests.js',
-        ],
-
-        autoWatch : true,
-
-        frameworks: ['jasmine'],
-
-        browsers : ['Chrome'],
-
-        plugins : [
-          'karma-chrome-launcher',
-          'karma-firefox-launcher',
-          'karma-jasmine',
-          'karma-junit-reporter'
-        ],
-
-        junitReporter : {
-          outputFile: 'test_out/unit.xml',
-          suite: 'unit'
-        }
-      });
-    };
-    ```
-            </script>
-          </section>
-
-          <section data-markdown>
-            <script type="text/template">
-
-## Protractor
-
-* [Protractor](https://angular.github.io/protractor) is an end-to-end testing framework.
-  * Gives you the ability to simulate user interaction throughout your app, running in a real browser
-  * Can click each link, check form validation, take screenshots, etc
-            </script>
-          </section>
-          </section>
-
-
-          <section data-markdown>
-            <script type="text/template">
-## Further Reading
-
-* [Jasmine vs. Mocha, Chai, and Sinon](http://thejsguy.com/2015/01/12/jasmine-vs-mocha-chai-and-sinon.html)
-
-            </script>
-          </section>
-
-
-        <!-- SECTION 4 -->
-				<section data-background="img/backgrounds/sheep.jpg">
-          <h1 class="offset-bottom">Asynchronous JavaScript</h1>
-				</section>
-
-
-          <section data-markdown>
-            <script type="text/template">
-# Callbacks
-          <aside class="notes">
-* Execute code asynchronously: simply put, _later_.
-* Typically passed to another function, to be used when an event occurs, or when the function has completed
-
-    ```js
-    function displayResults(results) {
-      for (let i = 0; i < results.length; i++) {
-        console.log(results[i]);
-      }
-    }
-
-    function incrementAll(numbers, callback) {
-      for (let i = 0; i < numbers.length; i++) {
-        numbers[i] += 1;
-      }
-      callback(numbers);
-    }
-
-    incrementAll([1, 2, 3, 4, 5], displayResults);
-    ```
-
-  * Here, the function `displayResults` is passed as a _callback_ to `incrementAll`.
-  * It outputs values to the console, but we could just as easily pass in a function which further modifies the array
-
-* Many JavaScript standard library functions use callbacks, often optionally. For example:
-
-    ```js
-    function even(n) {
-      return n % 2;
-    }
-
-    console.log([1, 2, 3, 4, 5].filter(even)); // [1, 3, 5]
-    ```
-
-  * `even` serves as a callback to [`Array.filter`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
-
-* Callbacks can be inline, which should only be used if it improves readability (i.e. not for lengthy callbacks)
-
-    ```js
-    console.log([1, 2, 3, 4, 5].filter( function () { return n % 2; } );
-    ```
-    </aside>>
-            </script>
-          </section>
-
-
-          <section data-markdown>
-            <script type="text/template">
-# Promises
-<aside class="notes">
-* A _promise_ is an operation that we expect to complete at a future time
-* Allows us to guarantee order of execution in an asynchronous language
-
-    ```js
-    function showWombats() {
-      let wombats = getWombatsFromServer();
-      displayWombats(wombats);
-    }
-    ```
-
-  * In a synchronous language, program execution will pause until `getWombatsFromServer` returns. In JavaScript, execution will continue
-    * Unless `getWombatsFromServer` returns almost instantaneously, `wombats` will be undefined and attempting to display it will have unpredictable results
-
-* Consider the same function using promises:
-
-    ```js
-    function showWombats() {
-      getWombatsFromServer().then(displayWombats);
-    }
-
-    function displayWombats(data) {
-      // ...
-    }
-    ```
-
-  * Here we guarantee that the call to display won't occur until after the server request has returned, even if it takes several seconds to complete
-* Calls to `then` can be chained to further control the order of execution:
-
-    ```js
-    getWombatsFromServer()
-      .then(displayWombats)
-      .then(function () {
-        console.log("All wombats present and accounted for.");
-      });
-    ```
-
-* There's plenty more to promises, including the ability to handle failure gracefully using [`catch`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch). 
-</aside>
-            </script>
-          </section>
-
-          <section data-markdown>
-            <script type="text/template">
-# `async`, `await`
-            </script>
-            <aside class="notes">
-* In _ES7_ (yep, another version!) the `async`/`await` keywords provide another approach to asynchronous code
-
-    ```js
-    async function showWombats() {
-      let wombats = await getWombatsFromServer();
-      displayWombats(wombats);
-    }
-    ```
-
-  * Users of async/await in C# will find the syntax very familiar
-  * Function execution only continues when the `await` resolves
-            </aside>
-          </section>
-
-        <!-- SECTION 5 -->
-				<section data-background="img/backgrounds/hippo_behind.jpg">
-          <h1 class="offset-bottom">The Backend</h1>
-				</section>
-
-        <section>        
-          <section data-markdown>
-            <script type="text/template">
-# Node.js
-            </script>
-            <aside class="notes">
-* JavaScript on the server
-* In theory can be written in any language which can compile to JavaScript, including [CoffeeScript](http://coffeescript.org), [TypeScript](http://typescriptlang.org), [Dart](http://dartlang.org), [ClojureScript](https://github.com/clojure/clojurescript) etc. 
-* Strictly speaking, Node is a _runtime_: a set of low-level routines written in C++ based around Chrome's V8 engine 
-* V8 is a compiler, not an interpreter: implications for speed and resource consumption
-* Unlike browser-based JavaScript, Node has access to server resources including files on disk, networking, and other features of the operating system
-* Node's package manager, [npm](https://www.npmjs.com), has become incredibly popular
-* Dates back to 2009, with meteoric rise in popularity since then
-            </aside>
-          </section>
-
-
-          <section data-markdown>
-            <script type="text/template">
-## Non-blocking I/O
-            </script>
-            <aside class="notes">
-* Part of Node's appeal is its ability to execute _asynchronous_ code
-* Node operates on a single thread, but all functions which perform input/output operate from a separate pool of threads managed by [libuv](https://github.com/libuv/libuv)
-  * Node waits for a callback but can do other things while it waits. This behaviour is said to be _event-driven_ (sometimes called the _event loop_).
-* Design allows thousands of concurrent requests
-* Can't make use of multi-core processors without explicitly handling child processes (for example, using the `cluster` module)
-            </aside>
-          </section>
-
-          <section data-markdown>
-            <script type="text/template">
-## `require` vs `import`
-            </script>
-            <aside class="notes">
-* Node's module system came from [CommonJS](https://en.wikipedia.org/wiki/CommonJS). You may encounter a lot of code that looks like this:
-
-    ```js
-    var http = require('http');
-    var foo = require('foo');
-    ```
-
-* It's certainly possible to use _ES6_ `import`s:
-
-    ```js
-    import http from 'http';
-    import path from 'path';
-    ```
-
-* Because these features are fairly new to the language, it's necessary to use a _transpiler_ to translate the ES6 features of the language into something that can be readily understood by Node. As the toolset matures, this should gradually become unnecessary.
-
-    ```js
-    var gulp = require('gulp');
-    var babel = require('gulp-babel');
-
-    gulp.task('default', function() {
-        return gulp.src('server.js')
-            .pipe(babel())
-            .pipe(gulp.dest('dist'));
-    });
-    ```
-
-  * Here we use [Babel](https://babeljs.io) to process the server file, then output to the `dist` directory
-
-            </aside>
-          </section>
-
-          <section data-markdown>
-            <script type="text/template">
-## Further Reading
-
-* [Understanding the node.js event loop](http://blog.mixu.net/2011/02/01/understanding-the-node-js-event-loop/)
-            </script>
-            <aside class="notes">
-            </aside>
-          </section>
-
         </section>
 
         <section>
 
-          <section data-markdown>
-            <script type="text/template">
-# Express
-            </script>
+          <section>
+            <h2>Mocha</h2>
+
+            <ul>
+              <li>Similar on the surface to Jasmine</li>
+              <li>Uses third party libraries for assertions/spies</li>
+              <li>Which framework less important than ensuring good test coverage</li>
+            </ul>
+
             <aside class="notes">
-* [Express](http://expressjs.com) is a minimalist web framework that sits on top of Node.
-* Has features for defining models, serving static content, and exposing APIs
-* For example, a minimal HTTP server can be written like so:
-
-    ```js
-    import http from 'http';
-    import path from 'path';
-    import express from 'express';
-
-    let router = express();
-    let server = http.createServer(router);
-
-    router.use(express.static(path.resolve(__dirname, '../client')));
-
-    server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
-      console.log("Ok");
-    });
-    ```
-
-  * This serves everything in the `client` directory as static content
-  * The port to listen on is held in the environment variable `$PORT`
+              <ul>
+                <li>On the surface, Mocha looks very similar to Jasmine but there are some important differences:</li>
+                <li> Mocha doesn't have an assertion tool or spies, preferring third party libraries for this purpose</li>
+                <li> (see <a href="#chai">Chai</a> and <a href="#sinon">Sinon</a>, below)</li>
+                <li> Mocha can be considered more flexible, but requires a bit more setup/configuration before use than Jasmine</li>
+                <li>For many uses there will be little difference between Jasmine, Mocha, and <em>[ insert library here ]</em>.</li>
+                <li> The take-home message is, it's probably more important that your app has good test coverage than spending time worrying about which framework to use!</li>
+              </ul>
             </aside>
           </section>
 
-          <section data-markdown>
-            <script type="text/template">
-## Everything is 'middleware'
-            </script>
+          <section>
+            <h2>Chai</h2>
             <aside class="notes">
-* In Express, almost every part of request handling is treated as _middleware_.
-  * Flow of execution is passed from middleware to middleware using the `next` function.
+              <ul><li><a href="http://chaijs.com">Chai</a>: perhaps the most popular assertion library for Mocha.</li></ul>
+            </aside>
+            <ul><li><em>assert</em>:</li></ul>
+              <pre><code>assert.typeOf(foo, 'string', 'Yup, that is a string.');
+assert.lengthOf(aardvarkArmoury, 9, 'There are 9 aardvarks.');</code></pre>
+              <ul><li><em>BDD</em>:</li></ul>
+              <pre><code>expect(foo).to.equal('bar');
+expect(bar).to.have.property('population').with.length(9);</code></pre>
+              <ul><li><em>should</em> (extends each object with a new property):</li></ul>
+              <pre><code>bar.should.have.property('population').with.length(9);</code></pre>
+            </ul>
+          </section>
 
-    ```js
-    // app.js
-    import authenticate from 'authenticate';
-    import aardvarks from 'aardvarks';
- 
-    app.use('/aardvarks', authenticate);
-    app.use('/aardvarks', aardvarks);
+        <section>
+          <h2>Further Reading</h2>
+
+          <ul>
+            <li><a href="http://thejsguy.com/2015/01/12/jasmine-vs-mocha-chai-and-sinon.html">Jasmine vs. Mocha, Chai, and Sinon</a></li>
+          </ul>
+        </section>
+        </section>
 
 
-    // authenticate.js
-    app.all('/aardvarks', function (req, res, next) {
-      checkUserAuth().then(function (user) {
-        if (user.isAuthenticated()) {
-          req.user = user;
-          next();
-        }
-        res.status(401).json({ message: 'Please login to access this resource.' });
-      });
-    });
+        <!-- SECTION 4 -->
+        <section data-background="img/backgrounds/sheep.jpg">
+          <h1 class="offset-bottom">Asynchronous JavaScript</h1>
+        </section>
 
+        <section>
+        <section>
+          <h2>Callbacks</h2>
+          <aside class="notes">
+            <ul>
+              <li>Execute code asynchronously: simply put, <em>later</em>.</li>
+              <li>Typically passed to another function, to be used when an event occurs, or when the function has completed</li>
+            </ul>
+          </aside>
+        </section>
 
-    // aardvarks.js
-    app.get('/aardvarks', function (req, res, next) {
-      let aardvark = new Aardvark();
-      res.json(aardvark);
-    });
-    ```
+        <section>
+          <pre><code>function displayResults(results) {
+  for (let i = 0; i < results.length; i++) {
+    console.log(results[i]);
+  }
+}
 
-  * This provides security because the order of execution is guaranteed: the `authenticate` middleware will always execute before `aardvarks`
-    * If the user fails authentication, a response is written with HTTP status code 401
-  * Notice that before the call to next, the request object is modified directly with new information (the user object)
-    * Careful: it's possible to accidentally overwrite properties on the request
-  * Middleware can be built up in this fashion into a _middleware stack_
+function incrementAll(numbers, callback) {
+  for (let i = 0; i < numbers.length; i++) {
+    numbers[i] += 1;
+  }
+  callback(numbers);
+}
+
+incrementAll([1, 2, 3, 4, 5], displayResults);</code></pre>
+        <aside class="notes">
+          <ul>
+            <li> Here, the function <code>displayResults</code> is passed as a <em>callback</em> to <code>incrementAll</code>.</li>
+            <li> It outputs values to the console, but we could just as easily pass in a function which further modifies the array</li> </ul> * Many JavaScript standard library functions use callbacks, often optionally. For example:
+          </ul>
+        </aside>
+        </section>
+
+        <section>
+          <pre><code>function even(n) {
+  return n % 2;
+}
+
+console.log([1, 2, 3, 4, 5].filter(even)); // [1, 3, 5]</code></pre>
+
+          <ul>
+            <li> <code>even</code> serves as a callback to <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter"><code>Array.filter</code></a></li>
+            <li>Callbacks can be inline, which should only be used if it improves readability (i.e. not for lengthy callbacks)</li>
+
+            <pre><code>console.log([1, 2, 3, 4, 5].filter(function () { 
+  return n % 2; 
+});</code></pre>
+          </ul>
+        </section>
+        </section>
+
+        <section>
+        <section>
+          <h2>Promises</h2>
+        </section>
+        <section>
+            <ul>
+              <li>A <em>promise</em> is an operation that we expect to complete at a future time</li>
+
+              <pre><code>function showWombats() {
+  let wombats = getWombatsFromServer();
+  displayWombats(wombats);
+}</code></pre>
+
+              <li> Unless <code>getWombatsFromServer</code> returns almost instantaneously, <code>wombats</code> will be undefined and attempting to display it will have unpredictable results</li>
+            </ul>
+              <aside class="notes">
+                <ul>
+              <li> In a synchronous language, program execution will pause until <code>getWombatsFromServer</code> returns. In JavaScript, execution will continue</li>
+              <li>Allows us to guarantee order of execution in an asynchronous language</li>
+            </ul>
+              </aside>
+        </section>
+        <section>
+          <ul>
+            <li>Consider the same function using promises:</li>
+
+            <pre><code>function showWombats() {
+  getWombatsFromServer().then(displayWombats);
+}
+
+function displayWombats(data) {
+  // ...
+}</code></pre>
+
+            <li> Here we guarantee that the call to display won't occur until after the server request has returned, even if it takes several seconds to complete</li>
+          </ul>
+        </section>
+
+        <section>
+          <ul>
+            <li>Calls to <code>then</code> can be chained to further control the order of execution:</li>
+
+            <pre><code>getWombatsFromServer()
+  .then(displayWombats)
+  .then(function () {
+    console.log("All wombats accounted for.");
+  });</code></pre>
+
+            <li>There's plenty more to promises, including the ability to handle failure gracefully using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch"><code>catch</code></a>. </li>
+          </ul>
+        </section>
+        </section>
+
+        <section>
+          <h2><code>async</code>, <code>await</code></h2>
+          <ul>
+            <li>In <em>ES7</em> (yep, another version!) the <code>async</code>/<code>await</code> keywords provide another approach to asynchronous code</li>
+
+            <pre><code>async function showWombats() {
+  let wombats = await getWombatsFromServer();
+  displayWombats(wombats);
+}</code></pre>
+
+            <aside class="notes">
+            <ul>
+            <li> Users of async/await in C# will find the syntax very familiar</li>
+            <li> Function execution only continues when the <code>await</code> resolves</li>
+          </ul>
+            </aside>
+        </section>
+
+        <section>
+          <h2>Further Reading</h2>
+
+          <ul>
+            <li><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> (MDN)</li>
+            <li><a href="https://thomashunter.name/blog/the-long-road-to-asyncawait-in-javascript/">The Long Road to Async/Await in JavaScript</a></li>
+          </ul>
+        </section>
+
+        <!-- SECTION 5 -->
+        <section data-background="img/backgrounds/hippo_behind.jpg">
+          <h1 class="offset-bottom">The Backend</h1>
+        </section>
+
+        <section>        
+          <section>
+            <h2>Node.js</h2>
+            <aside class="notes">
+              <ul>
+                <li>JavaScript on the server</li>
+                <li>In theory can be written in any language which can compile to JavaScript, including <a href="http://coffeescript.org">CoffeeScript</a>, <a href="http://typescriptlang.org">TypeScript</a>, <a href="http://dartlang.org">Dart</a>, <a href="https://github.com/clojure/clojurescript">ClojureScript</a> etc. </li>
+                <li>Strictly speaking, Node is a <em>runtime</em>: a set of low-level routines written in C++ based around Chrome's V8 engine </li>
+                <li>V8 is a compiler, not an interpreter: implications for speed and resource consumption</li>
+                <li>Unlike browser-based JavaScript, Node has access to server resources including files on disk, networking, and other features of the operating system</li>
+                <li>Node's package manager, <a href="https://www.npmjs.com">npm</a>, has become incredibly popular</li>
+                <li>Dates back to 2009, with meteoric rise in popularity since then</li>
+              </ul>
             </aside>
           </section>
 
-          <section data-markdown>
-            <script type="text/template">
-## Feathers
-            </script>
+          <section>
+            <h2>Non-blocking I/O</h2>
             <aside class="notes">
-* [Feathers](http://feathersjs.com) is an [Express](#express) wrapper that takes care of boilerplate tasks
-* Makes setting up a REST API fairly trivial:
-
-    ```js
-    import feathers from 'feathers';
-    import bodyParser from 'body-parser';
-    import mongoService from 'feathers-mongo';
-
-    let app = feathers()
-      .configure(feathers.rest());
-      .use(bodyParser.json())
-      .use('aardvarks', new mongoService('aardvarks'));
-
-    let port = 8080;
-    app.listen(port, function () {
-      console.log(`Listening for Orycteropus afer on port ${port}...`);
-    });
-    ```
+              <ul>
+                <li>Part of Node's appeal is its ability to execute <em>asynchronous</em> code</li>
+                <li>Node operates on a single thread, but all functions which perform input/output operate from a separate pool of threads managed by <a href="https://github.com/libuv/libuv">libuv</a></li>
+                <li> Node waits for a callback but can do other things while it waits. This behaviour is said to be <em>event-driven</em> (sometimes called the <em>event loop</em>).</li>
+                <li>Design allows thousands of concurrent requests</li>
+                <li>Can't make use of multi-core processors without explicitly handling child processes (for example, using the <code>cluster</code> module)</li>
+              </ul>
             </aside>
+          </section>
+
+          <section>
+            <h2><code>require</code> vs <code>import</code></h2>
+            <ul>
+              <li>Node's module system came from <a href="https://en.wikipedia.org/wiki/CommonJS">CommonJS</a>. You may encounter a lot of code that looks like this:</li>
+
+              <pre><code>var http = require('http');
+var foo = require('foo');</code></pre>
+
+              <li>It's certainly possible to use <em>ES6</em> <code>import</code>s:</li>
+
+              <pre><code>import http from 'http';
+import path from 'path';</code></pre>
+            </ul>
+          </section>
+          <section>
+            <h2>Transpilers</h2>
+            <aside class="notes">
+            <ul>
+              <li>Because these features are fairly new to the language, it's necessary to use a <em>transpiler</em> to translate the ES6 features of the language into something that can be readily understood by Node. As the toolset matures, this should gradually become unnecessary.</li>
+            </ul>
+            </aside>
+
+              <pre><code>var gulp = require('gulp');
+var babel = require('gulp-babel');
+
+gulp.task('default', function() {
+  return gulp.src('server.js')
+    .pipe(babel())
+    .pipe(gulp.dest('dist'));
+});</code></pre>
+
+              <li> Here we use <a href="https://babeljs.io">Babel</a> to process the server file, then output to the <code>dist</code> directory</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Further Reading</h2>
+
+            <ul>
+              <li><a href="http://blog.mixu.net/2011/02/01/understanding-the-node-js-event-loop/">Understanding the node.js event loop</a></li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Express</h2>
+            <aside class="notes">
+              <ul>
+                <li><a href="http://expressjs.com">Express</a> is a minimalist web framework that sits on top of Node.</li>
+                <li>Has features for defining models, serving static content, and exposing APIs</li>
+              </ul>
+            </aside>
+          </section>
+
+          <section>
+            <ul>
+              <li>For example, a minimal HTTP server can be written like so:</li>
+            </ul>
+              <pre><code>import http from 'http';
+import path from 'path';
+import express from 'express';
+
+let router = express();
+let server = http.createServer(router);
+
+router.use(
+  express.static(path.resolve(__dirname, '../client'))
+);
+
+server.listen(3000, "0.0.0.0", function(){
+  console.log("Ok");
+});</code></pre>
+
+              <aside class="notes">
+                <ul>
+              <li> This serves everything in the <code>client</code> directory as static content</li>
+              <li> The port to listen on is held in the environment variable `$PORT`</li>
+            </ul>
+              </aside>
+          </section>
+
+          <section>
+            <h2>Everything is 'middleware'</h2>
+            <ul>
+              <li> Flow of execution is passed from middleware to middleware using the <code>next()</code> function.</li>
+            </ul>
+          </section>
+
+          <section>
+            <pre><code>// app.js
+import authenticate from 'authenticate';
+import aardvarks from 'aardvarks';
+app.use('/aardvarks', authenticate);
+app.use('/aardvarks', aardvarks);
+
+// authenticate.js
+app.all('/aardvarks', function (req, res, next) {
+  if (someUserAuthTest) next();
+  res.status(401).json({ message: 'Please login.' });
+});
+
+// aardvarks.js
+app.get('/aardvarks', function (req, res, next) {
+  let aardvark = new Aardvark();
+  res.json(aardvark);
+});</code></pre>
+
+            <aside class="notes">
+              <ul>
+                <li>In Express, almost every part of request handling is treated as <em>middleware</em>.</li>
+                <li>This provides security because the order of execution is guaranteed: the <code>authenticate</code> middleware will always execute before <code>aardvarks</code></li>
+                <li>If the user fails authentication, a response is written with HTTP status code 401</li>
+                <li>Notice that before the call to next, the request object is modified directly with new information (the user object)</li>
+                <li>Careful: it's possible to accidentally overwrite properties on the request</li>
+                <li>Middleware can be built up in this fashion into a <em>middleware stack</em></li>
+              </ul>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Feathers</h2>
+            <aside class="notes">
+              <ul>
+                <li><a href="http://feathersjs.com">Feathers</a> is an <a href="#express">Express</a> wrapper that takes care of boilerplate tasks</li>
+                <li>Makes setting up a REST API fairly trivial:</li>
+              </ul>
+            </aside>
+
+            <pre><code>import feathers from 'feathers';
+import bodyParser from 'body-parser';
+import mongoService from 'feathers-mongo';
+
+let app = feathers()
+  .configure(feathers.rest());
+  .use(bodyParser.json())
+  .use('aardvarks', new mongoService('aardvarks'));
+
+let port = 8080;
+app.listen(port, function () {
+  console.log(`Listening for Orycteropus afer on ${port}...`);
+});</code></pre>
           </section>
 
         </section>
 
         <!-- SECTION 6 -->
-				<section data-background="img/backgrounds/hippo_yawn.jpg">
+        <section data-background="img/backgrounds/hippo_yawn.jpg">
           <h1 class="offset-top">Storage</h1>
-				</section>
-
-        <section>
-          
-          <section data-markdown>
-            <script type="text/template">
-# MongoDB
-            </script>
-            <aside class="notes">
-* Although in theory JavaScript can interact with almost any data store, [Mongo](https://www.mongodb.org) is one of the most common databases in modern JS stacks.
-            </aside>
-          </section>
-
-          <section data-markdown>
-            <script type="text/template">
-## NoSQL
-            </script>
-            <aside class="notes">
-* Most traditional databases are based on tables, and the relationships between them.
-* NoSQL databases come in a variety of designs. Mongo is of the _document store_ type.
-  * Stores records in JSON format, encoded to binary format _BSON_
-  * Tends to lump all related information together, rather than distribute it across relational tables
-  * Although each document can be validated in code, they aren't required to be identical in structure
-* Mongo arranges documents into 'collections'. A database is made up of a set of collections.
-            </aside>
-          </section>
-
-          <section data-markdown>
-            <script type="text/template">
-## JSON
-            </script>
-            <aside class="notes">
-* Do yourself a favour and read certainly [the best JSON documentation on the Internet](http://json.org).
-* Mongo happily accepts and dispenses documents as JavaScript Object Notation.
-* If a record is returned in the body of a response, it's not even necessary to call `JSON.parse` on it... it's already usable as a JavaScript object.
-* Mongo will add an `ObjectId` (`_id`) property automatically, and possibly versioning information depending on settings:
-
-    ```js
-    {
-      "__v": 0,
-      "_id": "55fb213fac8d99ce3fb1b47c",
-      "name": "Fitzgerald",
-      "stomachContents": [
-        "ant", "ant", "termite", "ant"
-      ],
-      "latinName": {
-        "genus": "Orycteropus",
-        "species": "afer"
-      },
-      "nocturnal": true
-    }
-    ```
-            </aside>
-          </section>
-
         </section>
 
         <section>
 
+          <section>
+            <h2>MongoDB</h2>
+            <aside class="notes">
+              <li>Although in theory JavaScript can interact with almost any data store, <a href="https://www.mongodb.org">Mongo</a> is one of the most common databases in modern JS stacks.</li>
+            </aside>
+          </section>
+
+          <section>
+            <h2>NoSQL</h2>
+            <aside class="notes">
+              <ul>
+                <li>Most traditional databases are based on tables, and the relationships between them.</li>
+                <li>NoSQL databases come in a variety of designs. Mongo is of the <em>document store</em> type.</li>
+                <li> Stores records in JSON format, encoded to binary format <em>BSON</em></li>
+                <li> Tends to lump all related information together, rather than distribute it across relational tables</li>
+                <li> Although each document can be validated in code, they aren't required to be identical in structure</li>
+                <li>Mongo arranges documents into 'collections'. A database is made up of a set of collections.</li>
+              </ul>
+            </aside>
+          </section>
+
+          <section>
+            <h2>JSON</h2>
+            <pre><code>{
+  "__v": 0,
+  "_id": "55fb213fac8d99ce3fb1b47c",
+  "name": "Fitzgerald",
+  "stomachContents": [
+    "ant", "ant", "termite", "ant"
+  ],
+  "latinName": {
+    "genus": "Orycteropus",
+    "species": "afer"
+  },
+  "nocturnal": true
+}</code></pre>
+          </section>
+
+          <section>
+            <ul>
+              <li>Do yourself a favour and read certainly <a href="http://json.org">the best JSON documentation on the Internet</a>.</li>
+            </ul>
+            <aside class="notes">
+              <ul>
+                <li>Mongo happily accepts and dispenses documents as JavaScript Object Notation.</li>
+                <li>If a record is returned in the body of a response, it's not even necessary to call `JSON.parse` on it... it's already usable as a JavaScript object.</li>
+                <li>Mongo will add an <code>ObjectId</code> (<code>_id</code>) property automatically, and possibly versioning information depending on settings:</li>
+              </ul>
+            </aside>
+          </section>
+        </section>
+
+        <section>
           <section data-background="img/backgrounds/mongoose.jpg">
             <h1 class="offset-bottom">Mongoose</h1>
             <aside class="notes">
-* [Mongoose](http://mongoosejs.com) is an object model for [MongoDB](#mongodb).
+              <ul>
+                <li><a href="http://mongoosejs.com">Mongoose</a> is an object model for <a href="#mongodb">MongoDB</a>.</li>
+              </ul>
             </aside>
           </section>
 
-          <section data-markdown>
-            <script type="text/template">
-## Schemas
-            </script>
+          <section>
+            <h2>Schemas</h2>
             <aside class="notes">
-* Mongoose gives each document a _schema_, one schema per Mongo _collection_.
-  * Allows types, defaults, and opportunity to define static methods and middleware.
-* Schemas can contain other schemas:
-
-    ```js
-    let itemSchema = new Schema({
-      name: String,
-      color: String
-    });
-
-    let containerSchema = new Schema({
-      name: String,
-      items: [itemSchema]
-    });
-    ```
+              <ul>
+                <li>Mongoose gives each document a <em>schema</em>, one schema per Mongo <em>collection</em>.</li>
+                <li> Allows types, defaults, and opportunity to define static methods and middleware.</li>
+                <li>Schemas can contain other schemas:</li>
+              </ul>
             </aside>
+
+            <pre><code>let itemSchema = new Schema({
+  name: String,
+  color: String
+});
+
+let containerSchema = new Schema({
+  name: String,
+  items: [itemSchema]
+});</code></pre>
           </section>
 
-          <section data-markdown>
-            <script type="text/template">
-## Models
-            </script>
+          <section>
+            <h2>Models</h2>
             <aside class="notes">
-* As schemas are to MongoDB collections, _models_ are to MongoDB _documents_.
-* Models are created using a schema:
-
-    ```js
-    let Wombat = mongoose.model('Wombat', wombatSchema);
-    ```
-
-* Adding a document to the collection in the database requires creating a new instance of the model:
-
-    ```js
-    let myWombat = new Wombat({
-      name: "Holiday"
-    });
-    myWombat.save(function (err) {
-      if (err) return handleError(err);
-    });
-    ```
-
-* Schemas provide various methods for finding, altering and deleting documents:
-
-    ```js
-    Wombat.findOne({ 'name': 'Holiday' }, 'name', function (err, wombat) {
-      if (err) return handleError(err);
-      console.log('Found her!');
-    });
-    ```
-
-  * See [Queries](http://mongoosejs.com/docs/queries.html) for further details.
+              <ul>
+                <li>As schemas are to MongoDB collections, <em>models</em> are to MongoDB <em>documents</em>.</li>
+              </ul>
             </aside>
+            <ul>
+              <li>Models are created using a schema:</li>
+            </ul>
+
+              <pre><code>let Wombat = mongoose.model('Wombat', wombatSchema);</code></pre>
+            </ul>
           </section>
 
-          <section data-markdown>
-            <script type="text/template">
-## Validation
-            </script>
+          <section>
+            <ul>
+              <li>Adding a document to the collection in the database requires creating a new instance of the model:</li>
+
+              <pre><code>let myWombat = new Wombat({
+  name: "Holiday"
+});
+
+myWombat.save(function (err) {
+  if (err) return handleError(err);
+});</code></pre>
+            </ul>
+          </section>
+
+          <section>
+            <ul>
+              <li>Schemas provide various methods for finding, altering and deleting documents:</li>
+
+              <pre><code>Wombat.findOne(
+  {'name': 'Holiday'}, 
+  'name', 
+  function (err, wombat) {
+    if (err) return handleError(err);
+    console.log('Found her!');
+  }
+);</code></pre>
+
+              <li>See <a href="http://mongoosejs.com/docs/queries.html">Queries</a> for further details.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Validation</h2>
             <aside class="notes">
-* One of the strongest reasons for using Mongoose is that validation is built in.
-  * For example, although properties are considered optional by default, they can be made required:
-
-    ```js
-    import mongoose, {Schema} from 'mongoose';
-
-    let wombatSchema = new Schema({
-      name: { type: String, required: true },
-      nocturnal: Boolean
-    });
-    ```
-
-  * Above, `name` must be supplied but `nocturnal` can be omitted. Attempting to save a `Wombat` without a `name` string will cause a validation error.
+              <ul>
+                <li>One of the strongest reasons for using Mongoose is that validation is built in.</li>
+                <li> For example, although properties are considered optional by default, they can be made required:</li>
+              </ul>
             </aside>
-          </section>
 
+            <pre><code>import mongoose, {Schema} from 'mongoose';
+
+let wombatSchema = new Schema({
+  name: { type: String, required: true },
+  nocturnal: Boolean
+});</code></pre>
+
+            <li><code>name</code> must be supplied but <code>nocturnal</code> can be omitted. Attempting to save a <code>Wombat</code> without a <code>name</code> string will cause a validation error.</li>
+          </section>
         </section>
 
         <section>
-
           <section data-background="img/backgrounds/lion.jpg">
             <h1 class="offset-bottom">REST</h1>
             <aside class="notes">
-* Having established a means to store and retrieve data, the REST API serves as an HTTP interface between the client and the data store.
+              <ul>
+                <li>Having established a means to store and retrieve data, the REST API serves as an HTTP interface between the client and the data store.</li>
+              </ul>
             </aside>
           </section>
 
-          <section data-markdown>
-            <script type="text/template">
-## Characteristics
-            </script>
+          <section>
+            <h2>Characteristics</h2>
             <aside class="notes">
-* The REST API operates on the assumption that the client will be accessing the same base URL or _resource_ (sometimes with additional parameters like ID numbers) but using different _HTTP verbs_.
-  * The server can return data in the _response body_, but it can also provide feedback in the form of the HTTP _status code_, and in 'strict' REST it should provide all the information necessary to navigate the site's resources.
-    * [What is HATEOAS and why is it important for my REST API?](http://restcookbook.com/Basics/hateoas/) and [Haters gonna HATEOAS](http://www.timelessrepo.com/haters-gonna-hateoas) for further context.
-* For example:
+              <ul>
+                <li>The REST API operates on the assumption that the client will be accessing the same base URL or <em>resource</em> (sometimes with additional parameters like ID numbers) but using different <em>HTTP verbs</em>.</li>
+                <li> The server can return data in the <em>response body</em>, but it can also provide feedback in the form of the HTTP <em>status code</em>, and in 'strict' REST it should provide all the information necessary to navigate the site's resources.</li>
+                <li> <a href="http://restcookbook.com/Basics/hateoas/">What is HATEOAS and why is it important for my REST API?</a> and <a href="http://www.timelessrepo.com/haters-gonna-hateoas">Haters gonna HATEOAS</a> for further context.</li>
+                <li>In each case the address is the same or very similar, but the <em>HTTP verb</em> is different.</li>
+                <li>This allows the server to behave differently depending on the request. For example, using Express:</li>
+              </ul>
+            </aside>
+          </section>
 
-    ```
-    GET /wombats
-      - The same as visiting the resource in a browser
-      - HTTP status 200 for a successful request
+          <section>
+              <pre><code>GET /wombats - same as visiting in a browser
+  - HTTP status 200 for a successful request
 
-    GET /wombats/1
-      - Return a single wombat with id 1
-      - 200 for success
-      - 404 not found
+GET /wombats/1 - Return a single wombat with id 1
+  - 200 for success, 404 not found
 
-    POST /wombats
-      - Create a wombat
-      - 201 for resource created, and the response body should contain the wombat
+POST /wombats - Create a wombat
+  - 201 resource created, response body should contain it
 
-    PUT /wombats/1
-      - Edit or update the wombat with id 1
-      - 200 for resource edited, or 204 if the body doesn't contain the wombat
-    
-    DELETE /wombats/1
-      - Remove the wombat with id 1
-      - 200 for resource deleted, or 204 if the body doesn't contain the deleted resource
-    ```
+PUT /wombats/1 - Edit or update the wombat with id 1
+  - 200 resource edited, 204 if the body doesn't contain it
 
-* In each case the address is the same or very similar, but the _HTTP verb_ is different.
-* This allows the server to behave differently depending on the request. For example, using Express:
+DELETE /wombats/1 - Remove the wombat with id 1
+  - 200 for resource deleted, 204 if body doesn't contain it</code></pre>
+          </section>
+          <section>
+            <pre><code>router.route('/wombats')
 
-    ```js
-    router.route('/wombats')
+  // GET /wombats
+  .get(function (req, res) {
+    Wombat.find(function (err, wombats) {
+      respond(res, err, wombats);
+    });
+  })
 
-      // GET /wombats
-      .get(function (req, res) {
-        Wombat.find(function (err, wombats) {
-          respond(res, err, wombats);
-        });
-      })
+function respond(res, err, wombats) {
+  if (err) {
+    res.send(err);
+  } else {
+    res.json(wombats);
+  }
+}</code></pre>
+          </section>
 
-      // POST /wombats
-      .post(function (req, res) {
-        let wombat = new Wombat();
-        wombat.name = req.body.name;
-        wombat.save(function (err) {
-          respond(res, err, wombat);
-        });
-      });
+          <section>
+            <pre><code>router.route('/wombats')
+  // POST /wombats
+  .post(function (req, res) {
+    let wombat = new Wombat();
+    wombat.name = req.body.name;
+    wombat.save(function (err) {
+      respond(res, err, wombat);
+    });
+  });</code></pre>
 
-    function respond(res, err, wombats) {
-      if (err) {
-        res.send(err);
-      } else {
-        res.json(wombats);
+
+            <aside class="notes">
+              <ul>
+                <li> Here, Express uses a different function for GET and POST verbs even though the address visited is identical.</li>
+                <li> In the case of GET, since there is no ID specified, it simply returns an array of wombats (as JSON).</li>
+                <li> For POST, it looks for a wombat in `req.body`, checks the <code>name</code> specified and saves it to MongoDB.</li>
+              </ul>
+            </aside>
+          </section>
+
+          <section>
+            <aside class="notes">
+              <ul>
+                <li>We can also tell Express to respond differently if a resource ID has been specified:</li>
+              </ul>
+            </aside>
+
+            <pre><code>router.route('/wombats/:id')
+
+  // GET /wombats/12345
+  .get(function (req, res) {
+    Wombat.findById(req.params.id, function (err, wombat) { 
+      respond(res, err, wombat); 
+    });
+  })
+
+  // PUT /wombats/12345
+  .put(function (req, res) {
+    Wombat.findByIdAndUpdate(req.params.id, req.body, 
+      function (err, wombat) {
+        respond(res, err, wombat);
       }
-    }
-    ```
-
-  * Here, Express uses a different function for GET and POST verbs even though the address visited is identical.
-    * In the case of GET, since there is no ID specified, it simply returns an array of wombats (as JSON).
-    * For POST, it looks for a wombat in `req.body`, checks the `name` specified and saves it to MongoDB.
-
-* We can also tell Express to respond differently if a resource ID has been specified:
-
-    ```js
-    router.route('/wombats/:id')
-
-      // GET /wombats/12345
-      .get(function (req, res) {
-        Wombat.findById(req.params.id, function (err, wombat) { 
-          respond(res, err, wombat); 
-        });
-      })
-
-      // PUT /wombats/12345
-      .put(function (req, res) {
-        Wombat.findByIdAndUpdate(req.params.id, req.body, function (err, wombat) {
-          respond(res, err, wombat);
-        });
-      })
-
-      // DELETE /wombats/12345
-      .delete(function (req, res) {
-        Wombat.findByIdAndRemove(req.params.id, req.body, function (err, wombat) {
-          respond(res, err, wombat);
-        });
-      });
-    ```
-
-  * Express places the `id` in `req.params.id`.
-  * The functions `findById`, `findByIdAndUpdate` and `findByIdAndRemove` are provided by Mongoose.
-            </aside>
+    );
+  })</code></pre>
           </section>
 
-          <section data-markdown>
-            <script type="text/template">
-## Async Implications
-            </script>
+          <section>
+            <pre><code>router.route('/wombats/:id')
+
+  // DELETE /wombats/12345
+  .delete(function (req, res) {
+    Wombat.findByIdAndRemove(req.params.id, req.body, 
+      function (err, wombat) {
+        respond(res, err, wombat);
+      }
+    );
+  });</code></pre>
+
+              <ul>
+                <li> Express places the <code>id</code> in `req.params.id`.</li>
+                <li> The functions <code>findById</code>, <code>findByIdAndUpdate</code> and <code>findByIdAndRemove</code> are provided by Mongoose.</li>
+              </ul>
+          </section>
+
+          <section>
+            <h2>Async Implications</h2>
             <aside class="notes">
-* Requests to the database take place in unknown time
-  * The database or server could be under heavy load
-  * The network infrastructure may be impaired
-  * Further cloud resources (additional servers, containers, database instances) may be in the process of coming online
-* We cannot _know_ when the request will return with data (or an error)
-* We need a way to guarantee that the values we're expecting won't be accessed until after the call to the database has completed
+              <ul>
+                <li>Requests to the database take place in unknown time</li>
+                <li> The database or server could be under heavy load</li>
+                <li> The network infrastructure may be impaired</li>
+                <li> Further cloud resources (additional servers, containers, database instances) may be in the process of coming online</li>
+                <li>We cannot <em>know</em> when the request will return with data (or an error)</li>
+                <li>We need a way to guarantee that the values we're expecting won't be accessed until after the call to the database has completed</li>
+              </ul>
+            </aside>
 
-    ```js
-    router.route('/wombats/:id').get(retrieveOneWombat);
+            <pre><code>router.route('/wombats/:id').get(retrieveOneWombat);
 
-    function retrieveOneWombat(req, res) {
-      Wombat.findById(req.params.id, sendWombatResponse);
-    }
+function retrieveOneWombat(req, res) {
+  Wombat.findById(req.params.id, sendWombatResponse);
+}
 
-    function sendWombatResponse(err, wombat) {
-      if (err) {
-        res.send(err);
-      } else {
+function sendWombatResponse(err, wombat) {
+  if (err) {
+    res.send(err);
+  } else {
+    res.json(wombat);
+  }
+}</code></pre>
+          </section>
+
+          <section>
+            <aside class="notes">
+              <ul>
+                <li> This is a simple re-working of the sample code in the previous section, avoiding the use of inline functions for clarity.</li>
+                <li> There are two callbacks: <code>retrieveOneWombat</code> and <code>sendWombatResponse</code>.</li>
+                <li> When Express receives a request to this URL (resource) with the HTTP verb <code>GET</code>, it calls <code>retrieveOneWombat</code></li>
+                <li> When the Mongoose model <code>Wombat</code>'s method <code>findById</code> has finished hitting the database, it calls <code>sendWombatResponse</code></li>
+                <li> This gives us some assurance that our data is actually there, or if it isn't that an error has been generated which we can return.</li>
+              </ul>
+            </aside>
+            <ul>
+              <li>Newer versions of Mongoose also support promises, so you can use:</li>
+            </ul>
+            <pre><code>router.route('/wombats/:id')
+  .get(function (req, res) {
+    Wombat
+      .findById(req.params.id)
+      .then(function (wombat) {
+        // ...
         res.json(wombat);
-      }
-    }
-    ```
-
-  * This is a simple re-working of the sample code in the previous section, avoiding the use of inline functions for clarity.
-  * There are two callbacks: `retrieveOneWombat` and `sendWombatResponse`.
-    * When Express receives a request to this URL (resource) with the HTTP verb `GET`, it calls `retrieveOneWombat`
-    * When the Mongoose model `Wombat`'s method `findById` has finished hitting the database, it calls `sendWombatResponse`
-  * This gives us some assurance that our data is actually there, or if it isn't that an error has been generated which we can return.
-
-* This is callback-based async code. Newer versions of Mongoose also support promises, so you can use:
-
-    ```js
-    router.route('/wombats/:id')
-      .get(function (req, res) {
-        Wombat
-          .findById(req.params.id)
-          .then(function (wombat) {
-            // ...
-            res.json(wombat);
-          });
       });
-    ```
-            </aside>
+  });</code></pre>
           </section>
-
         </section>
-
 
         <section data-background="img/aardvark.gif">
           <h1>Thank You!</h1>
         </section>
 
         <section>
+          <section data-background="img/backgrounds/cranes.jpg">
+            <h1>Attributions</h1>
+          </section>
 
-        <section data-background="img/backgrounds/cranes.jpg">
-          <h1>Attributions</h1>
+          <section>
+            <p>All images Creative Commons licensed (commercial use).</p>
+            <p>
+              <a href="https://www.flickr.com/photos/tompagenet/">Tom Page</a>, 
+              <a href="https://www.flickr.com/photos/swallowtailgardenseeds/">Swallowtail Garden Seeds</a>, 
+              <a href="https://www.flickr.com/photos/42244964@N03/">Frank Vassen</a>, 
+              <a href="https://www.flickr.com/photos/dianasch/">Diana Robinson</a>, 
+              <a href="https://www.flickr.com/photos/usfwsmidwest/">USFWSmidwest</a>, 
+              <a href="https://www.flickr.com/photos/tehbieber/">Robert Bieber</a>, 
+              <a href="https://www.flickr.com/photos/islandgyrl/">Christine Olson</a>, 
+              <a href="https://www.flickr.com/photos/puliarfanita/">Anita Ritenour</a>, 
+              <a href="https://www.flickr.com/photos/judemasti/">smalljude</a>, 
+              <a href="https://www.flickr.com/photos/t3rmin4t0r/">Gopal Vijayaraghavan</a>, 
+              <a href="https://www.flickr.com/photos/tom_hall_nz/">Tom Hall</a>, 
+              <a href="https://www.flickr.com/photos/72562013@N06/">Chris Phutully</a>, 
+              <a href="https://www.flickr.com/photos/42244964@N03/">Frank Vassen</a>, 
+              <a href="https://www.flickr.com/photos/24874528@N04/">Airwolfhound</a>, 
+              <a href="https://www.flickr.com/photos/tambako/">Tambako the Jaguar</a>,
+              <a href="https://www.flickr.com/photos/arcticwoof/">Arctic Wolf</a>, 
+              <a href="https://www.flickr.com/photos/martinteschner/">Martin Teschner</a>, 
+              <a href="https://www.flickr.com/photos/dave_see/">dave.see</a>, 
+              <a href="https://www.flickr.com/photos/dkeats/">Derek Keats</a> 
+            </p>
+          </section>
         </section>
 
-        <section>
-          <p>All images Creative Commons licensed (commercial use).</p>
-          <ul>
-            <li>[ ... ]</li>
-          </ul>
-        </section>
-        
-        </section>
+      </div>
+    </div>
 
-			</div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
 
-		</div>
+    <script>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+// Full list of configuration options available at:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+  width: '90%',
+  height: '100%',
+  controls: true,
+  progress: true,
+  history: true,
+  center: true,
 
-		<script>
+  transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+    // Optional reveal.js plugins
+  dependencies: [
+  { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+  { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+  { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+    { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+  ]
+});
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+    </script>
 
-				// Optional reveal.js plugins
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
-
-		</script>
-
-	</body>
+  </body>
 </html>
