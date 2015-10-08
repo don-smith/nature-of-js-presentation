@@ -410,7 +410,7 @@ function makeTransparent() {
             <ul>
               <li>In JavaScript every object has its own <em>prototype</em></li>
               <li>Each prototype has its own prototype, and so on down the chain until <code>null</code> is reached</li>
-              <li>Properties are first looked for in the object itself (see: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty"><code>hasOwnProperty</code></a>, then in its prototype, then in the prototype's prototype, and so on</li>
+              <li>Properties are first looked for in the object itself (see: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty"><code>hasOwnProperty</code></a>) then in its prototype, then in the prototype's prototype, and so on</li>
             </ul>
           </section>
 
@@ -608,8 +608,6 @@ console.log(sum1, sum2, sum3); // 15 15 15</code></pre>
             <li><a href="http://bjorn.tipling.com/all-this">all this</a></li>
             <li><a href="http://www.sitepoint.com/javascript-this-event-handlers/">JavaScript 'this' and event handlers</a></li>
             <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain">Inheritance and the prototype chain</a></li>
-            <li><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> (MDN)</li>
-            <li><a href="https://thomashunter.name/blog/the-long-road-to-asyncawait-in-javascript/">The Long Road to Async/Await in JavaScript</a></li>
             <li><a href="http://colintoh.com/blog/lodash-10-javascript-utility-functions-stop-rewriting">Lodash: 10 JavaScript Utility Functions That You Should Probably Stop Rewriting</a></li>
             <li><a href="https://babeljs.io/docs/learn-es2015/">Learn ES2015</a></li>
             <li><a href="http://exploringjs.com/es6/">Exploring ES6 (free online book</a>)</li>
@@ -1055,7 +1053,7 @@ function displayWombats(data) {
             <pre><code>getWombatsFromServer()
   .then(displayWombats)
   .then(function () {
-    console.log("All wombats present and accounted for.");
+    console.log("All wombats accounted for.");
   });</code></pre>
 
             <li>There's plenty more to promises, including the ability to handle failure gracefully using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch"><code>catch</code></a>. </li>
@@ -1079,6 +1077,15 @@ function displayWombats(data) {
             <li> Function execution only continues when the <code>await</code> resolves</li>
           </ul>
             </aside>
+        </section>
+
+        <section>
+          <h2>Further Reading</h2>
+
+          <ul>
+            <li><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> (MDN)</li>
+            <li><a href="https://thomashunter.name/blog/the-long-road-to-asyncawait-in-javascript/">The Long Road to Async/Await in JavaScript</a></li>
+          </ul>
         </section>
 
         <!-- SECTION 5 -->
@@ -1567,6 +1574,7 @@ function sendWombatResponse(err, wombat) {
   }
 }</code></pre>
           </section>
+
           <section>
             <aside class="notes">
               <ul>
@@ -1590,7 +1598,6 @@ function sendWombatResponse(err, wombat) {
       });
   });</code></pre>
           </section>
-
         </section>
 
         <section data-background="img/aardvark.gif">
@@ -1598,22 +1605,37 @@ function sendWombatResponse(err, wombat) {
         </section>
 
         <section>
-
           <section data-background="img/backgrounds/cranes.jpg">
             <h1>Attributions</h1>
           </section>
 
           <section>
             <p>All images Creative Commons licensed (commercial use).</p>
-            <ul>
-              <li>[ ... ]</li>
-            </ul>
+            <p>
+              <a href="https://www.flickr.com/photos/tompagenet/">Tom Page</a>, 
+              <a href="https://www.flickr.com/photos/swallowtailgardenseeds/">Swallowtail Garden Seeds</a>, 
+              <a href="https://www.flickr.com/photos/42244964@N03/">Frank Vassen</a>, 
+              <a href="https://www.flickr.com/photos/dianasch/">Diana Robinson</a>, 
+              <a href="https://www.flickr.com/photos/usfwsmidwest/">USFWSmidwest</a>, 
+              <a href="https://www.flickr.com/photos/tehbieber/">Robert Bieber</a>, 
+              <a href="https://www.flickr.com/photos/islandgyrl/">Christine Olson</a>, 
+              <a href="https://www.flickr.com/photos/puliarfanita/">Anita Ritenour</a>, 
+              <a href="https://www.flickr.com/photos/judemasti/">smalljude</a>, 
+              <a href="https://www.flickr.com/photos/t3rmin4t0r/">Gopal Vijayaraghavan</a>, 
+              <a href="https://www.flickr.com/photos/tom_hall_nz/">Tom Hall</a>, 
+              <a href="https://www.flickr.com/photos/72562013@N06/">Chris Phutully</a>, 
+              <a href="https://www.flickr.com/photos/42244964@N03/">Frank Vassen</a>, 
+              <a href="https://www.flickr.com/photos/24874528@N04/">Airwolfhound</a>, 
+              <a href="https://www.flickr.com/photos/tambako/">Tambako the Jaguar</a>,
+              <a href="https://www.flickr.com/photos/arcticwoof/">Arctic Wolf</a>, 
+              <a href="https://www.flickr.com/photos/martinteschner/">Martin Teschner</a>, 
+              <a href="https://www.flickr.com/photos/dave_see/">dave.see</a>, 
+              <a href="https://www.flickr.com/photos/dkeats/">Derek Keats</a> 
+            </p>
           </section>
-
         </section>
 
       </div>
-
     </div>
 
     <script src="lib/js/head.min.js"></script>
