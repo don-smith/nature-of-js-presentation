@@ -950,6 +950,7 @@ expect(bar).to.have.property('population').with.length(9);</code></pre>
             <li><a href="http://thejsguy.com/2015/01/12/jasmine-vs-mocha-chai-and-sinon.html">Jasmine vs. Mocha, Chai, and Sinon</a></li>
           </ul>
         </section>
+        </section>
 
 
         <!-- SECTION 4 -->
@@ -957,6 +958,7 @@ expect(bar).to.have.property('population').with.length(9);</code></pre>
           <h1 class="offset-bottom">Asynchronous JavaScript</h1>
         </section>
 
+        <section>
         <section>
           <h1>Callbacks</h1>
           <aside class="notes">
@@ -982,54 +984,65 @@ function incrementAll(numbers, callback) {
 }
 
 incrementAll([1, 2, 3, 4, 5], displayResults);</code></pre>
-
+        <aside class="notes">
           <ul>
             <li> Here, the function <code>displayResults</code> is passed as a <em>callback</em> to <code>incrementAll</code>.</li>
             <li> It outputs values to the console, but we could just as easily pass in a function which further modifies the array</li> </ul> * Many JavaScript standard library functions use callbacks, often optionally. For example:
-              </ul>
+          </ul>
+        </aside>
         </section>
-        <section>
-          <pre><code>    function even(n) {
-      return n % 2;
-    }
 
-    console.log([1, 2, 3, 4, 5].filter(even)); // [1, 3, 5]</code></pre>
+        <section>
+          <pre><code>function even(n) {
+  return n % 2;
+}
+
+console.log([1, 2, 3, 4, 5].filter(even)); // [1, 3, 5]</code></pre>
 
           <ul>
             <li> <code>even</code> serves as a callback to <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter"><code>Array.filter</code></a></li>
             <li>Callbacks can be inline, which should only be used if it improves readability (i.e. not for lengthy callbacks)</li>
 
-            <pre><code>    console.log([1, 2, 3, 4, 5].filter( function () { return n % 2; } );</code></pre>
+            <pre><code>console.log([1, 2, 3, 4, 5].filter(function () { 
+  return n % 2; 
+});</code></pre>
           </ul>
+        </section>
         </section>
 
         <section>
+        <section>
           <h1>Promises</h1>
-          <aside class="notes">
+        </section>
+        <section>
             <ul>
               <li>A <em>promise</em> is an operation that we expect to complete at a future time</li>
-              <li>Allows us to guarantee order of execution in an asynchronous language</li>
 
-              <pre><code>    function showWombats() {
-      let wombats = getWombatsFromServer();
-      displayWombats(wombats);
-    }</code></pre>
+              <pre><code>function showWombats() {
+  let wombats = getWombatsFromServer();
+  displayWombats(wombats);
+}</code></pre>
 
-              <li> In a synchronous language, program execution will pause until <code>getWombatsFromServer</code> returns. In JavaScript, execution will continue</li>
               <li> Unless <code>getWombatsFromServer</code> returns almost instantaneously, <code>wombats</code> will be undefined and attempting to display it will have unpredictable results</li>
             </ul>
+              <aside class="notes">
+                <ul>
+              <li> In a synchronous language, program execution will pause until <code>getWombatsFromServer</code> returns. In JavaScript, execution will continue</li>
+              <li>Allows us to guarantee order of execution in an asynchronous language</li>
+            </ul>
+              </aside>
         </section>
         <section>
           <ul>
             <li>Consider the same function using promises:</li>
 
-            <pre><code>    function showWombats() {
-      getWombatsFromServer().then(displayWombats);
-    }
+            <pre><code>function showWombats() {
+  getWombatsFromServer().then(displayWombats);
+}
 
-    function displayWombats(data) {
-      // ...
-    }</code></pre>
+function displayWombats(data) {
+  // ...
+}</code></pre>
 
             <li> Here we guarantee that the call to display won't occur until after the server request has returned, even if it takes several seconds to complete</li>
           </ul>
@@ -1039,14 +1052,15 @@ incrementAll([1, 2, 3, 4, 5], displayResults);</code></pre>
           <ul>
             <li>Calls to <code>then</code> can be chained to further control the order of execution:</li>
 
-            <pre><code>    getWombatsFromServer()
-      .then(displayWombats)
-      .then(function () {
-        console.log("All wombats present and accounted for.");
-      });</code></pre>
+            <pre><code>getWombatsFromServer()
+  .then(displayWombats)
+  .then(function () {
+    console.log("All wombats present and accounted for.");
+  });</code></pre>
 
             <li>There's plenty more to promises, including the ability to handle failure gracefully using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch"><code>catch</code></a>. </li>
           </ul>
+        </section>
         </section>
 
         <section>
@@ -1054,14 +1068,17 @@ incrementAll([1, 2, 3, 4, 5], displayResults);</code></pre>
           <ul>
             <li>In <em>ES7</em> (yep, another version!) the <code>async</code>/<code>await</code> keywords provide another approach to asynchronous code</li>
 
-            <pre><code>    async function showWombats() {
-      let wombats = await getWombatsFromServer();
-      displayWombats(wombats);
-    }</code></pre>
+            <pre><code>async function showWombats() {
+  let wombats = await getWombatsFromServer();
+  displayWombats(wombats);
+}</code></pre>
 
+            <aside class="notes">
+            <ul>
             <li> Users of async/await in C# will find the syntax very familiar</li>
             <li> Function execution only continues when the <code>await</code> resolves</li>
           </ul>
+            </aside>
         </section>
 
         <!-- SECTION 5 -->
@@ -1103,27 +1120,31 @@ incrementAll([1, 2, 3, 4, 5], displayResults);</code></pre>
             <ul>
               <li>Node's module system came from <a href="https://en.wikipedia.org/wiki/CommonJS">CommonJS</a>. You may encounter a lot of code that looks like this:</li>
 
-              <pre><code>    var http = require('http');
-    var foo = require('foo');</code></pre>
+              <pre><code>var http = require('http');
+var foo = require('foo');</code></pre>
 
               <li>It's certainly possible to use <em>ES6</em> <code>import</code>s:</li>
 
-              <pre><code>    import http from 'http';
-    import path from 'path';</code></pre>
+              <pre><code>import http from 'http';
+import path from 'path';</code></pre>
             </ul>
           </section>
           <section>
+            <h2>Transpilers</h2>
+            <aside class="notes">
             <ul>
               <li>Because these features are fairly new to the language, it's necessary to use a <em>transpiler</em> to translate the ES6 features of the language into something that can be readily understood by Node. As the toolset matures, this should gradually become unnecessary.</li>
+            </ul>
+            </aside>
 
-              <pre><code>    var gulp = require('gulp');
-    var babel = require('gulp-babel');
+              <pre><code>var gulp = require('gulp');
+var babel = require('gulp-babel');
 
-    gulp.task('default', function() {
-        return gulp.src('server.js')
-            .pipe(babel())
-            .pipe(gulp.dest('dist'));
-    });</code></pre>
+gulp.task('default', function() {
+  return gulp.src('server.js')
+    .pipe(babel())
+    .pipe(gulp.dest('dist'));
+});</code></pre>
 
               <li> Here we use <a href="https://babeljs.io">Babel</a> to process the server file, then output to the <code>dist</code> directory</li>
             </ul>
@@ -1139,7 +1160,6 @@ incrementAll([1, 2, 3, 4, 5], displayResults);</code></pre>
         </section>
 
         <section>
-
           <section>
             <h1>Express</h1>
             <aside class="notes">
@@ -1148,58 +1168,60 @@ incrementAll([1, 2, 3, 4, 5], displayResults);</code></pre>
                 <li>Has features for defining models, serving static content, and exposing APIs</li>
               </ul>
             </aside>
+          </section>
 
+          <section>
             <ul>
               <li>For example, a minimal HTTP server can be written like so:</li>
-              <pre><code>    import http from 'http';
-    import path from 'path';
-    import express from 'express';
+            </ul>
+              <pre><code>import http from 'http';
+import path from 'path';
+import express from 'express';
 
-    let router = express();
-    let server = http.createServer(router);
+let router = express();
+let server = http.createServer(router);
 
-    router.use(express.static(path.resolve(__dirname, '../client')));
+router.use(
+  express.static(path.resolve(__dirname, '../client'))
+);
 
-    server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
-      console.log("Ok");
-    });</code></pre>
+server.listen(3000, "0.0.0.0", function(){
+  console.log("Ok");
+});</code></pre>
 
+              <aside class="notes">
+                <ul>
               <li> This serves everything in the <code>client</code> directory as static content</li>
               <li> The port to listen on is held in the environment variable `$PORT`</li>
             </ul>
+              </aside>
           </section>
 
           <section>
             <h2>Everything is 'middleware'</h2>
             <ul>
-              <li> Flow of execution is passed from middleware to middleware using the <code>next</code> function.</li>
+              <li> Flow of execution is passed from middleware to middleware using the <code>next()</code> function.</li>
             </ul>
+          </section>
 
-            <pre><code>    // app.js
-    import authenticate from 'authenticate';
-    import aardvarks from 'aardvarks';
+          <section>
+            <pre><code>// app.js
+import authenticate from 'authenticate';
+import aardvarks from 'aardvarks';
+app.use('/aardvarks', authenticate);
+app.use('/aardvarks', aardvarks);
 
-    app.use('/aardvarks', authenticate);
-    app.use('/aardvarks', aardvarks);
+// authenticate.js
+app.all('/aardvarks', function (req, res, next) {
+  if (someUserAuthTest) next();
+  res.status(401).json({ message: 'Please login.' });
+});
 
-
-    // authenticate.js
-    app.all('/aardvarks', function (req, res, next) {
-      checkUserAuth().then(function (user) {
-        if (user.isAuthenticated()) {
-          req.user = user;
-          next();
-        }
-        res.status(401).json({ message: 'Please login to access this resource.' });
-      });
-    });
-
-
-    // aardvarks.js
-    app.get('/aardvarks', function (req, res, next) {
-      let aardvark = new Aardvark();
-      res.json(aardvark);
-    });</code></pre>
+// aardvarks.js
+app.get('/aardvarks', function (req, res, next) {
+  let aardvark = new Aardvark();
+  res.json(aardvark);
+});</code></pre>
 
             <aside class="notes">
               <ul>
@@ -1222,19 +1244,19 @@ incrementAll([1, 2, 3, 4, 5], displayResults);</code></pre>
               </ul>
             </aside>
 
-            <pre><code>    import feathers from 'feathers';
-    import bodyParser from 'body-parser';
-    import mongoService from 'feathers-mongo';
+            <pre><code>import feathers from 'feathers';
+import bodyParser from 'body-parser';
+import mongoService from 'feathers-mongo';
 
-    let app = feathers()
-      .configure(feathers.rest());
-      .use(bodyParser.json())
-      .use('aardvarks', new mongoService('aardvarks'));
+let app = feathers()
+  .configure(feathers.rest());
+  .use(bodyParser.json())
+  .use('aardvarks', new mongoService('aardvarks'));
 
-    let port = 8080;
-    app.listen(port, function () {
-      console.log(`Listening for Orycteropus afer on port ${port}...`);
-    });</code></pre>
+let port = 8080;
+app.listen(port, function () {
+  console.log(`Listening for Orycteropus afer on ${port}...`);
+});</code></pre>
           </section>
 
         </section>
@@ -1269,24 +1291,26 @@ incrementAll([1, 2, 3, 4, 5], displayResults);</code></pre>
 
           <section>
             <h2>JSON</h2>
-            <pre><code>    {
-      "__v": 0,
-      "_id": "55fb213fac8d99ce3fb1b47c",
-      "name": "Fitzgerald",
-      "stomachContents": [
-        "ant", "ant", "termite", "ant"
-      ],
-      "latinName": {
-        "genus": "Orycteropus",
-        "species": "afer"
-      },
-      "nocturnal": true
-    }</code></pre>
+            <pre><code>{
+  "__v": 0,
+  "_id": "55fb213fac8d99ce3fb1b47c",
+  "name": "Fitzgerald",
+  "stomachContents": [
+    "ant", "ant", "termite", "ant"
+  ],
+  "latinName": {
+    "genus": "Orycteropus",
+    "species": "afer"
+  },
+  "nocturnal": true
+}</code></pre>
+          </section>
 
+          <section>
             <ul>
               <li>Do yourself a favour and read certainly <a href="http://json.org">the best JSON documentation on the Internet</a>.</li>
             </ul>
-            <aside>
+            <aside class="notes">
               <ul>
                 <li>Mongo happily accepts and dispenses documents as JavaScript Object Notation.</li>
                 <li>If a record is returned in the body of a response, it's not even necessary to call `JSON.parse` on it... it's already usable as a JavaScript object.</li>
@@ -1294,11 +1318,9 @@ incrementAll([1, 2, 3, 4, 5], displayResults);</code></pre>
               </ul>
             </aside>
           </section>
-
         </section>
 
         <section>
-
           <section data-background="img/backgrounds/mongoose.jpg">
             <h1 class="offset-bottom">Mongoose</h1>
             <aside class="notes">
@@ -1318,15 +1340,15 @@ incrementAll([1, 2, 3, 4, 5], displayResults);</code></pre>
               </ul>
             </aside>
 
-            <pre><code>    let itemSchema = new Schema({
-      name: String,
-      color: String
-    });
+            <pre><code>let itemSchema = new Schema({
+  name: String,
+  color: String
+});
 
-    let containerSchema = new Schema({
-      name: String,
-      items: [itemSchema]
-    });</code></pre>
+let containerSchema = new Schema({
+  name: String,
+  items: [itemSchema]
+});</code></pre>
           </section>
 
           <section>
@@ -1338,8 +1360,9 @@ incrementAll([1, 2, 3, 4, 5], displayResults);</code></pre>
             </aside>
             <ul>
               <li>Models are created using a schema:</li>
+            </ul>
 
-              <pre><code>    let Wombat = mongoose.model('Wombat', wombatSchema);</code></pre>
+              <pre><code>let Wombat = mongoose.model('Wombat', wombatSchema);</code></pre>
             </ul>
           </section>
 
@@ -1347,22 +1370,28 @@ incrementAll([1, 2, 3, 4, 5], displayResults);</code></pre>
             <ul>
               <li>Adding a document to the collection in the database requires creating a new instance of the model:</li>
 
-              <pre><code>    let myWombat = new Wombat({
-      name: "Holiday"
-    });
-    myWombat.save(function (err) {
-      if (err) return handleError(err);
-    });</code></pre>
+              <pre><code>let myWombat = new Wombat({
+  name: "Holiday"
+});
+
+myWombat.save(function (err) {
+  if (err) return handleError(err);
+});</code></pre>
             </ul>
           </section>
+
           <section>
             <ul>
               <li>Schemas provide various methods for finding, altering and deleting documents:</li>
 
-              <pre><code>    Wombat.findOne({ 'name': 'Holiday' }, 'name', function (err, wombat) {
-      if (err) return handleError(err);
-      console.log('Found her!');
-    });</code></pre>
+              <pre><code>Wombat.findOne(
+  {'name': 'Holiday'}, 
+  'name', 
+  function (err, wombat) {
+    if (err) return handleError(err);
+    console.log('Found her!');
+  }
+);</code></pre>
 
               <li>See <a href="http://mongoosejs.com/docs/queries.html">Queries</a> for further details.</li>
             </ul>
@@ -1377,14 +1406,14 @@ incrementAll([1, 2, 3, 4, 5], displayResults);</code></pre>
               </ul>
             </aside>
 
-            <pre><code>    import mongoose, {Schema} from 'mongoose';
+            <pre><code>import mongoose, {Schema} from 'mongoose';
 
-    let wombatSchema = new Schema({
-      name: { type: String, required: true },
-      nocturnal: Boolean
-    });</code></pre>
+let wombatSchema = new Schema({
+  name: { type: String, required: true },
+  nocturnal: Boolean
+});</code></pre>
 
-            <li> Above, <code>name</code> must be supplied but <code>nocturnal</code> can be omitted. Attempting to save a <code>Wombat</code> without a <code>name</code> string will cause a validation error.</li>
+            <li><code>name</code> must be supplied but <code>nocturnal</code> can be omitted. Attempting to save a <code>Wombat</code> without a <code>name</code> string will cause a validation error.</li>
           </section>
         </section>
 
@@ -1408,56 +1437,57 @@ incrementAll([1, 2, 3, 4, 5], displayResults);</code></pre>
                 <li>In each case the address is the same or very similar, but the <em>HTTP verb</em> is different.</li>
                 <li>This allows the server to behave differently depending on the request. For example, using Express:</li>
               </ul>
+            </aside>
+          </section>
 
-              <pre><code>GET /wombats
-      - The same as visiting the resource in a browser
-      - HTTP status 200 for a successful request
+          <section>
+              <pre><code>GET /wombats - same as visiting in a browser
+  - HTTP status 200 for a successful request
 
-    GET /wombats/1
-      - Return a single wombat with id 1
-      - 200 for success
-      - 404 not found
+GET /wombats/1 - Return a single wombat with id 1
+  - 200 for success, 404 not found
 
-    POST /wombats
-      - Create a wombat
-      - 201 for resource created, and the response body should contain the wombat
+POST /wombats - Create a wombat
+  - 201 resource created, response body should contain it
 
-    PUT /wombats/1
-      - Edit or update the wombat with id 1
-      - 200 for resource edited, or 204 if the body doesn't contain the wombat
+PUT /wombats/1 - Edit or update the wombat with id 1
+  - 200 resource edited, 204 if the body doesn't contain it
 
-    DELETE /wombats/1
-      - Remove the wombat with id 1
-      - 200 for resource deleted, or 204 if the body doesn't contain the deleted resource</code></pre>
+DELETE /wombats/1 - Remove the wombat with id 1
+  - 200 for resource deleted, 204 if body doesn't contain it</code></pre>
           </section>
           <section>
-            <pre><code>    router.route('/wombats')
+            <pre><code>router.route('/wombats')
 
-      // GET /wombats
-      .get(function (req, res) {
-        Wombat.find(function (err, wombats) {
-          respond(res, err, wombats);
-        });
-      })
+  // GET /wombats
+  .get(function (req, res) {
+    Wombat.find(function (err, wombats) {
+      respond(res, err, wombats);
+    });
+  })
 
-      // POST /wombats
-      .post(function (req, res) {
-        let wombat = new Wombat();
-        wombat.name = req.body.name;
-        wombat.save(function (err) {
-          respond(res, err, wombat);
-        });
-      });
+function respond(res, err, wombats) {
+  if (err) {
+    res.send(err);
+  } else {
+    res.json(wombats);
+  }
+}</code></pre>
+          </section>
 
-    function respond(res, err, wombats) {
-      if (err) {
-        res.send(err);
-      } else {
-        res.json(wombats);
-      }
-    }</code></pre>
+          <section>
+            <pre><code>router.route('/wombats')
+  // POST /wombats
+  .post(function (req, res) {
+    let wombat = new Wombat();
+    wombat.name = req.body.name;
+    wombat.save(function (err) {
+      respond(res, err, wombat);
+    });
+  });</code></pre>
 
-            <aside>
+
+            <aside class="notes">
               <ul>
                 <li> Here, Express uses a different function for GET and POST verbs even though the address visited is identical.</li>
                 <li> In the case of GET, since there is no ID specified, it simply returns an array of wombats (as JSON).</li>
@@ -1465,42 +1495,49 @@ incrementAll([1, 2, 3, 4, 5], displayResults);</code></pre>
               </ul>
             </aside>
           </section>
+
           <section>
-            <aside>
+            <aside class="notes">
               <ul>
                 <li>We can also tell Express to respond differently if a resource ID has been specified:</li>
               </ul>
             </aside>
 
-            <pre><code>    router.route('/wombats/:id')
+            <pre><code>router.route('/wombats/:id')
 
-      // GET /wombats/12345
-      .get(function (req, res) {
-        Wombat.findById(req.params.id, function (err, wombat) { 
-          respond(res, err, wombat); 
-        });
-      })
+  // GET /wombats/12345
+  .get(function (req, res) {
+    Wombat.findById(req.params.id, function (err, wombat) { 
+      respond(res, err, wombat); 
+    });
+  })
 
-      // PUT /wombats/12345
-      .put(function (req, res) {
-        Wombat.findByIdAndUpdate(req.params.id, req.body, function (err, wombat) {
-          respond(res, err, wombat);
-        });
-      })
+  // PUT /wombats/12345
+  .put(function (req, res) {
+    Wombat.findByIdAndUpdate(req.params.id, req.body, 
+      function (err, wombat) {
+        respond(res, err, wombat);
+      }
+    );
+  })</code></pre>
+          </section>
 
-      // DELETE /wombats/12345
-      .delete(function (req, res) {
-        Wombat.findByIdAndRemove(req.params.id, req.body, function (err, wombat) {
-          respond(res, err, wombat);
-        });
-      });</code></pre>
+          <section>
+            <pre><code>router.route('/wombats/:id')
 
-            <aside>
+  // DELETE /wombats/12345
+  .delete(function (req, res) {
+    Wombat.findByIdAndRemove(req.params.id, req.body, 
+      function (err, wombat) {
+        respond(res, err, wombat);
+      }
+    );
+  });</code></pre>
+
               <ul>
                 <li> Express places the <code>id</code> in `req.params.id`.</li>
                 <li> The functions <code>findById</code>, <code>findByIdAndUpdate</code> and <code>findByIdAndRemove</code> are provided by Mongoose.</li>
               </ul>
-            </aside>
           </section>
 
           <section>
@@ -1516,22 +1553,22 @@ incrementAll([1, 2, 3, 4, 5], displayResults);</code></pre>
               </ul>
             </aside>
 
-            <pre><code>    router.route('/wombats/:id').get(retrieveOneWombat);
+            <pre><code>router.route('/wombats/:id').get(retrieveOneWombat);
 
-    function retrieveOneWombat(req, res) {
-      Wombat.findById(req.params.id, sendWombatResponse);
-    }
+function retrieveOneWombat(req, res) {
+  Wombat.findById(req.params.id, sendWombatResponse);
+}
 
-    function sendWombatResponse(err, wombat) {
-      if (err) {
-        res.send(err);
-      } else {
-        res.json(wombat);
-      }
-    }</code></pre>
+function sendWombatResponse(err, wombat) {
+  if (err) {
+    res.send(err);
+  } else {
+    res.json(wombat);
+  }
+}</code></pre>
           </section>
           <section>
-            <aside>
+            <aside class="notes">
               <ul>
                 <li> This is a simple re-working of the sample code in the previous section, avoiding the use of inline functions for clarity.</li>
                 <li> There are two callbacks: <code>retrieveOneWombat</code> and <code>sendWombatResponse</code>.</li>
@@ -1543,15 +1580,15 @@ incrementAll([1, 2, 3, 4, 5], displayResults);</code></pre>
             <ul>
               <li>Newer versions of Mongoose also support promises, so you can use:</li>
             </ul>
-            <pre><code>    router.route('/wombats/:id')
-      .get(function (req, res) {
-        Wombat
-          .findById(req.params.id)
-          .then(function (wombat) {
-            // ...
-            res.json(wombat);
-          });
-      });</code></pre>
+            <pre><code>router.route('/wombats/:id')
+  .get(function (req, res) {
+    Wombat
+      .findById(req.params.id)
+      .then(function (wombat) {
+        // ...
+        res.json(wombat);
+      });
+  });</code></pre>
           </section>
 
         </section>
