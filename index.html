@@ -42,7 +42,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
       <div class="slides">
 
         <section>
-          <img src="img/apidays-logo.png">
+          <img src="img/apidays-logo.png" alt="API Days Logo">
           <h1>The Nature of JS</h1>
           <div>Don Smith (<a href="http://twitter.com/locksmithdon">@locksmithdon</a>)</div>
           <div>Rich Churcher (<a href="http://twitter.com/richchurcher">@richchurcher</a>)</div>
@@ -55,148 +55,130 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
         <section>
           <h1>Why JavaScript?</h1>
-          <aside class="notes">
-            JS API consumption predates JS API provision by about 10 years. Asynchronous content loads date from late 90's, term AJAX coined in 2005.  Node from 2009: server-side JS
+          <aside class="notes" data-markdown>
+            * JS API consumption predates JS API provision by about 10 years. Asynchronous content loads date from late 90's, term AJAX coined in 2005.  
+            * Server-side JavaScript using Node since 2009
           </aside>
         </section>
 
         <section data-background="img/backgrounds/monkey_small.jpg">
           <h1 class="offset-bottom">Immediacy</h1>
-          <aside class="notes">
-            <ul>
-              <li> Supremely easy to get started, essentially zero cost entry point...</li>
-              <li> ...but like all projects, potentially expensive to maintain</li>
-              <li> Quick design-code-test-debug cycles</li>
-              <li> Potentially same developers on front and back end</li>
-            </ul>
+          <aside class="notes" data-markdown>
+            * Supremely easy to get started, essentially zero cost entry point...
+            * Potentially same developers on front and back end
+            * Quick design-code-test-debug cycles
           </aside>
         </section>
 
         <section data-background="img/backgrounds/rhino.jpg">
           <h1 class="offset-top">Reliability</h1>
-          <aside class="notes">
-            <ul>
-              <li> Large, mainstream frameworks (Google: Angular, Facebook: React)</li>
-              <li> Infrastructure investments (Google: V8, Microsoft: Chakra)</li>
-              <li> Thriving community (Node.js/IO.js/4.0, and NPM modules)</li>
-            </ul>
+          <aside class="notes" data-markdown>
+            * Infrastructure investments (Google: V8, Microsoft: Chakra)
+            * Large, mainstream frameworks (Google: Angular, Facebook: React)
+            * Thriving community (Node.js/IO.js/4.0, and NPM modules)
+            * As of Oct 2015, over 195K NPM packages
           </aside>
         </section>
 
         <section data-background="img/backgrounds/baby_koala.jpg">
           <h1 class="offset-top">Portability</h1>
-          <aside class="notes">
-            <ul>
-              <li> Blurring lines between browser and native (React Native, Phonegap)</li>
-              <li> No longer the wild west: *ES6*</li>
-            </ul>
+          <aside class="notes" data-markdown>
+            * Not only capable of building frontend and backend web, but mobile and desktop
+            * Blurring lines between browser and native (React Native, Phonegap)
+            * No longer the wild west: *ES6*
           </aside>
         </section>
 
         <section data-background="img/backgrounds/ants.jpg">
           <h1 class="offset-bottom">Maintainability</h1>
-          <aside class="notes">
-            <ul>
-              <li> Simple, well-established mechanisms for sharing and troubleshooting code (REPLs everywhere)</li>
-              <li> Voracious (and opinionated) community</li>
-              <li> <em>Lingua franca</em> effect: finding JS devs not difficult (quality variable)</li>
-            </ul>
+          <aside class="notes" data-markdown>
+            * Simple, well-established mechanisms for sharing and troubleshooting code (REPLs everywhere: jsfiddle.net, jsbin.com, plnkr.io, codepen.io)
+            * _Lingua franca_ effect: finding JS devs not difficult (quality variable)
+            * Reasonable debugging tools using the browser and nodemon
+            * Voracious (and opinionated) community
           </aside>
         </section>
 
         <section data-background="">
-          <h1>Why Not JavaScript?</h1>
+          <h1>Why not JavaScript?</h1>
         </section>
 
         <section data-background="img/backgrounds/kea_rope.jpg">
           <h1 class="offset-bottom">Tooling</h1> 
-          <aside class="notes">
-            <ul>
-              <li> even today, with WebStorm, and Visual Studio incorporating JS debugging, still nowhere near as good as those for statically typed languages</li>
-              <li> Can be hard to debug, particularly larger code bases</li>
-            </ul>
+          <aside class="notes" data-markdown>
+            * Even today, with WebStorm, and Visual Studio incorporating JS debugging, still not as good as statically typed languages
+            * Can be hard to debug, particularly larger code bases
           </aside>
         </section>
 
         <section data-background="img/backgrounds/flock.jpg">
-          <h1>Framework Churn</h1>
-          <aside class="notes">
-            <ul>
-              <li> makes assessing the correct tool for your current job more challenging</li>
-              <li> may mean poorer documentation, out of date tutorials, lost time</li>
-            </ul>
+          <h1>Framework churn</h1>
+          <aside class="notes" data-markdown>
+            * Makes assessing the correct tool for a particular task more challenging
+            * May mean poorer documentation, out of date tutorials, lost time
           </aside>
         </section>
 
         <section data-background="img/wombat.gif">
           <h1 class="offset-top">Speed</h1>
-          <aside class="notes">
-            <ul>
-              <li> Traditional response to speed concerns around JS is, "processing speed always increases"</li>
-              <li> Compare with eg Go, other compiled backend languages</li>
-            </ul>
+          <aside class="notes" data-markdown>
+            * Traditional response to speed concerns around JS is, "processing speed always increases"
+            * Compared with Go and other compiled backend languages
           </aside>
         </section>
 
         <section data-background="img/backgrounds/zebras.jpg">
-          <h1>Regional Preference</h1>
-          <aside class="notes">
-            <ul>
-              <li> Full-stack JavaScript perhaps less common in New Zealand</li>
-              <li> May mean delays in finding developers for support/maintenance, although this is changing</li>
-            </ul>
+          <h1>Regional preference</h1>
+          <aside class="notes" data-markdown>
+            * Full-stack JavaScript perhaps less common in New Zealand
+              - May mean delays in finding developers for support/maintenance, although this is changing
           </aside>
         </section>
 
 
         <section data-background="">
-          <h1>Why APIs?</h1>
+          <h1>Why Web APIs?</h1>
         </section>
 
         <section data-background="img/backgrounds/urchins.jpg">
           <h1 class="offset-top">Decoupled</h1>
-          <aside class="notes">
-            <ul>
-              <li> UX can be developed independently</li>
-              <li> Arbitrary partitioning: microservices or monolithic</li>
-              <li> Arbitrary language/stack, everything groks JSON</li>
-              <li> Versioning</li>
-              <li> Common formats (JSON: .doc for the web?)</li>
-            </ul>
+          <aside class="notes" data-markdown>
+            * UX can be developed independently
+              * Arbitrary partitioning: microservices or monolithic
+              * Arbitrary language/stack, everything groks JSON
+            * Common formats (JSON: .doc for the web?)
+            * Can be versioned independently
           </aside>
         </section>
 
         <section data-background="img/backgrounds/giraffe.jpg">
           <h1>Expose public data sets</h1>
-          <aside class="notes">
-            <ul>
-              <li> Independent of current application</li>
-              <li> Consumers at organisational level, paying clients, or open</li>
-            </ul>
+          <aside class="notes" data-markdown>
+            * Independent of consuming applications
+            * Consumers at organisational level, paying clients, or open
           </aside>
         </section>
 
         <section data-background="img/backgrounds/polar.jpg">
-          <h1>Guarantees</h1>
-          <aside class="notes">
-            <ul>
-              <li> Contract with consumers: if you format your request <em>this way</em>, your data will always look <em>like this</em></li>
-            </ul>
+          <h1>Clear expectations</h1>
+          <aside class="notes" data-markdown>
+            * Simple and straight-forward requests response model
+            * Discovery through HATEOAS Level 3 of the Richardson Maturity Model
+              - HATEOAS: Hypertext As The Engine Of Application State
+            * Good debugging tools like Postman
           </aside>
         </section>
 
 
         <section data-background="">
-          <h1>Why Not APIs?</h1>
-          <aside class="notes">
-            <ul>
-              <li> Every request across HTTP is a time sink</li>
-            </ul>
+          <h1>Why not Web APIs?</h1>
+          <aside class="notes" data-markdown>
+            * Every request across HTTP has latency
           </aside>
         </section>
 
         <section>
-          <h2>Further Reading</h2>
+          <h2>Further reading</h2>
           <ul>
             <li> <a href="http://www.infoworld.com/article/2907190/javascript/javascript-will-lead-a-massive-shift-in-enterprise-development.html">JavaScript will lead a massive shift in enterprise development</a></li>
           </ul>
