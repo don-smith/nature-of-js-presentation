@@ -187,7 +187,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
         <!-- SECTION 2 -->
         <section data-background="img/backgrounds/night_lake.jpg">
-          <h1>JavaScript: Surviving in the Wild</h1>
+          <h1>JavaScript: Surviving in the wild</h1>
         </section>
 
 
@@ -196,16 +196,14 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
           <h2 class="fragment">EcmaScript</h2>
           <h2 class="fragment">ES6</h2>
           <h2 class="fragment">ES2015</h2>
-          <aside class="notes">
-            <ul>
-              <li> JavaScript is the common/generic name of the language. </li>
-              <li> EcmaScript refers to the language’s specification. </li>
-              <li> ES6 refers to the 6th edition of that spec. </li>
-              <li> EcmaScript 2015 is the title of the 6th edition of the spec. </li>
-              <li> Yes, we know this is ridiculous, but you will most certainly run across all of these on the web. </li>
-              <li> For the purpose of this workshop, we will use <em>JavaScript</em> as much as possible, and <em>ES6</em> when we are referring to a language feature that was added in the latest version of the spec only because it has fewer syllables when pronounced."</li>
-              <li> All examples in this workshop assume <em>strict mode</em>. Incorporating <a href="https://babeljs.io">Babel</a> into your workflow will take care of this for you. All <em>ES6</em> modules are in strict mode by default.</li>
-            </ul>
+          <aside class="notes" data-markdown>
+            * JavaScript is the common/generic name of the language. 
+              * EcmaScript refers to the language’s specification. 
+                * ES6 refers to the 6th edition of that spec. 
+                * EcmaScript 2015 is the title of the 6th edition of the spec. 
+            * Yes, we know this is ridiculous, but you will most certainly run across all of these on the web. 
+            * For the purpose of this workshop, we will use _JavaScript_ as much as possible, and _ES6_ when we are referring to a language feature that was added in the latest version of the spec only because it has fewer syllables when pronounced."
+            * All examples in this workshop assume _strict mode_. Incorporating [Babel](https://babeljs.io) into your workflow will take care of this for you. All _ES6_ modules are in strict mode by default.
           </aside>
         </section>
 
@@ -214,29 +212,36 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
             <h2>Function level scope</h2>
             <ul>
               <li>Unlike languages with <em>block level scope</em>, in JavaScript blocks do not create their own restricted scope</li>
-              <pre><code>function foo () {
+            </ul>
+            <pre><code class="js">function foo () {
   for (var i = 0; i < 10; i++) { }
 
   console.log(i); // 10
 }</code></pre>
-
-              <li>Here, <code>i</code> is available anywhere within <code>foo</code></li></ul>
-            <aside class="notes">
-              <ul>
-                <li>In the past, was often recommended that <code>var</code> statements occur at the beginning of functions to avoid unwelcome surprises caused by this behaviour</li>
-                <li>With <em>ES6</em>, <code>var</code> can largely be replaced by <code>let</code></li>
-              </ul>
+            <ul>
+              <li>Here, <code>i</code> is available anywhere within <code>foo</code></li>
+            </ul>
+            <aside class="notes" data-markdown>
+              * In the past, was often recommended that `var` statements occur at the beginning of functions to avoid unwelcome surprises caused by this behaviour
+                * With _ES6_, `var` can largely be replaced by `let`
+              * https://jsbin.com/memopi/edit?js,console
             </aside>
           </section>
 
           <section>
             <h2><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/let"><code>let</code></a> </h2>
-            <li> Restricts scope to its block, statement or expression:</li>
-            <pre><code>function bar () {
+            <ul>
+              <li>Restricts scope to its block, statement or expression:</li>
+            </ul>
+            <pre><code class="js">function bar () {
   for (let i = 0; i < 10; i++) { }
 
   console.log(i); // undefined
 }</code></pre>
+
+            <aside class="notes" data-markdown>
+              * https://jsbin.com/warevab/edit?js,console
+            </aside>
           </section>
 
           <section>
@@ -244,12 +249,15 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
             <ul>
               <li> Creates a reference to a value that cannot be altered:</li>
-              <pre><code>// TypeError: assignment to constant
+            </ul>
+            <pre><code class="js">// TypeError: assignment to constant
 function wombat () {
   const n = 5;
   n++;
 }</code></pre>
-            </ul>
+            <aside class="notes" data-markdown>
+              * https://jsbin.com/jizivi/1/edit?js,console
+            </aside>
           </section>
         </section>
 
@@ -263,7 +271,7 @@ function wombat () {
             </ul>
           </section>
           <section>
-            <pre><code>function foo() {
+            <pre><code class="js">function foo() {
   let n = 1;
   return bar;
 
@@ -273,13 +281,16 @@ function wombat () {
   }
 }
 
-let bar = foo();
-bar();          // 1
-bar();          // 2
+let baz = foo();
+baz();          // 1
+baz();          // 2
 
 let wombat = foo();
 wombat();       // 1
-bar();          // 3</code></pre>
+baz();          // 3</code></pre>
+            <aside class="notes" data-markdown>
+              * https://jsbin.com/cibibe/1/edit?js,console
+            </aside>
           </section>
           <section>
             <ul>
@@ -298,18 +309,18 @@ bar();          // 3</code></pre>
               <li> Watch out for legacy JS, where it can unexpectedly default to the window object and lead to some unintuitive behaviour</li>
               <li>Best practice is to <em>be explicit</em></li>
             </ul>
-            <aside class="notes">
-              <ul>
-                <li> Best practice is to <em>be explicit</em>: never assume that the next developer to read your code understands the nuances of <code>this</code></li>
-                <li> Think <em>functionally</em>: avoid altering global or object level state</li>
-              </ul>
+            <aside class="notes" data-markdown>
+              * Best practice is to _be explicit_: never assume that the next developer to read your code understands the nuances of `this`
+              * Think _functionally_: avoid altering global or object level state
             </aside>
           </section>
 
           <section>
-            <ul><li>Value of <code>this</code> depends on the execution context:</li></ul>
+            <ul>
+              <li>Value of <code>this</code> depends on the execution context:</li>
+            </ul>
 
-            <pre><code>// Value of 'this' set to Window object
+            <pre><code class="js">// Value of 'this' set to Window object
 console.log(this);   
 
 function foo () {
@@ -318,35 +329,31 @@ function foo () {
 
 let bar = {
   wombat: function () {
-    // Value of this is the object the 
-    // method is called on
+    // Value of 'this' is the object the 
+    // method is called on: 'bar' in this case
     console.log(this); 
   }
 };</code></pre>
-
-            <ul><li><code>this</code> is the object <code>bar</code></li><ul>
           </section>
 
           <section>
-            <ul><li><code>this</code> can be tricky when used in event handlers. Generally its value is the DOM element which fired the event:</li>
-
-              <pre><code>let foo = document.getElementById('foo');
+            <ul>
+              <li><code>this</code> can be tricky when used in event handlers. Generally its value is the DOM element which fired the event:</li>
+            </ul>
+            <pre><code class="js">let foo = document.getElementById('foo');
 foo.onclick = makeGreen;
 
 function makeGreen() {
   // 'this' is the &lt;p&gt; DOM element
   this.style.backgroundColor = 'green';
 }</code></pre>
-            </ul>
           </section>
 
           <section>
-            <aside class="notes">
-              <ul>
-                <li>However, each function has its own <code>this</code>, which can lead to tricky situations with surrounding functions:</li>
-              </ul>
-            </aside>
-            <pre><code>let foo = document.getElementById('foo');
+            <ul>
+              <li>But when a function isn't called as a method of an object...</li>
+            </ul>
+            <pre><code class="js">let foo = document.getElementById('foo');
 foo.onclick = toggleGreen;
 
 function toggleGreen() {
@@ -369,17 +376,18 @@ function makeTransparent() {
           <section>
             <ul>
               <li>Use of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call"><code>call</code></a> invokes a function with the desired value of <code>this</code>:</li>
-
-              <pre><code>if (this.style.backgroundColor === 'green') {
+            </ul>
+              <pre><code class="js">if (this.style.backgroundColor === 'green') {
   makeTransparent.call(this);
 }</code></pre>
-
+            <ul>
               <li>Compare <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind"><code>bind</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply"><code>apply</code></a></li>
-
-              <aside class="notes">
-                <li>Cross-browser issues (particularly with earlier versions of Internet Explorer) can yield surprising results, with <code>this</code> being set to the global window object.</li>
-              </aside>
             </ul>
+            <aside class="notes" data-markdown>
+              * https://jsbin.com/xirapa/1/edit?js,console,output
+              * Cross-browser issues (particularly with earlier versions of Internet Explorer) can yield surprising results, with <code>this</code> being set to the global window object.</li>
+              </ul>
+            </aside>
           </section>
 
         </section>
@@ -398,21 +406,22 @@ function makeTransparent() {
 
           <section>
             <ul>
-              <li>It's useful to remember the difference between giving one distinct object a property:</li>
-
-              <pre><code>let foo = {
+              <li>It's useful to remember the difference between giving one distinct object a property ...</li>
+            </ul>
+            <pre><code class="js">let foo = {
   aardvarks: function() { 
     console.log("I see many aardvarks.");
   }
 };
 
 foo.aardvarks(); // I see many aardvarks</code></pre>
-              <li>and giving all objects created with a particular constructor function access to the property:</li>
-            </ul>
           </section>
 
           <section>
-              <pre><code>function AardvarkCounter(n) {
+            <ul>
+              <li>... and giving all objects created with a particular constructor function access to the property:</li>
+            </ul>
+            <pre><code class="js">function AardvarkCounter(n) {
   this.count = n;
 }
 
@@ -420,24 +429,24 @@ AardvarkCounter.prototype.aardvarks = function() {
   console.log(`I see ${this.count} aardvarks.`);
 };
 
-let firstCounter = AardvarkCounter(11);
-let secondCounter = AardvarkCounter(1337);
+let firstCounter = new AardvarkCounter(11);
+let secondCounter = new AardvarkCounter(1337);
 
 firstCounter.aardvarks();  // "I see 11 aardvarks."
 secondCounter.aardvarks(); // "I see 1337 aardvarks."</code></pre>
-            </ul>
+
+            <aside class="notes" data-markdown>
+              * https://jsbin.com/kohese/1/edit?js,console
+            </aside>
           </section>
 
           <section>
-            <aside class="notes">
             <ul>
               <li>Functions declared on the prototype are shared between all objects with that prototype</li>
               <li>Many libraries include the ability to copy properties from one object to another</li>
-              <li>One example using <a href="http://underscorejs.org">Underscore</a>: <a href="http://underscorejs.org/#extend"><code>extend</code></a></li>
+              <li>For example, using <a href="http://underscorejs.org">Underscore's</a> <a href="http://underscorejs.org/#extend"><code>extend</code></a>:</li>
             </ul>
-            </aside>
-
-            <pre><code>let foo = {
+            <pre><code class="js">let foo = {
   n: 5
 };
 
@@ -452,37 +461,40 @@ combined.wombat();
 console.log(combined.n); // 5</code></pre>
           </section>
         </section>
-        </section>
 
         <section>
           <section>
             <h2>Modules and Imports</h2>
 
             <ul>
-              <li>To make a property, function, or object available for use outside its own file (<em>module</em>), we use the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export"><code>export</code></a> keyword:</li>
-
-              <pre><code>// wombats.js
-
-export showWombats() {
-  // ...
-}</code></pre>
+              <li>To make a property, function, or object available outside its own file (<em>module</em>), prefix it with the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export"><code>export</code></a> keyword:</li>
             </ul>
+              <pre><code class="js">// wombats.js
+
+export const metabolism = 4;
+
+export function showWombats() {
+  // ...
+};</code></pre>
+              <aside class="notes" data-markdown>
+                * https://gist.github.com/locksmithdon/96fb0ae2904f86c86e66
+              </aside>
           </section>
 
           <section>
             <ul>
               <li>To make use of this in another module, we use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import"><code>import</code></a>. The following will all make <code>showWombats</code> available:</li>
-
-              <pre><code>// Import the entire module
-import wombats from 'wombats';
+            </ul>
+              <pre><code class="js">// Import the entire module
+import wombats from './wombats';
 
 // Just one function
-import {showWombats} from 'wombats';
+import {showWombats} from './wombats';
 
 // Same as above, but give it a shorter alias
-import {showWombats as sw} from 'wombats';</code></pre> 
-
-              <li> In the first statement, <code>showWombats</code> would be referred to as `wombats.showWombats`</li>
+import {showWombats as sw} from './wombats';</code></pre> 
+            <ul>
+              <li> In the first statement, <code>showWombats</code> would be referred to as <code>wombats.showWombats</code></li>
             </ul>
           </section>
         </section>
@@ -492,54 +504,41 @@ import {showWombats as sw} from 'wombats';</code></pre>
             <h2>Underscore and Lo-Dash</h2>
 
             <ul>
-              <li>Utility libraries act as extensions to the JavaScript standard library, providing consistent and well-tested ways to interact with</li>
-              <li>Two of the most popular are <a href="http://underscorejs.org">Underscore</a> and its API-compatible alternative, <a href="http://lodash.com">Lo-Dash</a></li>
+              <li>Utility libraries act as extensions to the JavaScript standard library, providing consistent and well-tested ways to interact with data structures.</li>
+              <li>The two most popular are <a href="http://underscorejs.org">Underscore</a> and its API-compatible alternative, <a href="http://lodash.com">Lo-Dash</a></li>
             </ul>
 
-            <aside class="notes">
-            <ul>
-              <li>If you've ever wished that JavaScript had <em>X</em> feature from another language, chances are it (or something like it) is provided by a utility library</li>
-              <li>One of the key roles of a utility library is making it simpler, more expressive, and less error-prone to work with containers (an array, object, or string).</li>
-              <li>The question of which one to use has gotten quite political, and beyond our scope here. Either one will run the examples.</li>
-            </ul>
+            <aside class="notes" data-markdown>
+              * If you've ever wished that JavaScript had <em>X</em> feature from another language, chances are it (or something like it) is provided by a utility library
+              * One of the key roles of a utility library is making it simpler, more expressive, and less error-prone to work with data structures (an array, object, or string).
+              * The question of which one to use has gotten quite political, and beyond our scope here. Either one will run the examples.
             </aside>
           </section>
 
           <section>
-            <ul>
-              <li>Instead of this:</li>
-            </ul>
-
-              <pre><code>let aardvarks = [
-  "Snuffler", 
-  "Stinker", 
-  "Slappy", 
-  "Sadface"
-];
-for (let i = 0; i < aardvarks.length; i++) {
+            <ul><li>Given an array:</li></ul>
+            <pre><code class="js">let aardvarks = [
+  "Snuffler", "Stinker", "Slappy", "Sadface"
+];</code></pre>
+            <ul><li>You could do this:</li></ul>
+            <pre><code class="js">for (let i = 0; i < aardvarks.length; i++) {
   console.log(aardvarks[i]);
 }</code></pre>
+            <ul><li>Or this:</li></ul>
+            <pre><code class="js">_.each(aardvarks, console.log);</code></pre>
           </section>
+
+          <!-- 
+
+            I'm leaving these sections in for now, but I'm hiding 
+            them because I think it might be a bit too much. Plus 
+            a lot of lodash/underscore isn't needed with ES6.
 
           <section>
             <ul>
-              <li>Equivalent Underscore or Lo-Dash code might look like this:</li>
+              <li>Checking if an object has a particular propery is another common use case:</li>
             </ul>
-
-              <pre><code>// Do something once for each element in the container
-_.each(aardvarks, display); 
-
-function display(aardvark) {
-  console.log(aardvark);
-}</code></pre>
-          </section>
-
-          <section>
-            <ul>
-              <li>Here's another common use case: checking to see if an object has a particular property</li>
-            </ul>
-
-              <pre><code>let wombat = {
+            <pre><code class="js">let wombat = {
   registeredToVote: false,
   highlyOpinionated: true
 };
@@ -554,7 +553,7 @@ if (_.contains(_.keys(wombat), 'registeredToVote')) {
               <li>Some standard library functions are duplicated:</li>
             </ul>
 
-            <pre><code>// Standard library
+            <pre><code class="js">// Standard library
 let sum1 = [1, 2, 3, 4, 5].reduce( function (prev, curr) {
   return prev + curr;
 });
@@ -571,7 +570,7 @@ let sum3 = _([1, 2, 3, 4, 5]).reduce( function (total, n) {
 
 console.log(sum1, sum2, sum3); // 15 15 15</code></pre>
 
-            <aside class="notes">
+            <aside class="notes" data-markdown>
             <ul>
               <li>Why not use the standard library version?</li>
               <li> The same approach to work with anything that can be treated as a container (objects, strings, and arrays), so we don't need to explicitly convert to array and back again. This can give our code consistency and readibility.</li>
@@ -579,20 +578,33 @@ console.log(sum1, sum2, sum3); // 15 15 15</code></pre>
             </ul>
             </aside>
           </section>
+
+          -->
+
         </section>
 
         <section>
           <h2>Further Reading</h2>
 
           <ul>
-            <li><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/let">let</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const">const</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this">this</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call">call</a> (MDN)</li>
+            <li>
+              <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/let">let</a>, 
+              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const">const</a>, 
+              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this">this</a> (MDN)
+            </li>
             <li><a href="http://stackoverflow.com/a/111111/122643">Closures - canonical Stack Overflow answer</a></li>
             <li><a href="http://bjorn.tipling.com/all-this">all this</a></li>
+            <li>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call">call</a>,
+              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply">apply</a>,
+              <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind">bind</a> (MDN)
+            </li>
             <li><a href="http://www.sitepoint.com/javascript-this-event-handlers/">JavaScript 'this' and event handlers</a></li>
             <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain">Inheritance and the prototype chain</a></li>
             <li><a href="http://colintoh.com/blog/lodash-10-javascript-utility-functions-stop-rewriting">Lodash: 10 JavaScript Utility Functions That You Should Probably Stop Rewriting</a></li>
+            <li><a href="http://blog.xebia.com/2015/08/11/you-might-not-need-lodash-in-your-es2015-project">You might not need lodash in your ES2015 Project</a>
             <li><a href="https://babeljs.io/docs/learn-es2015/">Learn ES2015</a></li>
-            <li><a href="http://exploringjs.com/es6/">Exploring ES6 (free online book</a>)</li>
+            <li><a href="http://exploringjs.com/es6/">Exploring ES6</a> (free online book)</li>
           </ul>
         </section>
 
