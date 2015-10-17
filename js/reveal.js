@@ -144,7 +144,10 @@
 			viewDistance: 3,
 
 			// Script dependencies to load
-			dependencies: []
+      dependencies: [
+        { src: 'socket.io/socket.io.js', async: true },
+        { src: 'plugin/notes-server/client.js', async: true }
+      ]
 
 		},
 

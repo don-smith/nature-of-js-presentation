@@ -17,6 +17,10 @@ h1.offset-bottom {
   margin-top: 30%;
 }
 
+.reveal ol, .reveal dl, .reveal ul {
+  display: block; /* overrides moon theme of inline-block */
+}
+
 @media (min-width: 1080px) {
   #watermark {
     position: fixed;
