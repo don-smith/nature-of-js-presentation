@@ -615,10 +615,8 @@ console.log(sum1, sum2, sum3); // 15 15 15</code></pre>
         </section>
 
         <section>
-          <ul>
-            <li>JavaScript tooling is improving, but it also suffers from churn as millions of developers add their two cents on what the environment should look like, both client and server-side.</li>
-            <li>We couldn't possibly present an exhaustive overview of the ecosystem, but we think the following tools are mandatory for most professionals to at least be familiar with.</li>
-          </ul>
+          <p>Today, the JavaScript ecosystem is in a constant state of ... innovation ... as millions of developers contribute to client-side and server-side libraries and tools.</p>
+            <p>We couldn't possibly present an exhaustive overview of the ecosystem, but we think the following tools are mandatory for most JavaScript developers to at least be familiar with.</p>
         </section>
 
         <section>
@@ -630,13 +628,13 @@ console.log(sum1, sum2, sum3); // 15 15 15</code></pre>
               <li>Since its release in 2009, the <a href="https://www.npmjs.com">Node package manager</a> has become one of the most prolific package managers in the world </li>
               <li>Share packaged modules of JavaScript code</li>
               <li>Stipulate versions (or version ranges) for package dependencies</li>
-              <li>npm Registry contains a huge collection of modules </li>
+              <li>npm Registry contains over 195,000 modules: the largest of all package repositories</li>
               <li>Can install packages <em>locally</em> or <em>globally</em></li>
             </ul>
           </section>
 
           <section>
-            <pre><code>{
+            <pre><code class="json">{
   "name": "Aardvarks Ahoy",
   "version": "0.0.0",
   "description": "Orycterapus after",
@@ -659,8 +657,8 @@ console.log(sum1, sum2, sum3); // 15 15 15</code></pre>
 
           <section>
             <ul>
-              <li> Each package keeps a copy of its own dependencies in a nested folder structure (under <code>node_modules</code>)</li>
-              <li> This causes a lot of duplication on the server's file system, but since we're not running JavaScript in the browser it's rarely a problem</li>
+              <li>Each package keeps a copy of its own dependencies in a nested folder structure (under <code>node_modules</code>)</li>
+              <li>This causes a lot of duplication on the server's file system, but since we're not running JavaScript in the browser it's rarely a problem</li>
             </ul>
           </section>
 
@@ -673,15 +671,15 @@ console.log(sum1, sum2, sum3); // 15 15 15</code></pre>
 
             <ul>
               <li>Bower is ideally suited to managing packages for the client, because unlike npm it doesn't nest dependencies: there's only one copy of each</li>
-              <li> Much lighter weight, faster page loads</li>
-              <li> Interacts with Git, can install directly from a repository</li>
-              <li> Very common to use a combination of Bower and npm: they're not mutually exclusive</li>
-              <li>Controlled by bower.json:</li>
+              <li>Much lighter weight, faster page loads</li>
+              <li>Interacts with Git, can install directly from a repository</li>
+              <li>Very common to use a combination of Bower and npm: they're not mutually exclusive</li>
+              <li>Controlled by <code>bower.json</code>:</li>
             </ul>
           </section>
 
           <section>
-            <pre><code>{
+            <pre><code class="json">{
   "name": "Aardvarks Ahoy",
   "description": "Orycterapus after",
   "version": "0.0.0",
@@ -695,8 +693,8 @@ console.log(sum1, sum2, sum3); // 15 15 15</code></pre>
   "license": "MIT",
   "ignore": [ "**/.*", "node_modules", "bower_components" ],
   "dependencies": {
-    jquery: "~2.1.4",
-    lodash: "~3.10.1"
+    "jquery": "~2.1.4",
+    "lodash": "~3.10.1"
   }
 }</code></pre>
           </section>
@@ -704,14 +702,15 @@ console.log(sum1, sum2, sum3); // 15 15 15</code></pre>
           <section>
             <ul>
               <li>The above or something very like it would be generated with the following terminal commands:</li>
-              <code><pre>npm i bower --save-dev
+            </ul>
+            <pre><code class="bash">npm i bower --save-dev
 bower init
 bower install jquery lodash --save</code></pre>
 
-                <li> `bower init` fills most of the details out for you, including grabbing the GitHub repo as homepage, and adding any previously installed components</li>
-                <li> Subsequently, components can be included directly from `bower_components/packagename/packagename.js` or similar</li>
+            <ul>
+              <li><code>bower init</code> fills most of the details out for you, including grabbing the GitHub repo as homepage, and adding any previously installed components</li>
+              <li>Subsequently, components can be included directly from <code>bower_components/packagename/packagename.js</code> or similar</li>
             </ul>
-
           </section>
         </section>
 
@@ -722,19 +721,17 @@ bower install jquery lodash --save</code></pre>
 
             <ul>
               <li>Unlike <a href="#npm">npm</a> and <a href="#bower">Bower</a>, Gulp is a <em>build system</em> and not a package manager</li>
-              <li>Also referred to as a <em>task runner</em>.</li>
+              <li>Also referred to as a _task runner_.</li>
             </ul>
 
-            <aside class="notes">
-            <ul>
-              <li>Typically used for:</li>
-              <li> Concatenation and minification of source files, other deployment-related tasks</li>
-              <li> Compiling your CSS/Sass</li>
-              <li> Running a transpiler, allowing you to use <em>ES6</em> features</li>
-              <li> Running test suites</li>
-              <li> Compressing images</li>
-              <li> Watching files for changes</li>
-            </ul>
+            <aside class="notes" data-markdown>
+              * Typically used for:
+              * Concatenation and minification of source files, other deployment-related tasks
+              * Compiling your CSS/Sass
+              * Running a transpiler, allowing you to use _ES6_ features
+              * Running test suites
+              * Compressing images
+              * Watching files for changes
             </aside>
           </section>
 
@@ -744,13 +741,13 @@ bower install jquery lodash --save</code></pre>
               <li>Uses node streams</li>
               <li> Reads source files, pipes the text through plugins, and writes output</li>
               <li>Wide variety of plugins: uses <a href="#npm">npm</a> packages</li>
-              <li>Compare <a href="http://gruntjs.com">Grunt</a>, another widely-used task runner</li>
+              <li>Compares to <a href="http://gruntjs.com">Grunt</a>, another widely-used task runner</li>
               <li>Controlled with <code>gulpfile.js</code>.</li>
             </ul>
           </section>
 
           <section>
-            <pre><code>gulp.task('js', function () {
+            <pre><code class="js">gulp.task('js', function () {
   return gulp.src('js/**/*.js')
     .pipe(sourcemaps.init())
       .pipe(concat('app.js'))
@@ -770,29 +767,18 @@ gulp.task('watch', ['js'], function () {
   gulp.watch('js/**/*.js', ['js', 'test']);
 });</code></pre>
 
-            <aside class="notes">
-            <ul>
-              <li> the <code>js</code> task does the following:</li>
-              <li>Suck every JavaScript file in <code>js</code> and its subdirectories into a stream</li>
-              <li>Starts a <a href="http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/">sourcemap</a>: a way to retain the ability to debug minified code</li>
-              <li>Pass the stream through <code>concat</code>, which (surprise!) concatenates all the files into one, naming it `app.js`</li>
-              <li>Pass the stream through <code>stripDebug</code>, which removes all those pesky `console.log`s</li>
-              <li>Pass the stream through <code>uglify</code>, which minifies it</li>
-              <li>Finishes the sourcemap</li>
-              <li>Writes the stream to the destination directory.</li>
-              <li>The <code>test</code> task runs the unit test suite</li>
-              <li>The <code>watch</code> task above will keep an eye on files with the `.js` suffix and run first the <code>js</code> task, then the tests, for each code change</li>
-            </ul>
+            <aside class="notes" data-markdown>
+              * The `js` task does the following:
+              * Suck every JavaScript file in `js` and its subdirectories into a stream
+              * Starts a [sourcemap](http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/): a way to retain the ability to debug minified code
+              * Pass the stream through `concat`, which (surprise!) concatenates all the files into one, naming it `app.js`
+              * Pass the stream through `stripDebug`, which removes all those pesky `console.log`s
+              * Pass the stream through `uglify`, which minifies it
+              * Finishes the sourcemap
+              * Writes the stream to the destination directory.
+              * The `test` task runs the unit test suite
+              * The `watch` task above will keep an eye on files with the `.js` suffix and run first the `js` task, then the tests, for each code change
             </aside>
-          </section>
-
-          <section>
-            <h2>Further Reading</h2>
-
-            <ul>
-              <li><a href="https://medium.com/@preslavrachev/gulp-vs-grunt-why-one-why-the-other-f5d3b398edc4">Gulp vs Grunt. Why one? Why the Other?</a></li>
-              <li><a href="https://markgoodyear.com/2014/01/getting-started-with-gulp/">Getting Started with Gulp</a></li>
-            </ul>
           </section>
         </section>
 
@@ -808,7 +794,7 @@ gulp.task('watch', ['js'], function () {
           </section>
 
           <section>
-            <pre><code>var gulp = require('gulp');
+            <pre><code class="js">var gulp = require('gulp');
 var browserify = require('browserify');
 var babelify = require('babelify');
 var source = require('vinyl-source-stream');
@@ -826,16 +812,13 @@ gulp.task('default', function () {
         .pipe(source('app.js'))
         .pipe(gulp.dest('js'));
 });</code></pre>
-
-            <aside class="notes">
-            <ul>
-              <li> To walk through the above <code>gulpfile.js</code>:</li>
-              <li>Create a <code>bundler</code> using Browserify which begins at `main.js` and scoops up everything that app.js requires to work (dependencies)</li>
-              <li>Pass it through a transform using <code>babelify</code>, which is specifically designed to create <em>ES5</em> output from <em>ES6</em> JavaScript</li>
-              <li>Bundle it all up</li>
-              <li>Pipe the result into a file named <code>app.js</code></li>
-              <li>Write <code>app.js</code> into the <code>js</code> destination directory</li>
-            </ul>
+            <aside class="notes" data-markdown>
+              * To walk through the above `gulpfile.js`:
+              * Create a `bundler` using Browserify which begins at `main.js` and scoops up everything that app.js requires to work (dependencies)
+              * Pass it through a transform using `babelify`, which is specifically designed to create _ES5_ output from _ES6_ JavaScript
+              * Bundle it all up
+              * Pipe the result into a file named `app.js`
+              * Write `app.js` into the `js` destination directory
             </aside>
           </section>
 
@@ -857,12 +840,12 @@ gulp.task('default', function () {
           </section>
 
           <section>
-            <pre><code>describe('Wombat Counter', function() {
+            <pre><code class="js">describe('Wombat Counter', function() {
   describe('GET /', function() {
 
     it('responds with HTTP status 200', function() {
       request.get(base_url, function(error, response, body) {
-        expect(response.statusCode.toBe(200);
+        expect(response.statusCode.toBe(200));
       });
     });
 
@@ -874,25 +857,22 @@ gulp.task('default', function () {
             <ul>
               <li>Jasmine comes with its own assertion tools:</li>
             </ul>
+            <pre><code class="js">expect(countTheAardvarks()).toEqual(9);
 
-              <pre><code>expect(countTheAardvarks()).toEqual(9);
-
-expect("I'm a wombat").toContain("wombat");
+expect("I'm a wombat").toContain('wombat');
 
 expect(countTheAardvarks()).not.toEqual(8);</code></pre>
-            </ul>
           </section>
           <section>
             <ul>
               <li>It also has <em>spies</em>: a way to keep tabs on parts of your program where it's not simple to track what's happening, like methods/functions</li>
-
-              <pre><code>var a = new ArmouryOfAardvarks();
+            </ul>
+            <pre><code class="js">var a = new ArmouryOfAardvarks();
 spyOn(a, 'countTheAardvarks');
 a.showPopulation();
 
 // Did showPopulation call countTheAardvarks?
 expect(a.countTheAardvarks).toHaveBeenCalled();</code></pre>
-            </ul>
           </section>
         </section>
 
@@ -903,45 +883,44 @@ expect(a.countTheAardvarks).toHaveBeenCalled();</code></pre>
 
             <ul>
               <li>Similar on the surface to Jasmine</li>
-              <li>Uses third party libraries for assertions/spies</li>
-              <li>Which framework less important than ensuring good test coverage</li>
+              <li>Uses third party libraries for assertions, runners and spies</li>
+              <li>The framework decision is less important than ensuring good test coverage</li>
             </ul>
 
-            <aside class="notes">
-              <ul>
-                <li>On the surface, Mocha looks very similar to Jasmine but there are some important differences:</li>
-                <li> Mocha doesn't have an assertion tool or spies, preferring third party libraries for this purpose</li>
-                <li> (see <a href="#chai">Chai</a> and <a href="#sinon">Sinon</a>, below)</li>
-                <li> Mocha can be considered more flexible, but requires a bit more setup/configuration before use than Jasmine</li>
-                <li>For many uses there will be little difference between Jasmine, Mocha, and <em>[ insert library here ]</em>.</li>
-                <li> The take-home message is, it's probably more important that your app has good test coverage than spending time worrying about which framework to use!</li>
-              </ul>
+            <aside class="notes" data-markdown>
+              * On the surface, Mocha looks very similar to Jasmine but there are some important differences:
+              * Mocha doesn't have an assertion tool or spies, preferring third party libraries for this purpose
+              * (see <a href="#chai">Chai</a> and <a href="#sinon">Sinon</a>, below)
+              * Mocha can be considered more flexible, but requires a bit more setup/configuration before use than Jasmine
+              * For many uses there will be little difference between Jasmine, Mocha, and `[insert library here]`.
+              * The take-home message is, it's probably more important that your app has good test coverage than spending time worrying about which framework to use!
             </aside>
           </section>
 
           <section>
             <h2>Chai</h2>
-            <aside class="notes">
-              <ul><li><a href="http://chaijs.com">Chai</a>: perhaps the most popular assertion library for Mocha.</li></ul>
-            </aside>
-            <ul><li><em>assert</em>:</li></ul>
-              <pre><code>assert.typeOf(foo, 'string', 'Yup, that is a string.');
-assert.lengthOf(aardvarkArmoury, 9, 'There are 9 aardvarks.');</code></pre>
-              <ul><li><em>BDD</em>:</li></ul>
-              <pre><code>expect(foo).to.equal('bar');
-expect(bar).to.have.property('population').with.length(9);</code></pre>
-              <ul><li><em>should</em> (extends each object with a new property):</li></ul>
-              <pre><code>bar.should.have.property('population').with.length(9);</code></pre>
+            <ul>
+              <li><a href="http://chaijs.com">Chai</a> is perhaps the most popular assertion library for Mocha.</li>
+              <li><em>assert</em>:</li>
             </ul>
+            <pre><code class="js">assert.typeOf(foo, 'string', 'Yup, that is a string.');
+assert.lengthOf(aardvarkArmoury, 9, 'There are 9 aardvarks.');</code></pre>
+            <ul><li><em>BDD</em>:</li></ul>
+            <pre><code class="js">expect(foo).to.equal('bar');
+expect(bar).to.have.property('population').with.length(9);</code></pre>
+            <ul><li><em>should</em> (extends each object with a new property):</li></ul>
+            <pre><code class="js">bar.should.have.property('population').with.length(9);</code></pre>
           </section>
+        </section>
 
         <section>
           <h2>Further Reading</h2>
-
           <ul>
+            <li><a href="https://markgoodyear.com/2014/01/getting-started-with-gulp/">Getting Started with Gulp</a></li>
+            <li><a href="https://medium.com/@preslavrachev/gulp-vs-grunt-why-one-why-the-other-f5d3b398edc4">Gulp vs Grunt. Why one? Why the Other?</a></li>
             <li><a href="http://thejsguy.com/2015/01/12/jasmine-vs-mocha-chai-and-sinon.html">Jasmine vs. Mocha, Chai, and Sinon</a></li>
+            <li><a href="http://www.macwright.org/2014/03/11/tape-is-cool.html">TAP &amp; Tape, the awesome way to test JavaScript</a></li>
           </ul>
-        </section>
         </section>
 
 
