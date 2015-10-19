@@ -571,11 +571,9 @@ let sum3 = _([1, 2, 3, 4, 5]).reduce( function (total, n) {
 console.log(sum1, sum2, sum3); // 15 15 15</code></pre>
 
             <aside class="notes" data-markdown>
-            <ul>
-              <li>Why not use the standard library version?</li>
-              <li> The same approach to work with anything that can be treated as a container (objects, strings, and arrays), so we don't need to explicitly convert to array and back again. This can give our code consistency and readibility.</li>
-              <li> In some circumstances, the library will default to the native version if it's known to be faster in a given environment.</li>
-            </ul>
+              * Why not use the standard library version?
+              * The same approach to work with anything that can be treated as a container (objects, strings, and arrays), so we don't need to explicitly convert to array and back again. This can give our code consistency and readibility.
+              * In some circumstances, the library will default to the native version if it's known to be faster in a given environment.
             </aside>
           </section>
 
@@ -721,7 +719,7 @@ bower install jquery lodash --save</code></pre>
 
             <ul>
               <li>Unlike <a href="#npm">npm</a> and <a href="#bower">Bower</a>, Gulp is a <em>build system</em> and not a package manager</li>
-              <li>Also referred to as a _task runner_.</li>
+              <li>Also referred to as a <em>task runner</em></li>
             </ul>
 
             <aside class="notes" data-markdown>
@@ -932,16 +930,18 @@ expect(bar).to.have.property('population').with.length(9);</code></pre>
         <section>
         <section>
           <h2>Callbacks</h2>
-          <aside class="notes">
             <ul>
-              <li>Execute code asynchronously: simply put, <em>later</em>.</li>
-              <li>Typically passed to another function, to be used when an event occurs, or when the function has completed</li>
+              <li>Also called the <em>Continuation Passing Style (CPS)</em></li>
+              <li>Can be used with synchronous or asynchronous functions</li>
+              <li>Called when an event occurs, or when the function completes</li>
             </ul>
-          </aside>
         </section>
 
         <section>
-          <pre><code>function displayResults(results) {
+          <ul>
+            <li>Passing a callback into a synchronous function</li>
+          </ul>
+          <pre><code class="js">function displayResults(results) {
   for (let i = 0; i < results.length; i++) {
     console.log(results[i]);
   }
@@ -955,100 +955,108 @@ function incrementAll(numbers, callback) {
 }
 
 incrementAll([1, 2, 3, 4, 5], displayResults);</code></pre>
-        <aside class="notes">
-          <ul>
-            <li> Here, the function <code>displayResults</code> is passed as a <em>callback</em> to <code>incrementAll</code>.</li>
-            <li> It outputs values to the console, but we could just as easily pass in a function which further modifies the array</li> </ul> * Many JavaScript standard library functions use callbacks, often optionally. For example:
-          </ul>
-        </aside>
+          <aside class="notes" data-markdown>
+            * Here, the function `displayResults` is passed as a _callback_ to `incrementAll`.
+            * It outputs values to the console, but we could just as easily pass in a function which further modifies the array
+            * Many JavaScript standard library functions use callbacks, often optionally. For example:
+          </aside>
         </section>
 
         <section>
-          <pre><code>function even(n) {
+          <pre><code class="js">function even(n) {
   return n % 2;
 }
 
 console.log([1, 2, 3, 4, 5].filter(even)); // [1, 3, 5]</code></pre>
 
           <ul>
-            <li> <code>even</code> serves as a callback to <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter"><code>Array.filter</code></a></li>
+            <li><code>even</code> serves as a callback to <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter"><code>Array.filter</code></a></li>
             <li>Callbacks can be inline, which should only be used if it improves readability (i.e. not for lengthy callbacks)</li>
+          </ul>
 
-            <pre><code>console.log([1, 2, 3, 4, 5].filter(function () { 
+          <pre><code class="js">console.log([1, 2, 3, 4, 5].filter(function () { 
   return n % 2; 
 });</code></pre>
+          <ul>
+            <li>Anonymous functions/callbacks make debugging more difficult</li>
           </ul>
         </section>
         </section>
 
         <section>
-        <section>
-          <h2>Promises</h2>
-        </section>
-        <section>
+          <section>
+            <h2>Promises</h2>
+          </section>
+          <section>
             <ul>
-              <li>A <em>promise</em> is an operation that we expect to complete at a future time</li>
+              <li>A <em>promise</em> is an operation we expect to complete in the future</li>
+            </ul>
 
-              <pre><code>function showWombats() {
+            <pre><code class="js">function showWombats() {
   let wombats = getWombatsFromServer();
   displayWombats(wombats);
 }</code></pre>
 
-              <li> Unless <code>getWombatsFromServer</code> returns almost instantaneously, <code>wombats</code> will be undefined and attempting to display it will have unpredictable results</li>
+            <ul>
+              <li> Unless <code>getWombatsFromServer()</code> is called synchronously in the code above, <code>wombats</code> will likely have an unexpected value</li>
             </ul>
-              <aside class="notes">
-                <ul>
-              <li> In a synchronous language, program execution will pause until <code>getWombatsFromServer</code> returns. In JavaScript, execution will continue</li>
-              <li>Allows us to guarantee order of execution in an asynchronous language</li>
-            </ul>
-              </aside>
-        </section>
+            <aside class="notes" data-markdown>
+              * In a synchronous language, program execution will pause until <code>getWombatsFromServer</code> returns. In JavaScript, execution will continue
+              * Allows us to guarantee order of execution in an asynchronous language
+            </aside>
+          </section>
         <section>
           <ul>
             <li>Consider the same function using promises:</li>
+          </ul>
 
-            <pre><code>function showWombats() {
+            <pre><code class="js">function showWombats() {
   getWombatsFromServer().then(displayWombats);
 }
 
-function displayWombats(data) {
+function displayWombats(wombats) {
   // ...
 }</code></pre>
 
-            <li> Here we guarantee that the call to display won't occur until after the server request has returned, even if it takes several seconds to complete</li>
+          <ul>
+            <li> Here we guarantee that the call to <code>displayWombats</code> won't occur until after the server request has returned, even if it takes several seconds to complete</li>
           </ul>
         </section>
 
         <section>
           <ul>
             <li>Calls to <code>then</code> can be chained to further control the order of execution:</li>
+          </ul>
 
-            <pre><code>getWombatsFromServer()
-  .then(displayWombats)
-  .then(function () {
-    console.log("All wombats accounted for.");
-  });</code></pre>
+            <pre><code class="js">getWombatsFromServer()
+  .then(tagWombats)
+  .then(releaseWombats)
+  .catch(catchWombats);</code></pre>
 
-            <li>There's plenty more to promises, including the ability to handle failure gracefully using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch"><code>catch</code></a>. </li>
+          <ul>
+            <li>To catch rejected operations, either pass a second function to <code>then()</code>, or use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch"><code>catch</code></a>.</li>
           </ul>
         </section>
         </section>
 
         <section>
-          <h2><code>async</code>, <code>await</code></h2>
+          <h2><code>async</code> / <code>await</code></h2>
           <ul>
-            <li>In <em>ES7</em> (yep, another version!) the <code>async</code>/<code>await</code> keywords provide another approach to asynchronous code</li>
+            <li>In <em>ES7</em> (yep, another way) the <code>async</code>/<code>await</code> keywords provide another approach to asynchronous code</li>
+          </ul>
 
-            <pre><code>async function showWombats() {
+          <pre><code class="js">async function showWombats() {
   let wombats = await getWombatsFromServer();
   displayWombats(wombats);
 }</code></pre>
 
-            <aside class="notes">
-            <ul>
-            <li> Users of async/await in C# will find the syntax very familiar</li>
-            <li> Function execution only continues when the <code>await</code> resolves</li>
+          <ul>
+            <li>Also influences the method's signature</li>
           </ul>
+
+            <aside class="notes" data-markdown>
+              * Users of async/await in C# will find the syntax very familiar
+              * Function execution only continues when the <code>await</code> resolves
             </aside>
         </section>
 
@@ -1057,6 +1065,8 @@ function displayWombats(data) {
 
           <ul>
             <li><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> (MDN)</li>
+            <li><a href="http://dailyjs.com/2014/02/20/promises-in-detail/">JavaScript Promises ... In Wicked Detail</a></li>
+            <li><a href="http://bevacqua.github.io/promisees/">A Promise Visualiser</a></li>
             <li><a href="https://thomashunter.name/blog/the-long-road-to-asyncawait-in-javascript/">The Long Road to Async/Await in JavaScript</a></li>
             <li><a href="http://www.datchley.name/promise-patterns-anti-patterns/">Promise Patterns & Anti-Patterns</a></li>
           </ul>
@@ -1070,55 +1080,71 @@ function displayWombats(data) {
         <section>        
           <section>
             <h2>Node.js</h2>
-            <aside class="notes">
-              <ul>
-                <li>JavaScript on the server</li>
-                <li>In theory can be written in any language which can compile to JavaScript, including <a href="http://coffeescript.org">CoffeeScript</a>, <a href="http://typescriptlang.org">TypeScript</a>, <a href="http://dartlang.org">Dart</a>, <a href="https://github.com/clojure/clojurescript">ClojureScript</a> etc. </li>
-                <li>Strictly speaking, Node is a <em>runtime</em>: a set of low-level routines written in C++ based around Chrome's V8 engine </li>
-                <li>V8 is a compiler, not an interpreter: implications for speed and resource consumption</li>
-                <li>Unlike browser-based JavaScript, Node has access to server resources including files on disk, networking, and other features of the operating system</li>
-                <li>Node's package manager, <a href="https://www.npmjs.com">npm</a>, has become incredibly popular</li>
-                <li>Dates back to 2009, with meteoric rise in popularity since then</li>
-              </ul>
+            <ul>
+              <li>Comprehensive protocol support</li>
+              <li>Stream everything, no buffering</li>
+              <li>JavaScript on the server using the V8 engine</li>
+              <li>Single threaded, event-driven, non-blocking I/O</li>
+            </ul>
+            <aside class="notes" data-markdown>
+              * Can be written in any language which can compiled to JavaScript, including [CoffeeScript](http://coffeescript.org), [TypeScript](http://typescriptlang.org), [Dart](http://dartlang.org), [ClojureScript](https://github.com/clojure/clojurescript), etc. 
+              * V8 is a compiler, not an interpreter: implications for speed and resource consumption
+              * Unlike browser-based JavaScript, Node has access to server resources including files on disk, networking, and other features of the operating system
+              * Dates back to 2009, with a meteoric rise in popularity since then
             </aside>
+          </section>
+
+          <section>
+            <ul>
+              <li>A simple HTTP server written in Node</li>
+            </ul>
+            <pre><code class="js">var http = require('http');
+
+http.createServer(function (request, response) {
+  response.writeHead(200, {'Content-Type': 'text/plain'});
+  response.end('Hello World\n');
+}).listen(8124);
+
+console.log('Server running at http://127.0.0.1:8124/');</code></pre>
           </section>
 
           <section>
             <h2>Non-blocking I/O</h2>
-            <aside class="notes">
-              <ul>
-                <li>Part of Node's appeal is its ability to execute <em>asynchronous</em> code</li>
-                <li>Node operates on a single thread, but all functions which perform input/output operate from a separate pool of threads managed by <a href="https://github.com/libuv/libuv">libuv</a></li>
-                <li> Node waits for a callback but can do other things while it waits. This behaviour is said to be <em>event-driven</em> (sometimes called the <em>event loop</em>).</li>
-                <li>Design allows thousands of concurrent requests</li>
-                <li>Can't make use of multi-core processors without explicitly handling child processes (for example, using the <code>cluster</code> module)</li>
-              </ul>
+            <ul>
+              <li>Node operates on a single thread</li>
+              <li>I/O operate from a separate pool of threads managed by <a href="https://github.com/libuv/libuv">libuv</a></li>
+              <li>Callbacks are coordinated through the <em>Event Demultiplexer</em>, out to the I/O operation and onto the stack through the <em>Callback Queue</em></li>
+              <li>Node includes synchronous I/O for initialisation scenarios</li>
+            </ul>
+            <aside class="notes" data-markdown>
+              * Part of Node's appeal is its ability to execute _asynchronous_ code
+              * Node waits for a callback but can do other things while it waits. This behaviour is said to be _event-driven_ and is coordinated using the _event loop_.
+              * Design allows thousands of concurrent requests
+              * Can't make use of multi-core processors without explicitly handling child processes (for example, using the `cluster` module)
             </aside>
           </section>
 
           <section>
-            <h2><code>require</code> vs <code>import</code></h2>
+            <h2><code>require</code> versus <code>import</code></h2>
             <ul>
               <li>Node's module system came from <a href="https://en.wikipedia.org/wiki/CommonJS">CommonJS</a>. You may encounter a lot of code that looks like this:</li>
-
-              <pre><code>var http = require('http');
-var foo = require('foo');</code></pre>
-
-              <li>It's certainly possible to use <em>ES6</em> <code>import</code>s:</li>
-
-              <pre><code>import http from 'http';
-import path from 'path';</code></pre>
             </ul>
+            <pre><code class="js">var http = require('http');
+var foo = require('foo');</code></pre>
+            <ul>
+              <li>It's possible to use <em>ES6</em> <code>import</code>s with the help of a transpiler:</li>
+            </ul>
+            <pre><code class="js">import http from 'http';
+import path from 'path';</code></pre>
           </section>
+
           <section>
             <h2>Transpilers</h2>
-            <aside class="notes">
-            <ul>
-              <li>Because these features are fairly new to the language, it's necessary to use a <em>transpiler</em> to translate the ES6 features of the language into something that can be readily understood by Node. As the toolset matures, this should gradually become unnecessary.</li>
-            </ul>
+            <aside class="notes" data-markdown>
+              * Because these features are fairly new to the language, it's necessary to use a _transpiler_ to translate the ES6 features of the language into something that can be readily understood by Node. As the toolset matures, this should gradually become unnecessary.
             </aside>
 
-              <pre><code>var gulp = require('gulp');
+            <pre><code class="js">var gulp = require('gulp');
 var babel = require('gulp-babel');
 
 gulp.task('default', function() {
@@ -1127,15 +1153,8 @@ gulp.task('default', function() {
     .pipe(gulp.dest('dist'));
 });</code></pre>
 
-              <li> Here we use <a href="https://babeljs.io">Babel</a> to process the server file, then output to the <code>dist</code> directory</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2>Further Reading</h2>
-
             <ul>
-              <li><a href="http://blog.mixu.net/2011/02/01/understanding-the-node-js-event-loop/">Understanding the node.js event loop</a></li>
+              <li> Here we use <a href="https://babeljs.io">Babel</a> to process the server file, then output to the <code>dist</code> directory</li>
             </ul>
           </section>
         </section>
@@ -1143,19 +1162,17 @@ gulp.task('default', function() {
         <section>
           <section>
             <h2>Express</h2>
-            <aside class="notes">
-              <ul>
-                <li><a href="http://expressjs.com">Express</a> is a minimalist web framework that sits on top of Node.</li>
-                <li>Has features for defining models, serving static content, and exposing APIs</li>
-              </ul>
+            <aside class="notes" data-markdown>
+              * [Express](http://expressjs.com) is a minimalist web framework that sits on top of Node.
+              * Has features for defining models, serving static content, and exposing APIs
             </aside>
           </section>
 
           <section>
             <ul>
-              <li>For example, a minimal HTTP server can be written like so:</li>
+              <li>A minimal HTTP server written with Express</li>
             </ul>
-              <pre><code>import http from 'http';
+            <pre><code class="js">import http from 'http';
 import path from 'path';
 import express from 'express';
 
@@ -1170,12 +1187,10 @@ server.listen(3000, "0.0.0.0", function(){
   console.log("Ok");
 });</code></pre>
 
-              <aside class="notes">
-                <ul>
-              <li> This serves everything in the <code>client</code> directory as static content</li>
-              <li> The port to listen on is held in the environment variable `$PORT`</li>
-            </ul>
-              </aside>
+            <aside class="notes" data-markdown>
+              * This serves everything in the `client` directory as static content
+              * The port to listen on is held in the environment variable `$PORT`
+            </aside>
           </section>
 
           <section>
@@ -1186,7 +1201,7 @@ server.listen(3000, "0.0.0.0", function(){
           </section>
 
           <section>
-            <pre><code>// app.js
+            <pre><code class="js">// app.js
 import authenticate from 'authenticate';
 import aardvarks from 'aardvarks';
 app.use('/aardvarks', authenticate);
@@ -1204,28 +1219,24 @@ app.get('/aardvarks', function (req, res, next) {
   res.json(aardvark);
 });</code></pre>
 
-            <aside class="notes">
-              <ul>
-                <li>In Express, almost every part of request handling is treated as <em>middleware</em>.</li>
-                <li>This provides security because the order of execution is guaranteed: the <code>authenticate</code> middleware will always execute before <code>aardvarks</code></li>
-                <li>If the user fails authentication, a response is written with HTTP status code 401</li>
-                <li>Notice that before the call to next, the request object is modified directly with new information (the user object)</li>
-                <li>Careful: it's possible to accidentally overwrite properties on the request</li>
-                <li>Middleware can be built up in this fashion into a <em>middleware stack</em></li>
-              </ul>
+            <aside class="notes" data-markdown>
+              * In Express, almost every part of request handling is treated as _middleware_.
+              * This provides security because the order of execution is guaranteed: the <code>authenticate</code> middleware will always execute before `aardvarks`
+              * If the user fails authentication, a response is written with HTTP status code 401
+              * Notice that before the call to next, the request object is modified directly with new information (the user object)
+              * Careful: it's possible to accidentally overwrite properties on the request
+              * Middleware can be built up in this fashion into a _middleware stack_
             </aside>
           </section>
 
           <section>
             <h2>Feathers</h2>
-            <aside class="notes">
-              <ul>
-                <li><a href="http://feathersjs.com">Feathers</a> is an <a href="#express">Express</a> wrapper that takes care of boilerplate tasks</li>
-                <li>Makes setting up a REST API fairly trivial:</li>
-              </ul>
+            <aside class="notes" data-markdown>
+              * <a href="http://feathersjs.com">Feathers</a> is an <a href="#express">Express</a> wrapper that takes care of boilerplate tasks
+              * Makes setting up a REST API fairly trivial:
             </aside>
 
-            <pre><code>import feathers from 'feathers';
+            <pre><code class="js">import feathers from 'feathers';
 import bodyParser from 'body-parser';
 import mongoService from 'feathers-mongo';
 
@@ -1242,6 +1253,15 @@ app.listen(port, function () {
 
         </section>
 
+        <section>
+          <h2>Further reading</h2>
+          <ul>
+            <li><a href="http://blog.mixu.net/2011/02/01/understanding-the-node-js-event-loop/">Understanding the node.js event loop</a></li>
+            <li><a href="https://nodejs.org/en/docs/es6/">Node's ES6 Support</a> (based on V8)</li>
+          </ul>
+        </section>
+
+
         <!-- SECTION 6 -->
         <section data-background="img/backgrounds/hippo_yawn.jpg">
           <h1 class="offset-top">Storage</h1>
@@ -1251,28 +1271,28 @@ app.listen(port, function () {
 
           <section>
             <h2>MongoDB</h2>
-            <aside class="notes">
-              <li>Although in theory JavaScript can interact with almost any data store, <a href="https://www.mongodb.org">Mongo</a> is one of the most common databases in modern JS stacks.</li>
+            <aside class="notes" data-markdown>
+              * Although in theory JavaScript can interact with almost any data store, [Mongo](https://www.mongodb.org) is one of the most common databases in modern JS stacks.
             </aside>
           </section>
 
           <section>
             <h2>NoSQL</h2>
-            <aside class="notes">
-              <ul>
-                <li>Most traditional databases are based on tables, and the relationships between them.</li>
-                <li>NoSQL databases come in a variety of designs. Mongo is of the <em>document store</em> type.</li>
-                <li> Stores records in JSON format, encoded to binary format <em>BSON</em></li>
-                <li> Tends to lump all related information together, rather than distribute it across relational tables</li>
-                <li> Although each document can be validated in code, they aren't required to be identical in structure</li>
-                <li>Mongo arranges documents into 'collections'. A database is made up of a set of collections.</li>
-              </ul>
+            <h2>Schemaless</h2>
+            <h2>Document Database</h2>
+            <aside class="notes" data-markdown>
+              * Most traditional databases are based on tables, and the relationships between them.
+              * NoSQL databases come in a variety of designs. Mongo is of the _document store_ type.
+              * Stores records in JSON format, encoded to binary format _BSON_
+              * Tends to lump all related information together, rather than distribute it across relational tables
+              * Although each document can be validated in code, they aren't required to be identical in structure
+              * Mongo arranges documents into 'collections'. A database is made up of a set of collections.
             </aside>
           </section>
 
           <section>
             <h2>JSON</h2>
-            <pre><code>{
+            <pre><code class="js">{
   "__v": 0,
   "_id": "55fb213fac8d99ce3fb1b47c",
   "name": "Fitzgerald",
@@ -1289,22 +1309,17 @@ app.listen(port, function () {
 
           <section>
             <ul>
-              <li>Do yourself a favour and read certainly <a href="http://json.org">the best JSON documentation on the Internet</a>.</li>
+              <li>Mongo accepts and returns documents as JSON documents</li>
+              <li>If a record is returned in the body of a response, there is not need to <code>JSON.parse()</code> it ... it's already a JavaScript object</li>
+              <li>Mongo will add an <code>ObjectId</code> (<code>_id</code>) property automatically, and possibly versioning information depending on settings</li>
             </ul>
-            <aside class="notes">
-              <ul>
-                <li>Mongo happily accepts and dispenses documents as JavaScript Object Notation.</li>
-                <li>If a record is returned in the body of a response, it's not even necessary to call `JSON.parse` on it... it's already usable as a JavaScript object.</li>
-                <li>Mongo will add an <code>ObjectId</code> (<code>_id</code>) property automatically, and possibly versioning information depending on settings:</li>
-              </ul>
-            </aside>
           </section>
         </section>
 
         <section>
           <section data-background="img/backgrounds/mongoose.jpg">
             <h1 class="offset-bottom">Mongoose</h1>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
               <ul>
                 <li><a href="http://mongoosejs.com">Mongoose</a> is an object model for <a href="#mongodb">MongoDB</a>.</li>
               </ul>
@@ -1313,15 +1328,13 @@ app.listen(port, function () {
 
           <section>
             <h2>Schemas</h2>
-            <aside class="notes">
-              <ul>
-                <li>Mongoose gives each document a <em>schema</em>, one schema per Mongo <em>collection</em>.</li>
-                <li> Allows types, defaults, and opportunity to define static methods and middleware.</li>
-                <li>Schemas can contain other schemas:</li>
-              </ul>
-            </aside>
+            <ul>
+              <li>Mongoose gives each Mongo <em>collection</em> a <em>schema</em></li>
+              <li> Allows types, defaults, and the opportunity to define static methods and middleware.</li>
+              <li>Schemas can contain other schemas:</li>
+            </ul>
 
-            <pre><code>let itemSchema = new Schema({
+            <pre><code class="js">let itemSchema = new Schema({
   name: String,
   color: String
 });
@@ -1334,38 +1347,33 @@ let containerSchema = new Schema({
 
           <section>
             <h2>Models</h2>
-            <aside class="notes">
-              <ul>
-                <li>As schemas are to MongoDB collections, <em>models</em> are to MongoDB <em>documents</em>.</li>
-              </ul>
-            </aside>
             <ul>
+              <li>As schemas are to collections, <em>models</em> are to <em>documents</em>.</li>
               <li>Models are created using a schema:</li>
             </ul>
-
-              <pre><code>let Wombat = mongoose.model('Wombat', wombatSchema);</code></pre>
-            </ul>
+              <pre><code class="js">let Wombat = mongoose.model('Wombat', wombatSchema);</code></pre>
           </section>
 
           <section>
             <ul>
               <li>Adding a document to the collection in the database requires creating a new instance of the model:</li>
+            </ul>
 
-              <pre><code>let myWombat = new Wombat({
+            <pre><code class="js">let myWombat = new Wombat({
   name: "Holiday"
 });
 
 myWombat.save(function (err) {
   if (err) return handleError(err);
 });</code></pre>
-            </ul>
           </section>
 
           <section>
             <ul>
               <li>Schemas provide various methods for finding, altering and deleting documents:</li>
+            </ul>
 
-              <pre><code>Wombat.findOne(
+              <pre><code class="js">Wombat.findOne(
   {'name': 'Holiday'}, 
   'name', 
   function (err, wombat) {
@@ -1374,43 +1382,42 @@ myWombat.save(function (err) {
   }
 );</code></pre>
 
+            <ul>
               <li>See <a href="http://mongoosejs.com/docs/queries.html">Queries</a> for further details.</li>
             </ul>
           </section>
 
           <section>
             <h2>Validation</h2>
-            <aside class="notes">
-              <ul>
-                <li>One of the strongest reasons for using Mongoose is that validation is built in.</li>
-                <li> For example, although properties are considered optional by default, they can be made required:</li>
-              </ul>
-            </aside>
+            <ul>
+              <li>One of the strongest reasons for using Mongoose is that validation is built in.</li>
+              <li> For example, although properties are considered optional by default, they can be made required:</li>
+            </ul>
 
-            <pre><code>import mongoose, {Schema} from 'mongoose';
+            <pre><code class="js">import mongoose, {Schema} from 'mongoose';
 
 let wombatSchema = new Schema({
   name: { type: String, required: true },
   nocturnal: Boolean
 });</code></pre>
 
-            <li><code>name</code> must be supplied but <code>nocturnal</code> can be omitted. Attempting to save a <code>Wombat</code> without a <code>name</code> string will cause a validation error.</li>
+            <ul>
+              <li><code>name</code> must be supplied but <code>nocturnal</code> can be omitted. Attempting to save a <code>Wombat</code> without a <code>name</code> string will cause a validation error.</li>
+            </ul>
           </section>
         </section>
 
         <section>
           <section data-background="img/backgrounds/lion.jpg">
             <h1 class="offset-bottom">REST</h1>
-            <aside class="notes">
-              <ul>
-                <li>Having established a means to store and retrieve data, the REST API serves as an HTTP interface between the client and the data store.</li>
-              </ul>
+            <aside class="notes" data-markdown>
+              * Having established a means to store and retrieve data, the REST API serves as an HTTP interface between the client and the data store.
             </aside>
           </section>
 
           <section>
             <h2>Characteristics</h2>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
               <ul>
                 <li>The REST API operates on the assumption that the client will be accessing the same base URL or <em>resource</em> (sometimes with additional parameters like ID numbers) but using different <em>HTTP verbs</em>.</li>
                 <li> The server can return data in the <em>response body</em>, but it can also provide feedback in the form of the HTTP <em>status code</em>, and in 'strict' REST it should provide all the information necessary to navigate the site's resources.</li>
@@ -1422,7 +1429,7 @@ let wombatSchema = new Schema({
           </section>
 
           <section>
-              <pre><code>GET /wombats - same as visiting in a browser
+              <pre><code class="js">GET /wombats - same as visiting in a browser
   - HTTP status 200 for a successful request
 
 GET /wombats/1 - Return a single wombat with id 1
@@ -1438,11 +1445,11 @@ DELETE /wombats/1 - Remove the wombat with id 1
   - 200 for resource deleted, 204 if body doesn't contain it</code></pre>
           </section>
           <section>
-            <pre><code>router.route('/wombats')
+            <pre><code class="js">router.route('/wombats')
 
   // GET /wombats
-  .get(function (req, res) {
-    Wombat.find(function (err, wombats) {
+  .get((req, res) => {
+    Wombat.find((err, wombats) => {
       respond(res, err, wombats);
     });
   })
@@ -1457,18 +1464,18 @@ function respond(res, err, wombats) {
           </section>
 
           <section>
-            <pre><code>router.route('/wombats')
+            <pre><code class="js">router.route('/wombats')
   // POST /wombats
-  .post(function (req, res) {
+  .post((req, res) => {
     let wombat = new Wombat();
     wombat.name = req.body.name;
-    wombat.save(function (err) {
+    wombat.save((err) => {
       respond(res, err, wombat);
     });
   });</code></pre>
 
 
-            <aside class="notes">
+            <aside class="notes" data-markdown>
               <ul>
                 <li> Here, Express uses a different function for GET and POST verbs even though the address visited is identical.</li>
                 <li> In the case of GET, since there is no ID specified, it simply returns an array of wombats (as JSON).</li>
@@ -1478,25 +1485,25 @@ function respond(res, err, wombats) {
           </section>
 
           <section>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
               <ul>
                 <li>We can also tell Express to respond differently if a resource ID has been specified:</li>
               </ul>
             </aside>
 
-            <pre><code>router.route('/wombats/:id')
+            <pre><code class="js">router.route('/wombats/:id')
 
   // GET /wombats/12345
-  .get(function (req, res) {
-    Wombat.findById(req.params.id, function (err, wombat) { 
+  .get((req, res) => {
+    Wombat.findById(req.params.id, (err, wombat) => { 
       respond(res, err, wombat); 
     });
   })
 
   // PUT /wombats/12345
-  .put(function (req, res) {
+  .put((req, res) => {
     Wombat.findByIdAndUpdate(req.params.id, req.body, 
-      function (err, wombat) {
+      (err, wombat) => {
         respond(res, err, wombat);
       }
     );
@@ -1504,12 +1511,12 @@ function respond(res, err, wombats) {
           </section>
 
           <section>
-            <pre><code>router.route('/wombats/:id')
+            <pre><code class="js">router.route('/wombats/:id')
 
   // DELETE /wombats/12345
-  .delete(function (req, res) {
+  .delete((req, res) => {
     Wombat.findByIdAndRemove(req.params.id, req.body, 
-      function (err, wombat) {
+      (err, wombat) => {
         respond(res, err, wombat);
       }
     );
@@ -1523,7 +1530,7 @@ function respond(res, err, wombats) {
 
           <section>
             <h2>Async Implications</h2>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
               <ul>
                 <li>Requests to the database take place in unknown time</li>
                 <li> The database or server could be under heavy load</li>
@@ -1534,7 +1541,7 @@ function respond(res, err, wombats) {
               </ul>
             </aside>
 
-            <pre><code>router.route('/wombats/:id').get(retrieveOneWombat);
+            <pre><code class="js">router.route('/wombats/:id').get(retrieveOneWombat);
 
 function retrieveOneWombat(req, res) {
   Wombat.findById(req.params.id, sendWombatResponse);
@@ -1550,7 +1557,7 @@ function sendWombatResponse(err, wombat) {
           </section>
 
           <section>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
               <ul>
                 <li> This is a simple re-working of the sample code in the previous section, avoiding the use of inline functions for clarity.</li>
                 <li> There are two callbacks: <code>retrieveOneWombat</code> and <code>sendWombatResponse</code>.</li>
@@ -1562,11 +1569,11 @@ function sendWombatResponse(err, wombat) {
             <ul>
               <li>Newer versions of Mongoose also support promises, so you can use:</li>
             </ul>
-            <pre><code>router.route('/wombats/:id')
-  .get(function (req, res) {
+            <pre><code class="js">router.route('/wombats/:id')
+  .get((req, res) => {
     Wombat
       .findById(req.params.id)
-      .then(function (wombat) {
+      .then((wombat) => {
         // ...
         res.json(wombat);
       });
