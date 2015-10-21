@@ -1417,6 +1417,12 @@ let wombatSchema = new Schema({
 
           <section>
             <h2>Characteristics</h2>
+            <ul>
+              <li>Resources</li>
+              <li>HTTP Verbs</li>
+              <li>HTTP Status codes</li>
+              <li>JSON requests and responses</li>
+            </ul>
             <aside class="notes" data-markdown>
               <ul>
                 <li>The REST API operates on the assumption that the client will be accessing the same base URL or <em>resource</em> (sometimes with additional parameters like ID numbers) but using different <em>HTTP verbs</em>.</li>
@@ -1429,7 +1435,7 @@ let wombatSchema = new Schema({
           </section>
 
           <section>
-              <pre><code class="js">GET /wombats - same as visiting in a browser
+              <pre><code class="brainfuck">GET /wombats - same as visiting in a browser
   - HTTP status 200 for a successful request
 
 GET /wombats/1 - Return a single wombat with id 1
